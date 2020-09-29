@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCHotelDestinationController" customModule="PhotoBrower" customModuleProvider="target">
+            <connections>
+                <outlet property="bgView" destination="hlm-Ba-LyT" id="jyl-b3-nyw"/>
+                <outlet property="tableView" destination="B5b-WL-zBf" id="a76-HD-Sy2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlm-Ba-LyT" userLabel="bgView">
+                    <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B5b-WL-zBf">
+                            <rect key="frame" x="0.0" y="50" width="414" height="746"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="uKa-d0-qBj"/>
+                                <outlet property="delegate" destination="-1" id="4oQ-td-lWy"/>
+                            </connections>
+                        </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B64-wP-8gM">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="3tX-P4-7tC"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                            <state key="normal" title="中国大陆">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4E4-De-psj">
+                            <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                            <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="9Yo-jY-wCK"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                            <state key="normal" title="国际&amp;港澳台">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="4E4-De-psj" firstAttribute="width" secondItem="B64-wP-8gM" secondAttribute="width" id="3Am-Iw-NIm"/>
+                        <constraint firstItem="B64-wP-8gM" firstAttribute="leading" secondItem="hlm-Ba-LyT" secondAttribute="leading" id="3e1-WN-B9n"/>
+                        <constraint firstItem="B5b-WL-zBf" firstAttribute="top" secondItem="B64-wP-8gM" secondAttribute="bottom" id="5Qt-4W-9Nr"/>
+                        <constraint firstItem="4E4-De-psj" firstAttribute="top" secondItem="hlm-Ba-LyT" secondAttribute="top" id="7Wb-hl-MqQ"/>
+                        <constraint firstItem="4E4-De-psj" firstAttribute="leading" secondItem="B64-wP-8gM" secondAttribute="trailing" id="JDB-SD-fw1"/>
+                        <constraint firstAttribute="trailing" secondItem="B5b-WL-zBf" secondAttribute="trailing" id="NCh-dN-iaN"/>
+                        <constraint firstAttribute="trailing" secondItem="4E4-De-psj" secondAttribute="trailing" id="Svy-Hy-0F3"/>
+                        <constraint firstAttribute="bottom" secondItem="B5b-WL-zBf" secondAttribute="bottom" id="hyL-mi-cg6"/>
+                        <constraint firstItem="B64-wP-8gM" firstAttribute="top" secondItem="hlm-Ba-LyT" secondAttribute="top" id="i50-yW-U1K"/>
+                        <constraint firstItem="B5b-WL-zBf" firstAttribute="leading" secondItem="hlm-Ba-LyT" secondAttribute="leading" id="pu0-no-OUF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="hlm-Ba-LyT" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0Dc-Su-vVX"/>
+                <constraint firstAttribute="bottom" secondItem="hlm-Ba-LyT" secondAttribute="bottom" id="Dyp-Xk-5CA"/>
+                <constraint firstItem="hlm-Ba-LyT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="nS3-I7-X9o"/>
+                <constraint firstItem="hlm-Ba-LyT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qqu-AG-57D"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="75.669642857142847"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

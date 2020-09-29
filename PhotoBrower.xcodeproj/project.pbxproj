@@ -3,10 +3,72 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7FFF3A8B98571793F967014B /* Pods_PhotoBrower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */; };
+		87505C0F2518602B002C8D24 /* TCHotelCommentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505C0E2518602B002C8D24 /* TCHotelCommentListController.swift */; };
+		87505C2125187F84002C8D24 /* TCHotelCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505C1F25187F84002C8D24 /* TCHotelCommentCell.swift */; };
+		87505C2225187F84002C8D24 /* TCHotelCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87505C2025187F84002C8D24 /* TCHotelCommentCell.xib */; };
+		87505C302518B1FF002C8D24 /* TCHotelCommentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505C2F2518B1FF002C8D24 /* TCHotelCommentHeaderView.swift */; };
+		87505C352518B221002C8D24 /* TCHotelCommentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87505C342518B221002C8D24 /* TCHotelCommentHeaderView.xib */; };
+		87505C472519E50B002C8D24 /* TCHotelSubmitOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505C462519E50A002C8D24 /* TCHotelSubmitOrderViewController.swift */; };
+		87505C522519EABC002C8D24 /* TCHotelSubmitOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87505C512519EABC002C8D24 /* TCHotelSubmitOrderViewController.xib */; };
+		87505C58251A2172002C8D24 /* TCHotelOrderHotelInfowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505C56251A2171002C8D24 /* TCHotelOrderHotelInfowCell.swift */; };
+		87505C59251A2172002C8D24 /* TCHotelOrderHotelInfowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87505C57251A2171002C8D24 /* TCHotelOrderHotelInfowCell.xib */; };
+		87505CAB251C78B9002C8D24 /* TCHotelDestinationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505CA9251C78B9002C8D24 /* TCHotelDestinationController.swift */; };
+		87505CAC251C78B9002C8D24 /* TCHotelDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87505CAA251C78B9002C8D24 /* TCHotelDestinationController.xib */; };
+		876C7343252023A60007D484 /* TCHotelGeneralPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C7342252023A60007D484 /* TCHotelGeneralPickerView.swift */; };
+		876C7376252024600007D484 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73502520245F0007D484 /* ConstraintMultiplierTarget.swift */; };
+		876C7377252024600007D484 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73512520245F0007D484 /* LayoutConstraintItem.swift */; };
+		876C7378252024600007D484 /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73522520245F0007D484 /* ConstraintDescription.swift */; };
+		876C7379252024600007D484 /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73532520245F0007D484 /* ConstraintMakerPriortizable.swift */; };
+		876C737A252024600007D484 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73542520245F0007D484 /* ConstraintAttributes.swift */; };
+		876C737B252024600007D484 /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73552520245F0007D484 /* ConstraintViewDSL.swift */; };
+		876C737C252024600007D484 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73562520245F0007D484 /* ConstraintPriorityTarget.swift */; };
+		876C737D252024600007D484 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73572520245F0007D484 /* ConstraintInsets.swift */; };
+		876C737E252024600007D484 /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73582520245F0007D484 /* ConstraintMakerFinalizable.swift */; };
+		876C737F252024600007D484 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73592520245F0007D484 /* ConstraintDSL.swift */; };
+		876C7380252024600007D484 /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C735A2520245F0007D484 /* ConstraintMakerExtendable.swift */; };
+		876C7381252024600007D484 /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C735B2520245F0007D484 /* ConstraintPriority.swift */; };
+		876C7382252024600007D484 /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C735C2520245F0007D484 /* ConstraintInsetTarget.swift */; };
+		876C7383252024600007D484 /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C735D2520245F0007D484 /* ConstraintDirectionalInsetTarget.swift */; };
+		876C7384252024600007D484 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C735E2520245F0007D484 /* ConstraintConfig.swift */; };
+		876C7385252024600007D484 /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C735F2520245F0007D484 /* UILayoutSupport+Extensions.swift */; };
+		876C7386252024600007D484 /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73602520245F0007D484 /* ConstraintView.swift */; };
+		876C7387252024600007D484 /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73612520245F0007D484 /* ConstraintLayoutGuide.swift */; };
+		876C7388252024600007D484 /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73622520245F0007D484 /* ConstraintLayoutSupport.swift */; };
+		876C7389252024600007D484 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73632520245F0007D484 /* Typealiases.swift */; };
+		876C738A252024600007D484 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73642520245F0007D484 /* ConstraintConstantTarget.swift */; };
+		876C738B252024600007D484 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73652520245F0007D484 /* ConstraintOffsetTarget.swift */; };
+		876C738C252024600007D484 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73662520245F0007D484 /* ConstraintMakerEditable.swift */; };
+		876C738D252024600007D484 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73672520245F0007D484 /* ConstraintMaker.swift */; };
+		876C738E252024600007D484 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73682520245F0007D484 /* ConstraintRelation.swift */; };
+		876C738F252024600007D484 /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73692520245F0007D484 /* ConstraintLayoutGuideDSL.swift */; };
+		876C7390252024600007D484 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C736A2520245F0007D484 /* ConstraintView+Extensions.swift */; };
+		876C7391252024600007D484 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C736B2520245F0007D484 /* ConstraintItem.swift */; };
+		876C7392252024600007D484 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C736C2520245F0007D484 /* Constraint.swift */; };
+		876C7393252024600007D484 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C736D2520245F0007D484 /* Debugging.swift */; };
+		876C7394252024600007D484 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C736E2520245F0007D484 /* ConstraintRelatableTarget.swift */; };
+		876C7395252024600007D484 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C736F2520245F0007D484 /* LayoutConstraint.swift */; };
+		876C7396252024600007D484 /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73702520245F0007D484 /* ConstraintLayoutGuide+Extensions.swift */; };
+		876C7397252024600007D484 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73712520245F0007D484 /* ConstraintDirectionalInsets.swift */; };
+		876C7398252024600007D484 /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73722520245F0007D484 /* ConstraintLayoutSupportDSL.swift */; };
+		876C7399252024600007D484 /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73732520245F0007D484 /* ConstraintMakerRelatable.swift */; };
+		876C73BC25205F1B0007D484 /* TCHotelSearchLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73BB25205F1B0007D484 /* TCHotelSearchLocationView.swift */; };
+		876C74452520A1B50007D484 /* TCHotelOrderContactInfowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C74432520A1B40007D484 /* TCHotelOrderContactInfowCell.swift */; };
+		876C74462520A1B50007D484 /* TCHotelOrderContactInfowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876C74442520A1B40007D484 /* TCHotelOrderContactInfowCell.xib */; };
+		876C744C2521741B0007D484 /* TCHotelOrderTripInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C744A2521741B0007D484 /* TCHotelOrderTripInfoCell.swift */; };
+		876C744D2521741B0007D484 /* TCHotelOrderTripInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876C744B2521741B0007D484 /* TCHotelOrderTripInfoCell.xib */; };
+		876C745525218A360007D484 /* TCHotelOrderPayTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C745325218A360007D484 /* TCHotelOrderPayTypeCell.swift */; };
+		876C745625218A360007D484 /* TCHotelOrderPayTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */; };
+		87982349251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87982348251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift */; };
+		8798234E251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8798234D251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib */; };
+		87B13C15251C949C00B6FD6E /* TCHotelDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B13C14251C949C00B6FD6E /* TCHotelDestinationView.swift */; };
+		87B13C1A251C94A300B6FD6E /* TCHotelDestinationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B13C19251C94A300B6FD6E /* TCHotelDestinationView.xib */; };
+		87B13C2D251C9C9000B6FD6E /* TCHotelDestinationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B13C2C251C9C9000B6FD6E /* TCHotelDestinationHeader.swift */; };
+		87B13C32251C9C9900B6FD6E /* TCHotelDestinationHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B13C31251C9C9900B6FD6E /* TCHotelDestinationHeader.xib */; };
 		87B343C42513495000028A25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B343C32513495000028A25 /* AppDelegate.swift */; };
 		87B343C62513495000028A25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B343C52513495000028A25 /* SceneDelegate.swift */; };
 		87B343C82513495000028A25 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B343C72513495000028A25 /* ViewController.swift */; };
@@ -15,6 +77,25 @@
 		87B343D02513495600028A25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87B343CE2513495600028A25 /* LaunchScreen.storyboard */; };
 		87B343DB2513495700028A25 /* PhotoBrowerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B343DA2513495700028A25 /* PhotoBrowerTests.swift */; };
 		87B343E62513495700028A25 /* PhotoBrowerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B343E52513495700028A25 /* PhotoBrowerUITests.swift */; };
+		87B343F425134B9200028A25 /* TCHotelPhotosListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B343F325134B9200028A25 /* TCHotelPhotosListController.swift */; };
+		87B3445B25135CCF00028A25 /* LTPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3444925135CCF00028A25 /* LTPageView.swift */; };
+		87B3445C25135CCF00028A25 /* LTLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3444B25135CCF00028A25 /* LTLayout.swift */; };
+		87B3445D25135CCF00028A25 /* LTAdvancedManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3444D25135CCF00028A25 /* LTAdvancedManager.swift */; };
+		87B3445E25135CCF00028A25 /* LTCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3444F25135CCF00028A25 /* LTCollectionFlowLayout.swift */; };
+		87B3445F25135CCF00028A25 /* LTDispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445025135CCF00028A25 /* LTDispatchQueue.swift */; };
+		87B3446025135CCF00028A25 /* LTTableViewProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445125135CCF00028A25 /* LTTableViewProtocal.swift */; };
+		87B3446125135CCF00028A25 /* LTVCExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445225135CCF00028A25 /* LTVCExtension.swift */; };
+		87B3446225135CCF00028A25 /* UIView+LTExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445325135CCF00028A25 /* UIView+LTExtension.swift */; };
+		87B3446325135CCF00028A25 /* LTScrollExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445425135CCF00028A25 /* LTScrollExtension.swift */; };
+		87B3446425135CCF00028A25 /* LTTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445525135CCF00028A25 /* LTTableView.swift */; };
+		87B3446525135CCF00028A25 /* LTPageTitleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445725135CCF00028A25 /* LTPageTitleItemView.swift */; };
+		87B3446625135CCF00028A25 /* LTPageTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445825135CCF00028A25 /* LTPageTitleView.swift */; };
+		87B3446725135CCF00028A25 /* LTSimpleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445A25135CCF00028A25 /* LTSimpleManager.swift */; };
+		87B3446925135D9200028A25 /* TCHotelPhotosListManageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3446825135D9200028A25 /* TCHotelPhotosListManageController.swift */; };
+		87B3446E2513693500028A25 /* TCHotelPhotoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3446C2513693500028A25 /* TCHotelPhotoListCell.swift */; };
+		87B3446F2513693500028A25 /* TCHotelPhotoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */; };
+		87B344732513779C00028A25 /* TCHotelPhotosBrowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */; };
+		87B344762513794C00028A25 /* TCHotelPhotoBrowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +116,69 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBrower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC4A01EB227346446A01B3A /* Pods-PhotoBrower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.release.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.release.xcconfig"; sourceTree = "<group>"; };
+		87505C0E2518602B002C8D24 /* TCHotelCommentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelCommentListController.swift; sourceTree = "<group>"; };
+		87505C1F25187F84002C8D24 /* TCHotelCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelCommentCell.swift; sourceTree = "<group>"; };
+		87505C2025187F84002C8D24 /* TCHotelCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelCommentCell.xib; sourceTree = "<group>"; };
+		87505C2F2518B1FF002C8D24 /* TCHotelCommentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelCommentHeaderView.swift; sourceTree = "<group>"; };
+		87505C342518B221002C8D24 /* TCHotelCommentHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelCommentHeaderView.xib; sourceTree = "<group>"; };
+		87505C462519E50A002C8D24 /* TCHotelSubmitOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelSubmitOrderViewController.swift; sourceTree = "<group>"; };
+		87505C512519EABC002C8D24 /* TCHotelSubmitOrderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelSubmitOrderViewController.xib; sourceTree = "<group>"; };
+		87505C56251A2171002C8D24 /* TCHotelOrderHotelInfowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelOrderHotelInfowCell.swift; sourceTree = "<group>"; };
+		87505C57251A2171002C8D24 /* TCHotelOrderHotelInfowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderHotelInfowCell.xib; sourceTree = "<group>"; };
+		87505CA9251C78B9002C8D24 /* TCHotelDestinationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelDestinationController.swift; sourceTree = "<group>"; };
+		87505CAA251C78B9002C8D24 /* TCHotelDestinationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelDestinationController.xib; sourceTree = "<group>"; };
+		876C7342252023A60007D484 /* TCHotelGeneralPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelGeneralPickerView.swift; sourceTree = "<group>"; };
+		876C73502520245F0007D484 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		876C73512520245F0007D484 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
+		876C73522520245F0007D484 /* ConstraintDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
+		876C73532520245F0007D484 /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
+		876C73542520245F0007D484 /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
+		876C73552520245F0007D484 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintViewDSL.swift; sourceTree = "<group>"; };
+		876C73562520245F0007D484 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
+		876C73572520245F0007D484 /* ConstraintInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsets.swift; sourceTree = "<group>"; };
+		876C73582520245F0007D484 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		876C73592520245F0007D484 /* ConstraintDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDSL.swift; sourceTree = "<group>"; };
+		876C735A2520245F0007D484 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
+		876C735B2520245F0007D484 /* ConstraintPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriority.swift; sourceTree = "<group>"; };
+		876C735C2520245F0007D484 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsetTarget.swift; sourceTree = "<group>"; };
+		876C735D2520245F0007D484 /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
+		876C735E2520245F0007D484 /* ConstraintConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConfig.swift; sourceTree = "<group>"; };
+		876C735F2520245F0007D484 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
+		876C73602520245F0007D484 /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
+		876C73612520245F0007D484 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
+		876C73622520245F0007D484 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
+		876C73632520245F0007D484 /* Typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		876C73642520245F0007D484 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantTarget.swift; sourceTree = "<group>"; };
+		876C73652520245F0007D484 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
+		876C73662520245F0007D484 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerEditable.swift; sourceTree = "<group>"; };
+		876C73672520245F0007D484 /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
+		876C73682520245F0007D484 /* ConstraintRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelation.swift; sourceTree = "<group>"; };
+		876C73692520245F0007D484 /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
+		876C736A2520245F0007D484 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
+		876C736B2520245F0007D484 /* ConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintItem.swift; sourceTree = "<group>"; };
+		876C736C2520245F0007D484 /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		876C736D2520245F0007D484 /* Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
+		876C736E2520245F0007D484 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		876C736F2520245F0007D484 /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
+		876C73702520245F0007D484 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
+		876C73712520245F0007D484 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
+		876C73722520245F0007D484 /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
+		876C73732520245F0007D484 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
+		876C73BB25205F1B0007D484 /* TCHotelSearchLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelSearchLocationView.swift; sourceTree = "<group>"; };
+		876C74432520A1B40007D484 /* TCHotelOrderContactInfowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelOrderContactInfowCell.swift; sourceTree = "<group>"; };
+		876C74442520A1B40007D484 /* TCHotelOrderContactInfowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderContactInfowCell.xib; sourceTree = "<group>"; };
+		876C744A2521741B0007D484 /* TCHotelOrderTripInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelOrderTripInfoCell.swift; sourceTree = "<group>"; };
+		876C744B2521741B0007D484 /* TCHotelOrderTripInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderTripInfoCell.xib; sourceTree = "<group>"; };
+		876C745325218A360007D484 /* TCHotelOrderPayTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelOrderPayTypeCell.swift; sourceTree = "<group>"; };
+		876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderPayTypeCell.xib; sourceTree = "<group>"; };
+		87982348251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPeopleNumPickView.swift; sourceTree = "<group>"; };
+		8798234D251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelPeopleNumPickView.xib; sourceTree = "<group>"; };
+		87B13C14251C949C00B6FD6E /* TCHotelDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelDestinationView.swift; sourceTree = "<group>"; };
+		87B13C19251C94A300B6FD6E /* TCHotelDestinationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelDestinationView.xib; sourceTree = "<group>"; };
+		87B13C2C251C9C9000B6FD6E /* TCHotelDestinationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelDestinationHeader.swift; sourceTree = "<group>"; };
+		87B13C31251C9C9900B6FD6E /* TCHotelDestinationHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelDestinationHeader.xib; sourceTree = "<group>"; };
 		87B343C02513495000028A25 /* PhotoBrower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBrower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B343C32513495000028A25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87B343C52513495000028A25 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +193,26 @@
 		87B343E12513495700028A25 /* PhotoBrowerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBrowerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87B343E52513495700028A25 /* PhotoBrowerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowerUITests.swift; sourceTree = "<group>"; };
 		87B343E72513495700028A25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		87B343F325134B9200028A25 /* TCHotelPhotosListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotosListController.swift; sourceTree = "<group>"; };
+		87B3444925135CCF00028A25 /* LTPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTPageView.swift; sourceTree = "<group>"; };
+		87B3444B25135CCF00028A25 /* LTLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTLayout.swift; sourceTree = "<group>"; };
+		87B3444D25135CCF00028A25 /* LTAdvancedManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTAdvancedManager.swift; sourceTree = "<group>"; };
+		87B3444F25135CCF00028A25 /* LTCollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTCollectionFlowLayout.swift; sourceTree = "<group>"; };
+		87B3445025135CCF00028A25 /* LTDispatchQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTDispatchQueue.swift; sourceTree = "<group>"; };
+		87B3445125135CCF00028A25 /* LTTableViewProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTTableViewProtocal.swift; sourceTree = "<group>"; };
+		87B3445225135CCF00028A25 /* LTVCExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTVCExtension.swift; sourceTree = "<group>"; };
+		87B3445325135CCF00028A25 /* UIView+LTExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+LTExtension.swift"; sourceTree = "<group>"; };
+		87B3445425135CCF00028A25 /* LTScrollExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTScrollExtension.swift; sourceTree = "<group>"; };
+		87B3445525135CCF00028A25 /* LTTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTTableView.swift; sourceTree = "<group>"; };
+		87B3445725135CCF00028A25 /* LTPageTitleItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTPageTitleItemView.swift; sourceTree = "<group>"; };
+		87B3445825135CCF00028A25 /* LTPageTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTPageTitleView.swift; sourceTree = "<group>"; };
+		87B3445A25135CCF00028A25 /* LTSimpleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LTSimpleManager.swift; sourceTree = "<group>"; };
+		87B3446825135D9200028A25 /* TCHotelPhotosListManageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotosListManageController.swift; sourceTree = "<group>"; };
+		87B3446C2513693500028A25 /* TCHotelPhotoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotoListCell.swift; sourceTree = "<group>"; };
+		87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelPhotoListCell.xib; sourceTree = "<group>"; };
+		87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotosBrowerController.swift; sourceTree = "<group>"; };
+		87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotoBrowerCell.swift; sourceTree = "<group>"; };
+		F52848A52906B19808DFBFD8 /* Pods-PhotoBrower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.debug.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FFF3A8B98571793F967014B /* Pods_PhotoBrower.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +241,146 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D213D3B77DDB6E2029D244E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F52848A52906B19808DFBFD8 /* Pods-PhotoBrower.debug.xcconfig */,
+				7BC4A01EB227346446A01B3A /* Pods-PhotoBrower.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		87505C0C25185F63002C8D24 /* HotelPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				87B3446825135D9200028A25 /* TCHotelPhotosListManageController.swift */,
+				87B343F325134B9200028A25 /* TCHotelPhotosListController.swift */,
+				87B3446C2513693500028A25 /* TCHotelPhotoListCell.swift */,
+				87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */,
+				87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */,
+				87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */,
+			);
+			name = HotelPhoto;
+			sourceTree = "<group>";
+		};
+		87505C0D25185F77002C8D24 /* HotelComment */ = {
+			isa = PBXGroup;
+			children = (
+				87505C0E2518602B002C8D24 /* TCHotelCommentListController.swift */,
+				87505C1F25187F84002C8D24 /* TCHotelCommentCell.swift */,
+				87505C2025187F84002C8D24 /* TCHotelCommentCell.xib */,
+				87505C2F2518B1FF002C8D24 /* TCHotelCommentHeaderView.swift */,
+				87505C342518B221002C8D24 /* TCHotelCommentHeaderView.xib */,
+			);
+			name = HotelComment;
+			sourceTree = "<group>";
+		};
+		87505C452519E4C9002C8D24 /* HotelOrder */ = {
+			isa = PBXGroup;
+			children = (
+				87505C462519E50A002C8D24 /* TCHotelSubmitOrderViewController.swift */,
+				87505C512519EABC002C8D24 /* TCHotelSubmitOrderViewController.xib */,
+				87505C56251A2171002C8D24 /* TCHotelOrderHotelInfowCell.swift */,
+				87505C57251A2171002C8D24 /* TCHotelOrderHotelInfowCell.xib */,
+				876C74432520A1B40007D484 /* TCHotelOrderContactInfowCell.swift */,
+				876C74442520A1B40007D484 /* TCHotelOrderContactInfowCell.xib */,
+				876C744A2521741B0007D484 /* TCHotelOrderTripInfoCell.swift */,
+				876C744B2521741B0007D484 /* TCHotelOrderTripInfoCell.xib */,
+				876C745325218A360007D484 /* TCHotelOrderPayTypeCell.swift */,
+				876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */,
+			);
+			path = HotelOrder;
+			sourceTree = "<group>";
+		};
+		87505CA8251C7867002C8D24 /* ChooseCity */ = {
+			isa = PBXGroup;
+			children = (
+				87B13C14251C949C00B6FD6E /* TCHotelDestinationView.swift */,
+				87B13C19251C94A300B6FD6E /* TCHotelDestinationView.xib */,
+				87B13C2C251C9C9000B6FD6E /* TCHotelDestinationHeader.swift */,
+				87B13C31251C9C9900B6FD6E /* TCHotelDestinationHeader.xib */,
+			);
+			name = ChooseCity;
+			sourceTree = "<group>";
+		};
+		876C734D2520245F0007D484 /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				876C734F2520245F0007D484 /* Source */,
+			);
+			path = SnapKit;
+			sourceTree = "<group>";
+		};
+		876C734F2520245F0007D484 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				876C73502520245F0007D484 /* ConstraintMultiplierTarget.swift */,
+				876C73512520245F0007D484 /* LayoutConstraintItem.swift */,
+				876C73522520245F0007D484 /* ConstraintDescription.swift */,
+				876C73532520245F0007D484 /* ConstraintMakerPriortizable.swift */,
+				876C73542520245F0007D484 /* ConstraintAttributes.swift */,
+				876C73552520245F0007D484 /* ConstraintViewDSL.swift */,
+				876C73562520245F0007D484 /* ConstraintPriorityTarget.swift */,
+				876C73572520245F0007D484 /* ConstraintInsets.swift */,
+				876C73582520245F0007D484 /* ConstraintMakerFinalizable.swift */,
+				876C73592520245F0007D484 /* ConstraintDSL.swift */,
+				876C735A2520245F0007D484 /* ConstraintMakerExtendable.swift */,
+				876C735B2520245F0007D484 /* ConstraintPriority.swift */,
+				876C735C2520245F0007D484 /* ConstraintInsetTarget.swift */,
+				876C735D2520245F0007D484 /* ConstraintDirectionalInsetTarget.swift */,
+				876C735E2520245F0007D484 /* ConstraintConfig.swift */,
+				876C735F2520245F0007D484 /* UILayoutSupport+Extensions.swift */,
+				876C73602520245F0007D484 /* ConstraintView.swift */,
+				876C73612520245F0007D484 /* ConstraintLayoutGuide.swift */,
+				876C73622520245F0007D484 /* ConstraintLayoutSupport.swift */,
+				876C73632520245F0007D484 /* Typealiases.swift */,
+				876C73642520245F0007D484 /* ConstraintConstantTarget.swift */,
+				876C73652520245F0007D484 /* ConstraintOffsetTarget.swift */,
+				876C73662520245F0007D484 /* ConstraintMakerEditable.swift */,
+				876C73672520245F0007D484 /* ConstraintMaker.swift */,
+				876C73682520245F0007D484 /* ConstraintRelation.swift */,
+				876C73692520245F0007D484 /* ConstraintLayoutGuideDSL.swift */,
+				876C736A2520245F0007D484 /* ConstraintView+Extensions.swift */,
+				876C736B2520245F0007D484 /* ConstraintItem.swift */,
+				876C736C2520245F0007D484 /* Constraint.swift */,
+				876C736D2520245F0007D484 /* Debugging.swift */,
+				876C736E2520245F0007D484 /* ConstraintRelatableTarget.swift */,
+				876C736F2520245F0007D484 /* LayoutConstraint.swift */,
+				876C73702520245F0007D484 /* ConstraintLayoutGuide+Extensions.swift */,
+				876C73712520245F0007D484 /* ConstraintDirectionalInsets.swift */,
+				876C73722520245F0007D484 /* ConstraintLayoutSupportDSL.swift */,
+				876C73732520245F0007D484 /* ConstraintMakerRelatable.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		876C73BA25205E6B0007D484 /* liandong */ = {
+			isa = PBXGroup;
+			children = (
+				876C73BB25205F1B0007D484 /* TCHotelSearchLocationView.swift */,
+			);
+			path = liandong;
+			sourceTree = "<group>";
+		};
+		87982347251DE252005B6E86 /* ChoosePeople */ = {
+			isa = PBXGroup;
+			children = (
+				87982348251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift */,
+				8798234D251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib */,
+				876C7342252023A60007D484 /* TCHotelGeneralPickerView.swift */,
+			);
+			path = ChoosePeople;
+			sourceTree = "<group>";
+		};
+		87B13C3D251CC06200B6FD6E /* trash */ = {
+			isa = PBXGroup;
+			children = (
+				87505CA9251C78B9002C8D24 /* TCHotelDestinationController.swift */,
+				87505CAA251C78B9002C8D24 /* TCHotelDestinationController.xib */,
+			);
+			path = trash;
+			sourceTree = "<group>";
+		};
 		87B343B72513495000028A25 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +388,8 @@
 				87B343D92513495700028A25 /* PhotoBrowerTests */,
 				87B343E42513495700028A25 /* PhotoBrowerUITests */,
 				87B343C12513495000028A25 /* Products */,
+				4D213D3B77DDB6E2029D244E /* Pods */,
+				9612B6B2341446157F1956C0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +406,15 @@
 		87B343C22513495000028A25 /* PhotoBrower */ = {
 			isa = PBXGroup;
 			children = (
+				876C73BA25205E6B0007D484 /* liandong */,
+				87982347251DE252005B6E86 /* ChoosePeople */,
+				87B13C3D251CC06200B6FD6E /* trash */,
+				87505CA8251C7867002C8D24 /* ChooseCity */,
+				87B3444725135CCF00028A25 /* Lib */,
+				87505C452519E4C9002C8D24 /* HotelOrder */,
+				87505C0C25185F63002C8D24 /* HotelPhoto */,
+				87505C0D25185F77002C8D24 /* HotelComment */,
+				876C734D2520245F0007D484 /* SnapKit */,
 				87B343C32513495000028A25 /* AppDelegate.swift */,
 				87B343C52513495000028A25 /* SceneDelegate.swift */,
 				87B343C72513495000028A25 /* ViewController.swift */,
@@ -128,6 +444,82 @@
 			path = PhotoBrowerUITests;
 			sourceTree = "<group>";
 		};
+		87B3444725135CCF00028A25 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				87B3444825135CCF00028A25 /* LTPageView */,
+				87B3444A25135CCF00028A25 /* LTLayout */,
+				87B3444C25135CCF00028A25 /* LTAdvancedManager */,
+				87B3444E25135CCF00028A25 /* LTExtension */,
+				87B3445625135CCF00028A25 /* LTTitleView */,
+				87B3445925135CCF00028A25 /* LTSimpleManager */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		87B3444825135CCF00028A25 /* LTPageView */ = {
+			isa = PBXGroup;
+			children = (
+				87B3444925135CCF00028A25 /* LTPageView.swift */,
+			);
+			path = LTPageView;
+			sourceTree = "<group>";
+		};
+		87B3444A25135CCF00028A25 /* LTLayout */ = {
+			isa = PBXGroup;
+			children = (
+				87B3444B25135CCF00028A25 /* LTLayout.swift */,
+			);
+			path = LTLayout;
+			sourceTree = "<group>";
+		};
+		87B3444C25135CCF00028A25 /* LTAdvancedManager */ = {
+			isa = PBXGroup;
+			children = (
+				87B3444D25135CCF00028A25 /* LTAdvancedManager.swift */,
+			);
+			path = LTAdvancedManager;
+			sourceTree = "<group>";
+		};
+		87B3444E25135CCF00028A25 /* LTExtension */ = {
+			isa = PBXGroup;
+			children = (
+				87B3444F25135CCF00028A25 /* LTCollectionFlowLayout.swift */,
+				87B3445025135CCF00028A25 /* LTDispatchQueue.swift */,
+				87B3445125135CCF00028A25 /* LTTableViewProtocal.swift */,
+				87B3445225135CCF00028A25 /* LTVCExtension.swift */,
+				87B3445325135CCF00028A25 /* UIView+LTExtension.swift */,
+				87B3445425135CCF00028A25 /* LTScrollExtension.swift */,
+				87B3445525135CCF00028A25 /* LTTableView.swift */,
+			);
+			path = LTExtension;
+			sourceTree = "<group>";
+		};
+		87B3445625135CCF00028A25 /* LTTitleView */ = {
+			isa = PBXGroup;
+			children = (
+				87B3445725135CCF00028A25 /* LTPageTitleItemView.swift */,
+				87B3445825135CCF00028A25 /* LTPageTitleView.swift */,
+			);
+			path = LTTitleView;
+			sourceTree = "<group>";
+		};
+		87B3445925135CCF00028A25 /* LTSimpleManager */ = {
+			isa = PBXGroup;
+			children = (
+				87B3445A25135CCF00028A25 /* LTSimpleManager.swift */,
+			);
+			path = LTSimpleManager;
+			sourceTree = "<group>";
+		};
+		9612B6B2341446157F1956C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +527,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87B343EA2513495700028A25 /* Build configuration list for PBXNativeTarget "PhotoBrower" */;
 			buildPhases = (
+				E2923BA378064048E81810BD /* [CP] Check Pods Manifest.lock */,
 				87B343BC2513495000028A25 /* Sources */,
 				87B343BD2513495000028A25 /* Frameworks */,
 				87B343BE2513495000028A25 /* Resources */,
+				E90CEAE00C9FEB259F7D5AAB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,9 +626,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87505CAC251C78B9002C8D24 /* TCHotelDestinationController.xib in Resources */,
+				876C744D2521741B0007D484 /* TCHotelOrderTripInfoCell.xib in Resources */,
+				876C745625218A360007D484 /* TCHotelOrderPayTypeCell.xib in Resources */,
 				87B343D02513495600028A25 /* LaunchScreen.storyboard in Resources */,
 				87B343CD2513495600028A25 /* Assets.xcassets in Resources */,
+				87B3446F2513693500028A25 /* TCHotelPhotoListCell.xib in Resources */,
+				87505C352518B221002C8D24 /* TCHotelCommentHeaderView.xib in Resources */,
+				87B13C1A251C94A300B6FD6E /* TCHotelDestinationView.xib in Resources */,
+				87505C2225187F84002C8D24 /* TCHotelCommentCell.xib in Resources */,
+				87B13C32251C9C9900B6FD6E /* TCHotelDestinationHeader.xib in Resources */,
+				87505C59251A2172002C8D24 /* TCHotelOrderHotelInfowCell.xib in Resources */,
+				87505C522519EABC002C8D24 /* TCHotelSubmitOrderViewController.xib in Resources */,
 				87B343CB2513495000028A25 /* Main.storyboard in Resources */,
+				876C74462520A1B50007D484 /* TCHotelOrderContactInfowCell.xib in Resources */,
+				8798234E251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,14 +660,124 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E2923BA378064048E81810BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PhotoBrower-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E90CEAE00C9FEB259F7D5AAB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		87B343BC2513495000028A25 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B3446225135CCF00028A25 /* UIView+LTExtension.swift in Sources */,
+				876C737C252024600007D484 /* ConstraintPriorityTarget.swift in Sources */,
+				876C737E252024600007D484 /* ConstraintMakerFinalizable.swift in Sources */,
+				876C7393252024600007D484 /* Debugging.swift in Sources */,
+				876C7378252024600007D484 /* ConstraintDescription.swift in Sources */,
+				876C7395252024600007D484 /* LayoutConstraint.swift in Sources */,
+				87982349251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift in Sources */,
+				876C7377252024600007D484 /* LayoutConstraintItem.swift in Sources */,
+				87B3446525135CCF00028A25 /* LTPageTitleItemView.swift in Sources */,
+				87B13C2D251C9C9000B6FD6E /* TCHotelDestinationHeader.swift in Sources */,
+				87B3446125135CCF00028A25 /* LTVCExtension.swift in Sources */,
+				876C7381252024600007D484 /* ConstraintPriority.swift in Sources */,
+				87505C302518B1FF002C8D24 /* TCHotelCommentHeaderView.swift in Sources */,
+				87B343F425134B9200028A25 /* TCHotelPhotosListController.swift in Sources */,
+				876C737A252024600007D484 /* ConstraintAttributes.swift in Sources */,
+				876C7387252024600007D484 /* ConstraintLayoutGuide.swift in Sources */,
+				876C738F252024600007D484 /* ConstraintLayoutGuideDSL.swift in Sources */,
+				87B3446025135CCF00028A25 /* LTTableViewProtocal.swift in Sources */,
+				876C7384252024600007D484 /* ConstraintConfig.swift in Sources */,
+				876C7386252024600007D484 /* ConstraintView.swift in Sources */,
+				876C745525218A360007D484 /* TCHotelOrderPayTypeCell.swift in Sources */,
+				87B3446325135CCF00028A25 /* LTScrollExtension.swift in Sources */,
+				876C737B252024600007D484 /* ConstraintViewDSL.swift in Sources */,
+				876C7383252024600007D484 /* ConstraintDirectionalInsetTarget.swift in Sources */,
+				87B3446425135CCF00028A25 /* LTTableView.swift in Sources */,
+				876C7399252024600007D484 /* ConstraintMakerRelatable.swift in Sources */,
+				876C7385252024600007D484 /* UILayoutSupport+Extensions.swift in Sources */,
+				876C737F252024600007D484 /* ConstraintDSL.swift in Sources */,
+				876C738A252024600007D484 /* ConstraintConstantTarget.swift in Sources */,
+				876C7380252024600007D484 /* ConstraintMakerExtendable.swift in Sources */,
+				876C7391252024600007D484 /* ConstraintItem.swift in Sources */,
+				87505C0F2518602B002C8D24 /* TCHotelCommentListController.swift in Sources */,
+				876C738D252024600007D484 /* ConstraintMaker.swift in Sources */,
+				87B344732513779C00028A25 /* TCHotelPhotosBrowerController.swift in Sources */,
+				876C738C252024600007D484 /* ConstraintMakerEditable.swift in Sources */,
+				876C7379252024600007D484 /* ConstraintMakerPriortizable.swift in Sources */,
+				87505C58251A2172002C8D24 /* TCHotelOrderHotelInfowCell.swift in Sources */,
+				876C7388252024600007D484 /* ConstraintLayoutSupport.swift in Sources */,
+				87B344762513794C00028A25 /* TCHotelPhotoBrowerCell.swift in Sources */,
+				876C7343252023A60007D484 /* TCHotelGeneralPickerView.swift in Sources */,
+				876C73BC25205F1B0007D484 /* TCHotelSearchLocationView.swift in Sources */,
+				876C7397252024600007D484 /* ConstraintDirectionalInsets.swift in Sources */,
+				87B3445E25135CCF00028A25 /* LTCollectionFlowLayout.swift in Sources */,
 				87B343C82513495000028A25 /* ViewController.swift in Sources */,
+				87505CAB251C78B9002C8D24 /* TCHotelDestinationController.swift in Sources */,
+				876C74452520A1B50007D484 /* TCHotelOrderContactInfowCell.swift in Sources */,
+				87505C472519E50B002C8D24 /* TCHotelSubmitOrderViewController.swift in Sources */,
+				876C7390252024600007D484 /* ConstraintView+Extensions.swift in Sources */,
+				876C738E252024600007D484 /* ConstraintRelation.swift in Sources */,
+				87B3445B25135CCF00028A25 /* LTPageView.swift in Sources */,
+				876C7396252024600007D484 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
+				876C738B252024600007D484 /* ConstraintOffsetTarget.swift in Sources */,
+				87B3446725135CCF00028A25 /* LTSimpleManager.swift in Sources */,
+				87B3446625135CCF00028A25 /* LTPageTitleView.swift in Sources */,
+				87B13C15251C949C00B6FD6E /* TCHotelDestinationView.swift in Sources */,
+				87B3445C25135CCF00028A25 /* LTLayout.swift in Sources */,
+				876C7392252024600007D484 /* Constraint.swift in Sources */,
+				87505C2125187F84002C8D24 /* TCHotelCommentCell.swift in Sources */,
+				87B3446925135D9200028A25 /* TCHotelPhotosListManageController.swift in Sources */,
+				87B3445F25135CCF00028A25 /* LTDispatchQueue.swift in Sources */,
+				876C744C2521741B0007D484 /* TCHotelOrderTripInfoCell.swift in Sources */,
+				876C7398252024600007D484 /* ConstraintLayoutSupportDSL.swift in Sources */,
+				876C737D252024600007D484 /* ConstraintInsets.swift in Sources */,
+				876C7394252024600007D484 /* ConstraintRelatableTarget.swift in Sources */,
 				87B343C42513495000028A25 /* AppDelegate.swift in Sources */,
+				876C7376252024600007D484 /* ConstraintMultiplierTarget.swift in Sources */,
+				87B3445D25135CCF00028A25 /* LTAdvancedManager.swift in Sources */,
+				876C7382252024600007D484 /* ConstraintInsetTarget.swift in Sources */,
+				87B3446E2513693500028A25 /* TCHotelPhotoListCell.swift in Sources */,
 				87B343C62513495000028A25 /* SceneDelegate.swift in Sources */,
+				876C7389252024600007D484 /* Typealiases.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,15 +948,18 @@
 		};
 		87B343EB2513495700028A25 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F52848A52906B19808DFBFD8 /* Pods-PhotoBrower.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QGWN647PA4;
 				INFOPLIST_FILE = PhotoBrower/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Lin.PhotoBrower;
+				PRODUCT_BUNDLE_IDENTIFIER = .lin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -449,15 +968,18 @@
 		};
 		87B343EC2513495700028A25 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BC4A01EB227346446A01B3A /* Pods-PhotoBrower.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QGWN647PA4;
 				INFOPLIST_FILE = PhotoBrower/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Lin.PhotoBrower;
+				PRODUCT_BUNDLE_IDENTIFIER = .lin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

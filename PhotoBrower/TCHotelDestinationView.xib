@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCHotelDestinationView" customModule="PhotoBrower" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Jg9-sy-dBO" customClass="TCHotelDestinationView" customModule="PhotoBrower" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v7y-3W-fvX" userLabel="bgView">
+                    <rect key="frame" x="0.0" y="125" width="414" height="771"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8W-kq-Kbb">
+                            <rect key="frame" x="0.0" y="0.0" width="207" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="xeT-sX-roI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                            <state key="normal" title="中国大陆">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zw-uV-e2I">
+                            <rect key="frame" x="207" y="0.0" width="207" height="50"/>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="ZcH-5B-r8d"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="14"/>
+                            <state key="normal" title="国际&amp;港澳台">
+                                <color key="titleColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v7W-7u-i0W">
+                            <rect key="frame" x="0.0" y="50" width="414" height="721"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <connections>
+                                <outlet property="dataSource" destination="Jg9-sy-dBO" id="Ofp-xA-Lnk"/>
+                                <outlet property="delegate" destination="Jg9-sy-dBO" id="gb9-Tc-FlW"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="v7W-7u-i0W" firstAttribute="leading" secondItem="v7y-3W-fvX" secondAttribute="leading" id="7EB-5h-ukc"/>
+                        <constraint firstItem="9zw-uV-e2I" firstAttribute="width" secondItem="b8W-kq-Kbb" secondAttribute="width" id="C39-Hg-wKT"/>
+                        <constraint firstAttribute="bottom" secondItem="v7W-7u-i0W" secondAttribute="bottom" id="Knx-ye-GHG"/>
+                        <constraint firstItem="9zw-uV-e2I" firstAttribute="top" secondItem="b8W-kq-Kbb" secondAttribute="top" id="OiV-Bw-45x"/>
+                        <constraint firstAttribute="trailing" secondItem="v7W-7u-i0W" secondAttribute="trailing" id="avf-bG-5a6"/>
+                        <constraint firstAttribute="trailing" secondItem="9zw-uV-e2I" secondAttribute="trailing" id="hbR-8n-Rry"/>
+                        <constraint firstItem="v7W-7u-i0W" firstAttribute="top" secondItem="b8W-kq-Kbb" secondAttribute="bottom" id="qa3-9q-hZk"/>
+                        <constraint firstItem="b8W-kq-Kbb" firstAttribute="top" secondItem="v7y-3W-fvX" secondAttribute="top" id="vgs-Ya-QYV"/>
+                        <constraint firstItem="b8W-kq-Kbb" firstAttribute="leading" secondItem="v7y-3W-fvX" secondAttribute="leading" id="wIP-Bw-5vj"/>
+                        <constraint firstItem="9zw-uV-e2I" firstAttribute="leading" secondItem="b8W-kq-Kbb" secondAttribute="trailing" id="ysV-zN-Kyp"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQQ-8U-HSe">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
+                    <connections>
+                        <action selector="closeIt:" destination="-1" eventType="touchUpInside" id="nPb-yq-gqv"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="cQQ-8U-HSe" firstAttribute="top" secondItem="Jg9-sy-dBO" secondAttribute="top" id="8wl-ux-TBY"/>
+                <constraint firstAttribute="bottom" secondItem="v7y-3W-fvX" secondAttribute="bottom" id="EqI-Zw-WKV"/>
+                <constraint firstItem="v7y-3W-fvX" firstAttribute="top" secondItem="Jg9-sy-dBO" secondAttribute="top" constant="125" id="HVS-51-g22"/>
+                <constraint firstAttribute="trailing" secondItem="v7y-3W-fvX" secondAttribute="trailing" id="a3Z-fx-j3L"/>
+                <constraint firstItem="cQQ-8U-HSe" firstAttribute="leading" secondItem="Jg9-sy-dBO" secondAttribute="leading" id="aRk-JD-t8y"/>
+                <constraint firstItem="v7y-3W-fvX" firstAttribute="top" secondItem="cQQ-8U-HSe" secondAttribute="bottom" id="kNO-jF-kjF"/>
+                <constraint firstAttribute="trailing" secondItem="cQQ-8U-HSe" secondAttribute="trailing" id="mjs-iH-6Ib"/>
+                <constraint firstItem="v7y-3W-fvX" firstAttribute="leading" secondItem="Jg9-sy-dBO" secondAttribute="leading" id="yPa-CJ-oDg"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgView" destination="v7y-3W-fvX" id="DDc-Ty-GPY"/>
+                <outlet property="inlandButton" destination="b8W-kq-Kbb" id="Dja-kp-yhI"/>
+                <outlet property="outlandButton" destination="9zw-uV-e2I" id="QDn-rH-Ru5"/>
+                <outlet property="tableView" destination="v7W-7u-i0W" id="vCU-FI-Lzp"/>
+            </connections>
+            <point key="canvasLocation" x="-830.43478260869574" y="-101.11607142857143"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
