@@ -122,6 +122,9 @@
                                 <rect key="frame" x="143" y="10.5" width="48" height="29"/>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="12"/>
                                 <state key="normal" title="预定条款"/>
+                                <connections>
+                                    <action selector="showClauseView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LXf-Jx-39t"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -170,6 +173,7 @@
             <connections>
                 <outlet property="aliPayView" destination="xY1-F2-nZ7" id="8cu-yT-Wbn"/>
                 <outlet property="alipayIV" destination="Qqw-sc-9uE" id="ZtX-ft-gdv"/>
+                <outlet property="clauseButton" destination="BXu-rZ-MVF" id="U4D-we-k4m"/>
                 <outlet property="weixinPayIV" destination="3U2-JA-PZ2" id="G0F-eS-AZf"/>
                 <outlet property="weixinPayView" destination="o43-Ph-4Sh" id="whY-7p-32w"/>
             </connections>

@@ -4,5 +4,5 @@ target 'PhotoBrower' do
 
 pod 'SDWebImage'
 pod 'MJRefresh'
-
+pod 'BMKLocationKit'
 end

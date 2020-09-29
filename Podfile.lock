@@ -1,22 +1,26 @@
 PODS:
+  - BMKLocationKit (1.8.5)
   - MJRefresh (3.4.3)
   - SDWebImage (5.8.1):
     - SDWebImage/Core (= 5.8.1)
   - SDWebImage/Core (5.8.1)
 
 DEPENDENCIES:
+  - BMKLocationKit
   - MJRefresh
   - SDWebImage
 
 SPEC REPOS:
   trunk:
+    - BMKLocationKit
     - MJRefresh
     - SDWebImage
 
 SPEC CHECKSUMS:
+  BMKLocationKit: fd3d6b4a9a3a1a2763819f56b780bda5fc5b8726
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
 
-PODFILE CHECKSUM: f42bcefd0dc1e0d3551aa69a21387a61b2929d6c
+PODFILE CHECKSUM: fe09fb61cf10d62385d91964c64afdce34683db7
 
 COCOAPODS: 1.9.1

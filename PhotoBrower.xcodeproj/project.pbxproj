@@ -96,6 +96,7 @@
 		87B3446F2513693500028A25 /* TCHotelPhotoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */; };
 		87B344732513779C00028A25 /* TCHotelPhotosBrowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */; };
 		87B344762513794C00028A25 /* TCHotelPhotoBrowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */; };
+		87D3CD9E252322180001E0B7 /* TCHotelPriceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3CD9D252322180001E0B7 /* TCHotelPriceDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +213,7 @@
 		87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelPhotoListCell.xib; sourceTree = "<group>"; };
 		87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotosBrowerController.swift; sourceTree = "<group>"; };
 		87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotoBrowerCell.swift; sourceTree = "<group>"; };
+		87D3CD9D252322180001E0B7 /* TCHotelPriceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPriceDetailView.swift; sourceTree = "<group>"; };
 		F52848A52906B19808DFBFD8 /* Pods-PhotoBrower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.debug.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,6 +290,7 @@
 				876C744B2521741B0007D484 /* TCHotelOrderTripInfoCell.xib */,
 				876C745325218A360007D484 /* TCHotelOrderPayTypeCell.swift */,
 				876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */,
+				87D3CD9D252322180001E0B7 /* TCHotelPriceDetailView.swift */,
 			);
 			path = HotelOrder;
 			sourceTree = "<group>";
@@ -410,10 +413,10 @@
 				87982347251DE252005B6E86 /* ChoosePeople */,
 				87B13C3D251CC06200B6FD6E /* trash */,
 				87505CA8251C7867002C8D24 /* ChooseCity */,
-				87B3444725135CCF00028A25 /* Lib */,
 				87505C452519E4C9002C8D24 /* HotelOrder */,
 				87505C0C25185F63002C8D24 /* HotelPhoto */,
 				87505C0D25185F77002C8D24 /* HotelComment */,
+				87B3444725135CCF00028A25 /* Lib */,
 				876C734D2520245F0007D484 /* SnapKit */,
 				87B343C32513495000028A25 /* AppDelegate.swift */,
 				87B343C52513495000028A25 /* SceneDelegate.swift */,
@@ -774,6 +777,7 @@
 				87B343C42513495000028A25 /* AppDelegate.swift in Sources */,
 				876C7376252024600007D484 /* ConstraintMultiplierTarget.swift in Sources */,
 				87B3445D25135CCF00028A25 /* LTAdvancedManager.swift in Sources */,
+				87D3CD9E252322180001E0B7 /* TCHotelPriceDetailView.swift in Sources */,
 				876C7382252024600007D484 /* ConstraintInsetTarget.swift in Sources */,
 				87B3446E2513693500028A25 /* TCHotelPhotoListCell.swift in Sources */,
 				87B343C62513495000028A25 /* SceneDelegate.swift in Sources */,

@@ -104,6 +104,8 @@ class TCHotelSubmitOrderViewController: UIViewController {
     }
     @IBAction func showPriceDetail(_ sender: Any) {
         debugPrint("价格明细")
+        let view = TCHotelPriceDetailView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH))
+        self.view.addSubview(view)
     }
     
     @IBAction func submitOrderWithInfo(_ sender: Any) {

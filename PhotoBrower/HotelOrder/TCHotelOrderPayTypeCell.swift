@@ -23,6 +23,8 @@ class TCHotelOrderPayTypeCell: UITableViewCell {
     @IBOutlet weak var weixinPayIV: UIImageView!
     @IBOutlet weak var aliPayView: UIView!
     @IBOutlet weak var alipayIV: UIImageView!
+    // 可选隐藏
+    @IBOutlet weak var clauseButton: UIButton!
     var choosedPayType: OrderPayType?
     /// 选完支付方式完成
     var choosePayTypeComplete: ((_ payType: OrderPayType) -> ())?
@@ -52,5 +54,9 @@ class TCHotelOrderPayTypeCell: UITableViewCell {
         if choosePayTypeComplete != nil {
             choosePayTypeComplete!(self.choosedPayType ?? .none)
         }
+    }
+    
+    @IBAction func showClauseView(_ sender: Any) {
+        debugPrint("点击跳转到Expedia的H5页面。非Expedia酒店不展示预订条款。")
     }
 }
