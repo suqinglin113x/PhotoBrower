@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7FFF3A8B98571793F967014B /* Pods_PhotoBrower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */; };
+		8725682B252459920047A420 /* TCMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725682A252459920047A420 /* TCMapViewController.swift */; };
 		87505C0F2518602B002C8D24 /* TCHotelCommentListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505C0E2518602B002C8D24 /* TCHotelCommentListController.swift */; };
 		87505C2125187F84002C8D24 /* TCHotelCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505C1F25187F84002C8D24 /* TCHotelCommentCell.swift */; };
 		87505C2225187F84002C8D24 /* TCHotelCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87505C2025187F84002C8D24 /* TCHotelCommentCell.xib */; };
@@ -119,6 +120,7 @@
 /* Begin PBXFileReference section */
 		00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBrower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC4A01EB227346446A01B3A /* Pods-PhotoBrower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.release.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.release.xcconfig"; sourceTree = "<group>"; };
+		8725682A252459920047A420 /* TCMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCMapViewController.swift; sourceTree = "<group>"; };
 		87505C0E2518602B002C8D24 /* TCHotelCommentListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelCommentListController.swift; sourceTree = "<group>"; };
 		87505C1F25187F84002C8D24 /* TCHotelCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelCommentCell.swift; sourceTree = "<group>"; };
 		87505C2025187F84002C8D24 /* TCHotelCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelCommentCell.xib; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 		87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotosBrowerController.swift; sourceTree = "<group>"; };
 		87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotoBrowerCell.swift; sourceTree = "<group>"; };
 		87D3CD9D252322180001E0B7 /* TCHotelPriceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPriceDetailView.swift; sourceTree = "<group>"; };
+		87D3CDC2252358E80001E0B7 /* PhotoBrower-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoBrower-Bridging-Header.h"; sourceTree = "<group>"; };
 		F52848A52906B19808DFBFD8 /* Pods-PhotoBrower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.debug.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -393,6 +396,7 @@
 				87B343C12513495000028A25 /* Products */,
 				4D213D3B77DDB6E2029D244E /* Pods */,
 				9612B6B2341446157F1956C0 /* Frameworks */,
+				87D3CDC2252358E80001E0B7 /* PhotoBrower-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -421,6 +425,7 @@
 				87B343C32513495000028A25 /* AppDelegate.swift */,
 				87B343C52513495000028A25 /* SceneDelegate.swift */,
 				87B343C72513495000028A25 /* ViewController.swift */,
+				8725682A252459920047A420 /* TCMapViewController.swift */,
 				87B343C92513495000028A25 /* Main.storyboard */,
 				87B343CC2513495600028A25 /* Assets.xcassets */,
 				87B343CE2513495600028A25 /* LaunchScreen.storyboard */,
@@ -535,6 +540,7 @@
 				87B343BD2513495000028A25 /* Frameworks */,
 				87B343BE2513495000028A25 /* Resources */,
 				E90CEAE00C9FEB259F7D5AAB /* [CP] Embed Pods Frameworks */,
+				B6BC7A4E6F73E8FA6EDEFC9E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -593,6 +599,7 @@
 				TargetAttributes = {
 					87B343BF2513495000028A25 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1200;
 					};
 					87B343D52513495700028A25 = {
 						CreatedOnToolsVersion = 11.5;
@@ -664,6 +671,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B6BC7A4E6F73E8FA6EDEFC9E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E2923BA378064048E81810BD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -711,6 +735,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87B3446225135CCF00028A25 /* UIView+LTExtension.swift in Sources */,
+				8725682B252459920047A420 /* TCMapViewController.swift in Sources */,
 				876C737C252024600007D484 /* ConstraintPriorityTarget.swift in Sources */,
 				876C737E252024600007D484 /* ConstraintMakerFinalizable.swift in Sources */,
 				876C7393252024600007D484 /* Debugging.swift in Sources */,
@@ -955,16 +980,19 @@
 			baseConfigurationReference = F52848A52906B19808DFBFD8 /* Pods-PhotoBrower.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QGWN647PA4;
+				DEVELOPMENT_TEAM = 9C67X3S496;
 				INFOPLIST_FILE = PhotoBrower/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = .lin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foliday.traving;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoBrower-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -975,16 +1003,18 @@
 			baseConfigurationReference = 7BC4A01EB227346446A01B3A /* Pods-PhotoBrower.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QGWN647PA4;
+				DEVELOPMENT_TEAM = 9C67X3S496;
 				INFOPLIST_FILE = PhotoBrower/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = .lin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foliday.traving;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoBrower-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

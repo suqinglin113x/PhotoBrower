@@ -5,4 +5,5 @@ target 'PhotoBrower' do
 pod 'SDWebImage'
 pod 'MJRefresh'
 pod 'BMKLocationKit'
+pod 'BaiduMapKit', '6.0.0'
 end

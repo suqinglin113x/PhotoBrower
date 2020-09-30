@@ -15,6 +15,10 @@ class ViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .orange
@@ -57,6 +61,12 @@ class ViewController: UIViewController {
         button6.addTarget(self, action: #selector(toChooseCity2), for: .touchUpInside)
         self.view.addSubview(button6)
         
+        let button7 = UIButton(frame: CGRect(x: 100, y: 500, width: 100, height: 30))
+        button7.setTitle("地图", for: .normal)
+        button7.setTitleColor(.black, for: .normal)
+        button7.addTarget(self, action: #selector(toMap), for: .touchUpInside)
+        self.view.addSubview(button7)
+        
     }
 
     @objc func toPhotosList() {
@@ -97,6 +107,11 @@ class ViewController: UIViewController {
         let searlocation = TCHotelSearchLocationView(frame: CGRect(x: 0, y: 0, width: kScreenW, height: kScreenH))
        
         self.view.addSubview(searlocation)
+    }
+    
+    @objc func toMap() {
+        let map = TCMapViewController()
+        self.navigationController?.pushViewController(map, animated: true)
     }
 }
 
