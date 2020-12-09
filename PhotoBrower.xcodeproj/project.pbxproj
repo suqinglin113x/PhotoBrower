@@ -98,6 +98,9 @@
 		87B344732513779C00028A25 /* TCHotelPhotosBrowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */; };
 		87B344762513794C00028A25 /* TCHotelPhotoBrowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */; };
 		87D3CD9E252322180001E0B7 /* TCHotelPriceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3CD9D252322180001E0B7 /* TCHotelPriceDetailView.swift */; };
+		87D5F0D5258078B400A53E4A /* TCTicketProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D5F0D4258078B400A53E4A /* TCTicketProductModel.swift */; };
+		87F3D8D7257E1EBA00019EB6 /* TCTicketProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */; };
+		87F3D8E0257E1FE900019EB6 /* TCNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D8DF257E1FE900019EB6 /* TCNetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +220,9 @@
 		87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotoBrowerCell.swift; sourceTree = "<group>"; };
 		87D3CD9D252322180001E0B7 /* TCHotelPriceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPriceDetailView.swift; sourceTree = "<group>"; };
 		87D3CDC2252358E80001E0B7 /* PhotoBrower-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoBrower-Bridging-Header.h"; sourceTree = "<group>"; };
+		87D5F0D4258078B400A53E4A /* TCTicketProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketProductModel.swift; sourceTree = "<group>"; };
+		87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketProductViewController.swift; sourceTree = "<group>"; };
+		87F3D8DF257E1FE900019EB6 /* TCNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCNetworkManager.swift; sourceTree = "<group>"; };
 		F52848A52906B19808DFBFD8 /* Pods-PhotoBrower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.debug.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -413,6 +419,8 @@
 		87B343C22513495000028A25 /* PhotoBrower */ = {
 			isa = PBXGroup;
 			children = (
+				87F3D8DE257E1FCD00019EB6 /* NetTool */,
+				8725682A252459920047A420 /* TCMapViewController.swift */,
 				876C73BA25205E6B0007D484 /* liandong */,
 				87982347251DE252005B6E86 /* ChoosePeople */,
 				87B13C3D251CC06200B6FD6E /* trash */,
@@ -420,12 +428,12 @@
 				87505C452519E4C9002C8D24 /* HotelOrder */,
 				87505C0C25185F63002C8D24 /* HotelPhoto */,
 				87505C0D25185F77002C8D24 /* HotelComment */,
-				87B3444725135CCF00028A25 /* Lib */,
+				87F3D8D5257E1E9F00019EB6 /* Ticket */,
+				87B3444725135CCF00028A25 /* LTPageView */,
 				876C734D2520245F0007D484 /* SnapKit */,
 				87B343C32513495000028A25 /* AppDelegate.swift */,
 				87B343C52513495000028A25 /* SceneDelegate.swift */,
 				87B343C72513495000028A25 /* ViewController.swift */,
-				8725682A252459920047A420 /* TCMapViewController.swift */,
 				87B343C92513495000028A25 /* Main.storyboard */,
 				87B343CC2513495600028A25 /* Assets.xcassets */,
 				87B343CE2513495600028A25 /* LaunchScreen.storyboard */,
@@ -452,7 +460,7 @@
 			path = PhotoBrowerUITests;
 			sourceTree = "<group>";
 		};
-		87B3444725135CCF00028A25 /* Lib */ = {
+		87B3444725135CCF00028A25 /* LTPageView */ = {
 			isa = PBXGroup;
 			children = (
 				87B3444825135CCF00028A25 /* LTPageView */,
@@ -462,7 +470,7 @@
 				87B3445625135CCF00028A25 /* LTTitleView */,
 				87B3445925135CCF00028A25 /* LTSimpleManager */,
 			);
-			path = Lib;
+			path = LTPageView;
 			sourceTree = "<group>";
 		};
 		87B3444825135CCF00028A25 /* LTPageView */ = {
@@ -518,6 +526,23 @@
 				87B3445A25135CCF00028A25 /* LTSimpleManager.swift */,
 			);
 			path = LTSimpleManager;
+			sourceTree = "<group>";
+		};
+		87F3D8D5257E1E9F00019EB6 /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */,
+				87D5F0D4258078B400A53E4A /* TCTicketProductModel.swift */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
+		87F3D8DE257E1FCD00019EB6 /* NetTool */ = {
+			isa = PBXGroup;
+			children = (
+				87F3D8DF257E1FE900019EB6 /* TCNetworkManager.swift */,
+			);
+			name = NetTool;
 			sourceTree = "<group>";
 		};
 		9612B6B2341446157F1956C0 /* Frameworks */ = {
@@ -753,10 +778,12 @@
 				876C7387252024600007D484 /* ConstraintLayoutGuide.swift in Sources */,
 				876C738F252024600007D484 /* ConstraintLayoutGuideDSL.swift in Sources */,
 				87B3446025135CCF00028A25 /* LTTableViewProtocal.swift in Sources */,
+				87F3D8D7257E1EBA00019EB6 /* TCTicketProductViewController.swift in Sources */,
 				876C7384252024600007D484 /* ConstraintConfig.swift in Sources */,
 				876C7386252024600007D484 /* ConstraintView.swift in Sources */,
 				876C745525218A360007D484 /* TCHotelOrderPayTypeCell.swift in Sources */,
 				87B3446325135CCF00028A25 /* LTScrollExtension.swift in Sources */,
+				87D5F0D5258078B400A53E4A /* TCTicketProductModel.swift in Sources */,
 				876C737B252024600007D484 /* ConstraintViewDSL.swift in Sources */,
 				876C7383252024600007D484 /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				87B3446425135CCF00028A25 /* LTTableView.swift in Sources */,
@@ -773,6 +800,7 @@
 				876C7379252024600007D484 /* ConstraintMakerPriortizable.swift in Sources */,
 				87505C58251A2172002C8D24 /* TCHotelOrderHotelInfowCell.swift in Sources */,
 				876C7388252024600007D484 /* ConstraintLayoutSupport.swift in Sources */,
+				87F3D8E0257E1FE900019EB6 /* TCNetworkManager.swift in Sources */,
 				87B344762513794C00028A25 /* TCHotelPhotoBrowerCell.swift in Sources */,
 				876C7343252023A60007D484 /* TCHotelGeneralPickerView.swift in Sources */,
 				876C73BC25205F1B0007D484 /* TCHotelSearchLocationView.swift in Sources */,
@@ -982,14 +1010,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9C67X3S496;
+				DEVELOPMENT_TEAM = QGWN647PA4;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "SD_WEBP=1 ";
 				INFOPLIST_FILE = PhotoBrower/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.foliday.traving;
+				PRODUCT_BUNDLE_IDENTIFIER = .lin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PhotoBrower-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1005,14 +1038,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9C67X3S496;
+				DEVELOPMENT_TEAM = QGWN647PA4;
 				INFOPLIST_FILE = PhotoBrower/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.foliday.traving;
+				PRODUCT_BUNDLE_IDENTIFIER = .lin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PhotoBrower-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

@@ -67,6 +67,12 @@ class ViewController: UIViewController {
         button7.addTarget(self, action: #selector(toMap), for: .touchUpInside)
         self.view.addSubview(button7)
         
+        let button8 = UIButton(frame: CGRect(x: 200, y: 500, width: 100, height: 30))
+        button8.setTitle("门票页", for: .normal)
+        button8.setTitleColor(.black, for: .normal)
+        button8.addTarget(self, action: #selector(toTicketPage), for: .touchUpInside)
+        self.view.addSubview(button8)
+        
     }
 
     @objc func toPhotosList() {
@@ -112,6 +118,11 @@ class ViewController: UIViewController {
     @objc func toMap() {
         let map = TCMapViewController()
         self.navigationController?.pushViewController(map, animated: true)
+    }
+    
+    @objc func toTicketPage() {
+        let ticket = TCTicketProductViewController()
+        self.navigationController?.pushViewController(ticket, animated: true)
     }
 }
 

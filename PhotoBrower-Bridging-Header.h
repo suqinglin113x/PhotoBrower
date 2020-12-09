@@ -3,5 +3,6 @@
 //
 
 #import <BMKLocationkit/BMKLocationComponent.h>
-#import <BaiduMapAPI_Base/BMKBaseComponent.h>
-#import <BaiduMapAPI_Map/BMKMapView.h>
+//#import <BaiduMapAPI_Base/BMKBaseComxponent.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <SDWebImageWebPCoder/SDWebImageWebPCoder.h>

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (5.4.0)
   - BaiduMapKit (6.0.0):
     - BaiduMapKit/Base (= 6.0.0)
     - BaiduMapKit/Cloud (= 6.0.0)
@@ -15,30 +16,67 @@ PODS:
   - BaiduMapKit/Utils (6.0.0):
     - BaiduMapKit/Base
   - BMKLocationKit (1.8.5)
+  - libwebp (1.1.0):
+    - libwebp/demux (= 1.1.0)
+    - libwebp/mux (= 1.1.0)
+    - libwebp/webp (= 1.1.0)
+  - libwebp/demux (1.1.0):
+    - libwebp/webp
+  - libwebp/mux (1.1.0):
+    - libwebp/demux
+  - libwebp/webp (1.1.0)
   - MJRefresh (3.4.3)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
   - SDWebImage (5.8.1):
     - SDWebImage/Core (= 5.8.1)
   - SDWebImage/Core (5.8.1)
+  - SDWebImageWebPCoder (0.6.1):
+    - libwebp (~> 1.0)
+    - SDWebImage/Core (~> 5.7)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - BaiduMapKit (= 6.0.0)
   - BMKLocationKit
   - MJRefresh
+  - SDCycleScrollView (from `https://github.com/0x00Zhoujialei/SDCycleScrollView.git`)
   - SDWebImage
+  - SDWebImageWebPCoder
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - BaiduMapKit
     - BMKLocationKit
+    - libwebp
     - MJRefresh
     - SDWebImage
+    - SDWebImageWebPCoder
+    - SwiftyJSON
+
+EXTERNAL SOURCES:
+  SDCycleScrollView:
+    :git: https://github.com/0x00Zhoujialei/SDCycleScrollView.git
+
+CHECKOUT OPTIONS:
+  SDCycleScrollView:
+    :commit: 542b9f82732a47c199d5389eee675b785e047f7e
+    :git: https://github.com/0x00Zhoujialei/SDCycleScrollView.git
 
 SPEC CHECKSUMS:
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   BaiduMapKit: e21e4c72533f263aa3c73e3b0ea13b37e7038f62
   BMKLocationKit: fd3d6b4a9a3a1a2763819f56b780bda5fc5b8726
+  libwebp: 04242ef451672185c1fe41b285a034d2fbda483c
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
+  SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 43e35f36c19c388bc7cce7b7822d79fae2b75d78
+PODFILE CHECKSUM: 00ac45928977daf5cbeaac5522d6c24e1540561f
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0

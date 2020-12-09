@@ -8,10 +8,11 @@
 
 import UIKit
 
-class TCMapViewController: UIViewController, BMKMapViewDelegate, BMKLocationManagerDelegate {
+class TCMapViewController: UIViewController, BMKMapViewDelegate, BMKLocationManagerDelegate{
     var locationManager = BMKLocationManager()
     var mapView: BMKMapView!
     var userLocation = BMKUserLocation()
+    var annotation: BMKPointAnnotation?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,22 @@ class TCMapViewController: UIViewController, BMKMapViewDelegate, BMKLocationMana
         mapView?.showMapScaleBar = true
         self.view.addSubview(mapView)
 
+        // 标记位置
+        //初始化标注类BMKPointAnnotation的实例
+        annotation = BMKPointAnnotation()
+        //设置标注的经纬度坐标
+        annotation?.coordinate = CLLocationCoordinate2D(latitude: 31.194682, longitude: 121.538429)
+        //设置标注的标题
+        annotation?.title = "上海"
+        //副标题
+        annotation?.subtitle = "xxxxxx"
+        /**
+         
+         当前地图添加标注，需要实现BMKMapViewDelegate的-mapView:viewForAnnotation:方法
+         来生成标注对应的View
+         @param annotation 要添加的标注
+         */
+        mapView.addAnnotation(annotation)
     }
     
     override func viewWillAppear(_ animated: Bool) {
