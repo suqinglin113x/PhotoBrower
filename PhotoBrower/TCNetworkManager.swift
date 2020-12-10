@@ -13,13 +13,9 @@ import SwiftyJSON
 
 #if DEBUG
 let fosunholidayHost = "http://admintest.fosunholiday.com"
-let folidaymall = "http://h5test.folidaymall.com"
-let wapBuyer = "http://testwap.buyer.fosunholiday.com"
 
 #else
 let fosunholidayHost = "https://apis.folidaymall.com"
-let folidaymall = "https://hotels.folidaymall.com"
-let wapBuyer = "https://wap.buyer.fosunholiday.com"
 
 #endif
 
@@ -44,7 +40,19 @@ class TCNetworkManager {
     
     
     
-    
+    public func get(URLString: String, parameters: Parameters?, success: SuccessType?, failure: FailureType?) {
+        dataWithHTTPMethod(method: .get, URLString: URLString, parameters: parameters, encoding: URLEncoding.default, success: { (value) in
+            guard success != nil else {
+                return
+            }
+            success!(value)
+        }) { (error) in
+            guard failure != nil else {
+                return
+            }
+            failure!(error)
+        }
+    }
     
     public func getWithSwiftyJSONResponse(URLString: String, parameters: Parameters?, success: SuccessWithSwiftyJSONType?, failure: FailureType?) {
         dataWithHTTPMethod(method: .get, URLString: URLString, parameters: parameters, encoding: URLEncoding.default, success: { (response) in

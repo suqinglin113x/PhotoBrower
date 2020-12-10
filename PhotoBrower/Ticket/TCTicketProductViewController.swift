@@ -57,7 +57,7 @@ class TCTicketProductViewController: UIViewController {
     
     lazy var cycleView: SDCycleScrollView = {
         let cycleView = SDCycleScrollView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
-        cycleView.placeholderImage = UIImage.init(named: "image_square_default")
+        cycleView.placeholderImage = UIImage.init(named: "image_rect_default")
         cycleView.autoScroll = true
         return cycleView
     }()
@@ -112,43 +112,58 @@ class TCTicketProductViewController: UIViewController {
 extension TCTicketProductViewController {
     
     func getBaseInfoData() {
-        let url = "https://admintest.fosunholiday.com/online/product/ticket/\(productID)/baseInfo"
-        
-        TCNetworkManager.Instance.getWithSwiftyJSONResponse(URLString: url, parameters: nil) { (response) in
-            debugPrint(response)
-            if response["hasError"].boolValue == true {
-                
+        let url = fosunholidayHost + "/poseidon/online/product/ticket/\(productID)"
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
+            debugPrint(response as Any)
+            guard let res = response as? [String: Any] else {
                 return
             }
-            let baseInfo = TCBaseInfo.init(jsonData: response["data"])
-            self.productModel.baseInfo = baseInfo
-            
-            self.cycleView.imageURLStringsGroup = baseInfo.productImageInfos?.map({$0.url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) as Any})
-            self.tableView.reloadData()
+            let hasError = res["hasError"] as! Int
+            if hasError != 0 {
+                return
+            }
+        
+            if let jsonData = try? JSONSerialization.data(withJSONObject: res["data"] as Any, options: []) {
+                do {
+                    let baseInfo: TCBaseInfo = try JSONDecoder().decode(TCBaseInfo.self, from: jsonData)
+                    self.productModel.baseInfo = baseInfo
+                    self.cycleView.imageURLStringsGroup = baseInfo.productImageInfos?.map({$0.url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) as Any})
+                    self.tableView.reloadData()
+                } catch  {
+                    print(error)
+                }
+            }
             
         } failure: { (error) in
             
         }
+
     }
     
     /// 门票data
     func getTicketsData() {
-        let url = "https://admintest.fosunholiday.com/online/product/ticket/\(productID)/ticketResource"
+        let url = fosunholidayHost + "/poseidon/online/product/\(productID)/ticketResource"
         
-        TCNetworkManager.Instance.getWithSwiftyJSONResponse(URLString: url, parameters: nil) { (response) in
-            debugPrint(response)
-            if response["hasError"].boolValue == true {
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
+            debugPrint(response as Any)
+            guard let res = response as? [String: Any] else {
                 return
             }
-            let dataArr = response["data"].arrayValue
-            
-            var temArr: [String] = []
-            for item in dataArr {
-                temArr.append(item["ticketName"].stringValue)
-                self.productModel.ticketModelArray?.append(TCTicketModel.arrWith(jsonData: item["resources"]))
+            let hasError = res["hasError"] as! Bool
+            if hasError {
+                return
             }
-            self.sectionTitles.insert(contentsOf: temArr, at: 0)
-            self.tableView.reloadData()
+            if let dataArr = res["data"] as? [[String : Any]] {
+                var temArr: [String] = []
+                for item in dataArr {
+                    temArr.append(item["ticketName"] as? String ?? "")
+                    self.productModel.ticketModelArray?.append(TCTicketModel.arrWith(dataArr: item["resources"] as Any))
+                }
+                self.sectionTitles.insert(contentsOf: temArr, at: 0)
+                self.tableView.reloadData()
+            }
+            
+           
             
         } failure: { (error) in
             
@@ -166,12 +181,12 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
         if section == sectionTitles.count-1 {
             return 10
         }
-        return 3
+        if section == sectionTitles.count-2 {
+            return 1
+        }
+        return self.productModel.ticketModelArray?[section].count ?? 0
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == sectionTitles.count-1 {
-            return 51
-        }
         if section == sectionTitles.count-2 {
             return 20
         }
@@ -200,7 +215,6 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
         let headerFooterView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: h))
         headerFooterView.contentView.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         if section == sectionTitles.count-1 {
-            h = 51
             headerFooterView.contentView.backgroundColor = .white
             let btnTitles = ["简介", "须知"]
             let w = UIScreen.main.bounds.width/2
