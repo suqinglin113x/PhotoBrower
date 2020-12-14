@@ -14,8 +14,8 @@ private let kScreenH: CGFloat = UIScreen.main.bounds.size.height
 private let isIphoneX = (kScreenH >= 812)
 
 class TCTicketProductViewController: UIViewController {
-    var navTitle: String? = "标题"
-    var productID: String = "90000023"
+    var navTitle: String? = ""
+    var productID: String = "90000023"//90000030
     var productModel = TCTicketProductModel()
     
     var statusH: CGFloat = {
@@ -45,7 +45,6 @@ class TCTicketProductViewController: UIViewController {
         titleL = UILabel()
         titleL.frame = CGRect(x: 0, y: backButton.frame.origin.y, width: kScreenW - 44*2, height: 44)
         titleL.center = CGPoint(x: kScreenW * 0.5, y: backButton.center.y)
-        titleL.text = self.navTitle
         titleL.textColor = .black
         titleL.isHidden = true
         titleL.textAlignment = .center
@@ -55,19 +54,11 @@ class TCTicketProductViewController: UIViewController {
         return navHeader
     }()
     
-    lazy var cycleView: SDCycleScrollView = {
-        let cycleView = SDCycleScrollView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 250))
-        cycleView.placeholderImage = UIImage.init(named: "image_rect_default")
-        cycleView.autoScroll = true
-        return cycleView
-    }()
     
     var tableView: UITableView!
     var hoverOffY: CGFloat?
-    lazy var tableHeaderView: UIView = {
-        let headView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: cycleView.bounds.height+325))
-        headView.addSubview(cycleView)
-        headView.backgroundColor = .red
+    lazy var tableHeaderView: TCTicketProductHeader = {
+        let headView = Bundle.main.loadNibNamed("TCTicketProductHeader", owner: self, options: nil)?.first as! TCTicketProductHeader
         return headView
     }()
     /// 默认俩倒数底部的section
@@ -90,6 +81,9 @@ class TCTicketProductViewController: UIViewController {
         
         self.getBaseInfoData()
         self.getTicketsData()
+        self.getAdBanner()
+        self.getCMSData()
+        
     }
     
     func creatTab() {
@@ -114,7 +108,7 @@ extension TCTicketProductViewController {
     func getBaseInfoData() {
         let url = fosunholidayHost + "/poseidon/online/product/ticket/\(productID)"
         TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
-            debugPrint(response as Any)
+//            debugPrint(response as Any)
             guard let res = response as? [String: Any] else {
                 return
             }
@@ -125,9 +119,12 @@ extension TCTicketProductViewController {
         
             if let jsonData = try? JSONSerialization.data(withJSONObject: res["data"] as Any, options: []) {
                 do {
-                    let baseInfo: TCBaseInfo = try JSONDecoder().decode(TCBaseInfo.self, from: jsonData)
+                    var baseInfo: TCBaseInfo = try JSONDecoder().decode(TCBaseInfo.self, from: jsonData)
+                    baseInfo.productCode = self.productID
                     self.productModel.baseInfo = baseInfo
-                    self.cycleView.imageURLStringsGroup = baseInfo.productImageInfos?.map({$0.url?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) as Any})
+                    self.titleL.text = baseInfo.productName
+                    self.tableHeaderView.configBaseInfoData(baseInfo: baseInfo)
+                    self.getCouponData()
                     self.tableView.reloadData()
                 } catch  {
                     print(error)
@@ -145,7 +142,7 @@ extension TCTicketProductViewController {
         let url = fosunholidayHost + "/poseidon/online/product/\(productID)/ticketResource"
         
         TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
-            debugPrint(response as Any)
+//            debugPrint(response as Any)
             guard let res = response as? [String: Any] else {
                 return
             }
@@ -155,10 +152,11 @@ extension TCTicketProductViewController {
             }
             if let dataArr = res["data"] as? [[String : Any]] {
                 var temArr: [String] = []
-                for item in dataArr {
+                dataArr.forEach { (item) in
                     temArr.append(item["ticketName"] as? String ?? "")
                     self.productModel.ticketModelArray?.append(TCTicketModel.arrWith(dataArr: item["resources"] as Any))
                 }
+                
                 self.sectionTitles.insert(contentsOf: temArr, at: 0)
                 self.tableView.reloadData()
             }
@@ -168,6 +166,82 @@ extension TCTicketProductViewController {
         } failure: { (error) in
             
         }
+    }
+    
+    // 广告banner
+    func getAdBanner() {
+        let url = fosunholidayHost + "/online/capi/component/getExtensionInfo/\(productID)"
+        
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
+//            debugPrint(response as Any)
+            guard let res = response as? [String: Any] else {
+                return
+            }
+            let hasError = res["hasError"] as! Bool
+            if hasError {
+                return
+            }
+            if let bannerS = res["data"] as? [String: Any] {
+                if let data = try? JSONSerialization.data(withJSONObject: bannerS["extension"] as Any, options: []) {
+                    let model = try? JSONDecoder().decode(TCAdBannerModel.self, from: data)
+                    self.productModel.adBannerModel = model
+                    self.tableHeaderView.configAdBannerData(model: model ?? TCAdBannerModel())
+                }
+                self.tableView.reloadData()
+            }
+        } failure: { (error) in
+            
+        }
+    }
+    
+    /// CMS
+    func getCMSData() {
+        let url = fosunholidayHost+"/online/cms-api/pageComponents"
+        let dict = ["codes":["TCH5_Product_Service_commitment", "TCH5_Product_Service_copywriting"]]
+        TCNetworkManager.Instance.post(URLString: url, parameters: dict) { (response) in
+            if let res = response as? [String: Any] {
+                let hasError = res["hasError"] as! Bool
+                if hasError {
+                    return
+                }
+                let pageComponents = (res["data"] as! NSDictionary)["pageComponents"]
+                let arr = TCCMSModel.arrWith(dataArr: pageComponents as Any)
+                self.tableHeaderView.configCmsData(arr)
+            }
+            
+            
+        } failure: { (error) in
+            
+        }
+    }
+    
+    // 优惠券
+    func getCouponData() {
+        let url = fosunholidayHost+"/online/capi/cp/getAvailableCouponList"
+        let dict = ["appKey": "APP_TC",
+                    "categoryId": productModel.baseInfo?.productType as Any,
+                    "companyId": productModel.baseInfo?.company?.companyId as Any,
+                    "productId": productID] as [String : Any]
+        
+        TCNetworkManager.init().post(URLString: url, parameters: dict) { (response) in
+//            debugPrint(response as Any)
+            if let res = response as? [String: Any] {
+                let hasError = res["hasError"] as! Bool
+                if hasError {
+                    return
+                }
+                let cpInfoDTOS = (res["data"] as? [String: Any])?["cpInfoDTOS"]
+                
+                let arr = TCCouponModel.arrWith(dataArr: cpInfoDTOS as Any)
+                
+                self.tableHeaderView.configCouponData(couponArr: arr)
+                
+            }
+        } failure: { (error) in
+            
+        }
+
+        
     }
 }
 

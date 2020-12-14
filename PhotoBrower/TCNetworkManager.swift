@@ -72,7 +72,14 @@ class TCNetworkManager {
     
     
     
-    
+    public func post(URLString: String, parameters: Parameters?, success: SuccessType?, failure: FailureType?) {
+        dataWithHTTPMethod(method: .post, URLString: URLString, parameters: parameters, encoding: JSONEncoding.default) { (response) in
+            success!(response)
+        } failure: { (error) in
+            failure!(error)
+        }
+
+    }
     
     public func postWithSwiftyJSONResponse(URLString: String, parameters: Parameters?, success: (SuccessWithSwiftyJSONType)?, failure: FailureType?) {
         dataWithHTTPMethod(method: .get, URLString: URLString, parameters: parameters, encoding: URLEncoding.default, success: { (response) in
@@ -93,7 +100,7 @@ class TCNetworkManager {
     
     
     func dataWithHTTPMethod(method: HTTPMethod, URLString: String, parameters: Parameters?,encoding: ParameterEncoding, success: SuccessType? = nil, successWithData: SuccessWithDataType? = nil, failure: FailureType?) {
-        
+        debugPrint("请求地址：\(URLString)")
         var header: HTTPHeaders = ["Accept": "application/json",
                                    "Content-Type": "application/json",
                                    "vision": "1.0.0",

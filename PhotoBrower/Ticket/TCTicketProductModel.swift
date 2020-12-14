@@ -10,12 +10,13 @@
 struct TCTicketProductModel {
     var baseInfo: TCBaseInfo?
     var ticketModelArray: [[TCTicketModel]]? = []
-    
+    var adBannerModel: TCAdBannerModel?
     
 }
 
 /** baseinfo***/
 struct TCBaseInfo: Codable {
+    var productCode: String?
     var productName: String?
     var productType: Int?
     var productTypeName: String?
@@ -76,13 +77,86 @@ struct TCTicketModel: Codable {
     static func arrWith(dataArr: Any) -> [TCTicketModel] {
         var arr: [TCTicketModel] = []
         guard let dataArr = dataArr as? [Any]  else { return [] }
-        for item in dataArr {
+        dataArr.forEach { (item) in
             if let data = try? JSONSerialization.data(withJSONObject: item, options: []) {
-                let model = try! JSONDecoder().decode(TCTicketModel.self, from: data)
-                arr.append(model)
+                do {
+                    let model = try JSONDecoder().decode(TCTicketModel.self, from: data)
+                    arr.append(model)
+                } catch {
+                    print(error)
+                }
             }
         }
         
         return arr
     }
+}
+
+/**AdBannerData**/
+struct TCAdBannerModel: Codable {
+    var activityUrl: String?
+    var productId: Int?
+    var entranceImg: String?
+    var subscriptInfo:String?
+   
+}
+
+/**CMSData**/
+struct TCCMSModel: Codable {
+    var themePicUri: String?
+    var jumpPath: String?
+   
+    static func arrWith(dataArr: Any) -> [TCCMSModel] {
+        var arr: [TCCMSModel] = []
+        guard let dataArr = dataArr as? [[String: Any]]  else { return [] }
+        dataArr.forEach { (item) in
+            let componentContent = (item["componentContents"] as? NSArray)?.firstObject
+            if let data = try? JSONSerialization.data(withJSONObject: componentContent as Any, options: []) {
+                do {
+                    let model = try JSONDecoder.init().decode(TCCMSModel.self, from: data)
+                    arr.append(model)
+                }
+                catch {
+                    print(error)
+                }
+            }
+        }
+        return arr
+    }
+}
+
+
+/* coupon*/
+struct TCCouponModel: Codable {
+    var couponId: Int?
+    var cpName: String?
+    var validDayNum: Int?
+    var validDayStart: Int?
+    var type: Int? // 2折扣券1现金券4门票抵用券
+    var denomination: Int?
+    var startTime: Double?
+    var endTime: Double?
+    var rule: String?
+    var discount: Double?
+    var ticketNum: Int?
+    var couponStr: String?
+    
+    static func arrWith(dataArr: Any) -> [TCCouponModel] {
+        var arr: [TCCouponModel] = []
+        guard let dataArr = dataArr as? [[String: Any]]  else { return [] }
+        dataArr.forEach { (item) in
+            
+            if let data = try? JSONSerialization.data(withJSONObject: item as Any, options: []) {
+                do {
+                    let model = try JSONDecoder.init().decode(TCCouponModel.self, from: data)
+                    arr.append(model)
+                } catch  {
+                    print(error)
+                }
+                
+            }
+        }
+        return arr
+    }
+    
 }

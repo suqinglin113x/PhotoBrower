@@ -9,5 +9,6 @@ pod 'BaiduMapKit', '6.0.0'
 pod 'SDWebImageWebPCoder'
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'SnapKit'
 pod 'SDCycleScrollView',:git => 'https://github.com/0x00Zhoujialei/SDCycleScrollView.git'
 end
