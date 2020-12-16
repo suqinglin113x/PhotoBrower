@@ -133,14 +133,16 @@ class TCTicketProductHeader: UIView {//cycleH+325
 
     func configAdBannerData(model: TCAdBannerModel) {
         if model.activityUrl?.count ?? 0 > 0 {
-            adBannerIV.sd_setImage(with: URL(string: "https://i02piccdn.sogoucdn.com/143f0a88137d5ad1".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!), placeholderImage: UIImage.init(named: ""))
+            adBannerIV.sd_setImage(with: URL(string: "https://i02piccdn.sogoucdn.com/143f0a88137d5ad1".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!), placeholderImage: nil, options: []) { (image, error, cacheType, url) in
+                self.getMaxHeight()
+            }
         } else {
-            adBannerIV.removeFromSuperview()
             self.frame.size.height -= adBannerViewConstraintH.constant
             adBannerViewConstraintH.constant = 0
+            adBannerIV.removeFromSuperview()
+            
+            self.getMaxHeight()
         }
-        
-        self.getMaxHeight()
     }
     
     func configCmsData(_ modelArr: [TCCMSModel]) {
@@ -151,11 +153,13 @@ class TCTicketProductHeader: UIView {//cycleH+325
             return
         }
         let firstModel = modelArr.first
-        cmsImageView.sd_setImage(with: URL(string: firstModel?.themePicUri ?? ""))
+        cmsImageView.sd_setImage(with: URL(string: firstModel?.themePicUri ?? ""), placeholderImage: nil, options: [], completed: { (image, error, type, url) in
+            self.getMaxHeight()
+        })
         let cmsTap = UITapGestureRecognizer(target: self, action: #selector(cmsTapAction))
         cmsImageView.addGestureRecognizer(cmsTap)
         
-        self.getMaxHeight()
+        
     }
     
     func configCouponData(couponArr: [TCCouponModel]) {
@@ -163,11 +167,13 @@ class TCTicketProductHeader: UIView {//cycleH+325
         let height: CGFloat = 15
         var x: CGFloat = 50
         var width: CGFloat = 0
+        let font = UIFont(name: "PingFangSC-Regular", size: 10)
+        
         for i in 0..<2 {
             let cpName = couponArr[i].couponStr as NSString?
             x += (width)
-            let width1 = cpName?.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: nil, context: nil).size.width ?? 0
-              width = width1
+            let width1 = cpName?.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:font as Any], context: nil).size.width ?? 0
+              width = width1+15
             if i>0 {
                 x+=5
             }
@@ -177,7 +183,7 @@ class TCTicketProductHeader: UIView {//cycleH+325
             coupon1.text = cpName as String?
             coupon1.textAlignment = .center
             coupon1.textColor = UIColor(red: 1, green: 0.4, blue: 0, alpha: 1)
-            coupon1.font = UIFont(name: "PingFangSC-Regular", size: 10)
+            coupon1.font = font
             
         }
         let tap = UITapGestureRecognizer(target: self, action: #selector(couponTapAction))

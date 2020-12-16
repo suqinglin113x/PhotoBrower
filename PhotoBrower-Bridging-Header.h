@@ -6,3 +6,4 @@
 //#import <BaiduMapAPI_Base/BMKBaseComxponent.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <SDWebImageWebPCoder/SDWebImageWebPCoder.h>
+#import "FPSDisplay.h"

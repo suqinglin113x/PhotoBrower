@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="338" height="327"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6dy-DT-Ni8">
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6dy-DT-Ni8">
                         <rect key="frame" x="10" y="5" width="318" height="282"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </tableView>
@@ -63,7 +63,10 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="moreIcon" destination="AMP-U9-8xr" id="LLb-qP-Yn3"/>
+                <outlet property="moreTipLabel" destination="tZ4-4S-EB5" id="tQp-kT-I21"/>
                 <outlet property="moreView" destination="app-4z-9V4" id="Sge-qB-c6F"/>
+                <outlet property="moreViewConstraintH" destination="v84-Qg-Hja" id="1WH-Af-qev"/>
                 <outlet property="tableView" destination="6dy-DT-Ni8" id="ZdH-Y3-Ob6"/>
             </connections>
             <point key="canvasLocation" x="266.66666666666669" y="143.63839285714286"/>

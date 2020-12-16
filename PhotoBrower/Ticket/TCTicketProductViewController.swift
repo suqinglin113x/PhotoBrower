@@ -93,8 +93,10 @@ class TCTicketProductViewController: UIViewController {
         self.view.addSubview(tableView)
         tableView.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         tableView.register(UINib(nibName: "TCTicketSectionCell", bundle: nil), forCellReuseIdentifier: "TCTicketSectionCell")
+        tableView.register(UINib(nibName: "TCTicketProductCompanyCell", bundle: nil), forCellReuseIdentifier: "TCTicketProductCompanyCell")
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.tableHeaderView = tableHeaderView
+//        tableView.separatorStyle = .none
         tableHeaderView.refreshHeaderHeight = { height in
             self.tableHeaderView.frame.size.height = height
             self.tableView.tableHeaderView = self.tableHeaderView
@@ -270,9 +272,9 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let itemH: CGFloat = 70
         
         if indexPath.section < ticketModelArrays.count {
+            let itemH: CGFloat = 70
             var bottomSpace: CGFloat = 0
             var eachRows = ticketModelArrays[indexPath.section].eachModelArr.count
             if eachRows > 3 {
@@ -286,12 +288,12 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
             }
             return itemH * CGFloat(eachRows) + bottomSpace
         } else {
-            return itemH + 10
+            return 65+10
         }
         
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section < ticketModelArrays.count {
+        if indexPath.section < ticketModelArrays.count { // 买票
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCTicketSectionCell") as! TCTicketSectionCell
             cell.section = indexPath.section
             cell.ticketModelArr = ticketModelArrays[indexPath.section]
@@ -300,8 +302,12 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
                 self.tableView.reloadData()
             }
             return cell
-        } else {
+        } else if indexPath.section == sectionTitles.count-2 { // 公司信息
            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TCTicketProductCompanyCell") as! TCTicketProductCompanyCell
+            cell.baseInfo = productModel.baseInfo
+            return cell
+        } else { // 简介/须知
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
             return cell
         }
@@ -327,6 +333,15 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
                 btn.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1), for: .normal)
                 btn.titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 13)
                 headerFooterView.addSubview(btn)
+                let lineView = UIView(frame: CGRect(x: 0, y: h-2, width: w, height: 2))
+                lineView.backgroundColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1)
+                headerFooterView.addSubview(lineView)
+                if i == 1 {
+                    lineView.isHidden = true
+                } else {
+                    
+                }
+                
             }
             
         } else {

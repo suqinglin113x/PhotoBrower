@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .orange
-        
+        FPSDisplay.share()
         
         let button1 = UIButton(frame: CGRect(x: 100, y: 200, width: 100, height: 30))
         button1.setTitle("相册", for: .normal)

@@ -12,17 +12,30 @@ class TCTicketSectionCell: UITableViewCell {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var moreView: UIView!
+    @IBOutlet weak var moreTipLabel: UILabel!
+    @IBOutlet weak var moreIcon: UIImageView!
+    @IBOutlet weak var moreViewConstraintH: NSLayoutConstraint!
     
     var isOpen: Bool = false
     var showMoreBlock: ((_ section: Int,_ open: Bool) -> ())?
     
     var ticketModelArr: (eachModelArr: [TCTicketModel], isOpen: Bool) = ([],false) {
         didSet {
-            moreView.isHidden = (ticketModelArr.eachModelArr.count <= 3)
+            if ticketModelArr.eachModelArr.count <= 3 {
+                moreView.isHidden = true
+                moreViewConstraintH.constant = 0
+                
+            } else {
+                moreView.isHidden = false
+                moreViewConstraintH.constant = 40
+            }
+            self.isOpen = ticketModelArr.isOpen
+            updateOpenStatus()
             self.tableView.reloadData()
         }
     }
     var section: Int?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
@@ -34,22 +47,32 @@ class TCTicketSectionCell: UITableViewCell {
         tableView.layer.cornerRadius = 5
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.isScrollEnabled = false
         tableView.separatorStyle = .none
         tableView.register(UINib(nibName: "TCTicketCell", bundle: nil), forCellReuseIdentifier: "TCTicketCell")
-        
         
         let moreTap = UITapGestureRecognizer(target: self, action: #selector(showMoreTicket))
         moreView.addGestureRecognizer(moreTap)
         
     }
 
+    /// 刷新更多、收起状态
+    func updateOpenStatus()  {
+        if isOpen {
+            moreTipLabel.text = "收起"
+            moreIcon.image = UIImage.init(named: "ticket_up")
+        } else {
+            moreTipLabel.text = "展开更多"
+            moreIcon.image = UIImage.init(named: "ticket_down")
+        }
+    }
     @objc func showMoreTicket(tap: UIGestureRecognizer) {
         
         debugPrint("展示更多点击")
         if showMoreBlock != nil {
             isOpen = !isOpen
             showMoreBlock!(section!, isOpen)
+            
+            updateOpenStatus()
         }
     }
     
