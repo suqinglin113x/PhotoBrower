@@ -26,7 +26,8 @@ class TCTicketProductHeader: UIView {//cycleH+325
     @IBOutlet weak var cmsImageView: UIImageView!
     
     @IBOutlet weak var couponView: UIView!
-    
+    @IBOutlet weak var finalLineView: UIView!
+    var refreshHeaderHeight: ((_ height: CGFloat) -> ())?
     
     var cmsModelArr: [TCCMSModel]? = []
     
@@ -97,6 +98,8 @@ class TCTicketProductHeader: UIView {//cycleH+325
         self.titleLConstraintH.constant = height ?? 0
         titleLabel.text = title
         configTagsData(data: tagList)
+        
+        self.getMaxHeight()
     }
     
     /// 创建tags
@@ -136,6 +139,8 @@ class TCTicketProductHeader: UIView {//cycleH+325
             self.frame.size.height -= adBannerViewConstraintH.constant
             adBannerViewConstraintH.constant = 0
         }
+        
+        self.getMaxHeight()
     }
     
     func configCmsData(_ modelArr: [TCCMSModel]) {
@@ -150,6 +155,7 @@ class TCTicketProductHeader: UIView {//cycleH+325
         let cmsTap = UITapGestureRecognizer(target: self, action: #selector(cmsTapAction))
         cmsImageView.addGestureRecognizer(cmsTap)
         
+        self.getMaxHeight()
     }
     
     func configCouponData(couponArr: [TCCouponModel]) {
@@ -177,7 +183,7 @@ class TCTicketProductHeader: UIView {//cycleH+325
         let tap = UITapGestureRecognizer(target: self, action: #selector(couponTapAction))
         couponView.addGestureRecognizer(tap)
         
-        
+        self.getMaxHeight()
     }
     
 }
@@ -185,6 +191,16 @@ class TCTicketProductHeader: UIView {//cycleH+325
 // MARK: UI
 extension TCTicketProductHeader {
     
+    /// 获取最终高度
+    func getMaxHeight() {
+        self.layoutIfNeeded()
+        let maxY = self.finalLineView.frame.maxY
+        print(maxY)
+        self.frame.size.height = maxY
+        if self.refreshHeaderHeight != nil {
+            self.refreshHeaderHeight!(maxY)
+        }
+    }
     func createButton(title: String) -> UIButton {
         let font = UIFont(name: "PingFangSC-regular", size: 12)
         let button = UIButton(type: .custom)

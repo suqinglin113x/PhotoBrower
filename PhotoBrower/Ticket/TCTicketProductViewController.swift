@@ -17,7 +17,7 @@ class TCTicketProductViewController: UIViewController {
     var navTitle: String? = ""
     var productID: String = "90000023"//90000030
     var productModel = TCTicketProductModel()
-    
+    var ticketModelArrays:[(eachModelArr: [TCTicketModel], isOpen: Bool)] = []
     var statusH: CGFloat = {
         var statusH: CGFloat = 0
         if #available(iOS 13.0, *) {
@@ -91,10 +91,14 @@ class TCTicketProductViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         self.view.addSubview(tableView)
-        tableView.backgroundColor = .yellow
-        
-        self.tableView.contentInsetAdjustmentBehavior = .never
+        tableView.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
+        tableView.register(UINib(nibName: "TCTicketSectionCell", bundle: nil), forCellReuseIdentifier: "TCTicketSectionCell")
+        tableView.contentInsetAdjustmentBehavior = .never
         tableView.tableHeaderView = tableHeaderView
+        tableHeaderView.refreshHeaderHeight = { height in
+            self.tableHeaderView.frame.size.height = height
+            self.tableView.tableHeaderView = self.tableHeaderView
+        }
     }
 
     @objc func closeVC() {
@@ -108,7 +112,7 @@ extension TCTicketProductViewController {
     func getBaseInfoData() {
         let url = fosunholidayHost + "/poseidon/online/product/ticket/\(productID)"
         TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
-//            debugPrint(response as Any)
+
             guard let res = response as? [String: Any] else {
                 return
             }
@@ -142,7 +146,7 @@ extension TCTicketProductViewController {
         let url = fosunholidayHost + "/poseidon/online/product/\(productID)/ticketResource"
         
         TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
-//            debugPrint(response as Any)
+
             guard let res = response as? [String: Any] else {
                 return
             }
@@ -152,11 +156,12 @@ extension TCTicketProductViewController {
             }
             if let dataArr = res["data"] as? [[String : Any]] {
                 var temArr: [String] = []
-                dataArr.forEach { (item) in
+                for (_, item) in dataArr.enumerated() {
                     temArr.append(item["ticketName"] as? String ?? "")
-                    self.productModel.ticketModelArray?.append(TCTicketModel.arrWith(dataArr: item["resources"] as Any))
+                    let eachModelArr = TCTicketModel.arrWith(dataArr: item["resources"] as Any)
+
+                    self.ticketModelArrays.append((eachModelArr, false))
                 }
-                
                 self.sectionTitles.insert(contentsOf: temArr, at: 0)
                 self.tableView.reloadData()
             }
@@ -173,7 +178,7 @@ extension TCTicketProductViewController {
         let url = fosunholidayHost + "/online/capi/component/getExtensionInfo/\(productID)"
         
         TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
-//            debugPrint(response as Any)
+
             guard let res = response as? [String: Any] else {
                 return
             }
@@ -184,7 +189,7 @@ extension TCTicketProductViewController {
             if let bannerS = res["data"] as? [String: Any] {
                 if let data = try? JSONSerialization.data(withJSONObject: bannerS["extension"] as Any, options: []) {
                     let model = try? JSONDecoder().decode(TCAdBannerModel.self, from: data)
-                    self.productModel.adBannerModel = model
+
                     self.tableHeaderView.configAdBannerData(model: model ?? TCAdBannerModel())
                 }
                 self.tableView.reloadData()
@@ -224,7 +229,7 @@ extension TCTicketProductViewController {
                     "productId": productID] as [String : Any]
         
         TCNetworkManager.init().post(URLString: url, parameters: dict) { (response) in
-//            debugPrint(response as Any)
+
             if let res = response as? [String: Any] {
                 let hasError = res["hasError"] as! Bool
                 if hasError {
@@ -253,12 +258,9 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == sectionTitles.count-1 {
-            return 10
+            return 20
         }
-        if section == sectionTitles.count-2 {
-            return 1
-        }
-        return self.productModel.ticketModelArray?[section].count ?? 0
+        return 1
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == sectionTitles.count-2 {
@@ -268,22 +270,48 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        let itemH: CGFloat = 70
+        
+        if indexPath.section < ticketModelArrays.count {
+            var bottomSpace: CGFloat = 0
+            var eachRows = ticketModelArrays[indexPath.section].eachModelArr.count
+            if eachRows > 3 {
+                bottomSpace = 40
+            } else {
+                bottomSpace = 10
+            }
+            if eachRows > 3 && ticketModelArrays[indexPath.section].isOpen == false {
+                eachRows = 3
+                return itemH * CGFloat(eachRows) + bottomSpace
+            }
+            return itemH * CGFloat(eachRows) + bottomSpace
+        } else {
+            return itemH + 10
+        }
+        
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        if indexPath.section < ticketModelArrays.count {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TCTicketSectionCell") as! TCTicketSectionCell
+            cell.section = indexPath.section
+            cell.ticketModelArr = ticketModelArrays[indexPath.section]
+            cell.showMoreBlock = { (section, isOpen) in
+                self.ticketModelArrays[section].isOpen = isOpen
+                self.tableView.reloadData()
+            }
+            return cell
+        } else {
+           
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+            return cell
         }
-        cell?.textLabel?.text = "\(indexPath.section)-\(indexPath.row)"
-        return cell!
     }
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         var h: CGFloat = 45
-        if section == sectionTitles.count-2 {
+        if section == ticketModelArrays.count {
             h = 20
         }
         let headerFooterView = UITableViewHeaderFooterView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: h))

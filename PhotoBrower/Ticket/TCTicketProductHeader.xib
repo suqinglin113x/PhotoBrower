@@ -11,19 +11,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" ambiguous="YES" id="iN0-l3-epB" customClass="TCTicketProductHeader" customModule="PhotoBrower" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="448" height="619"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TCTicketProductHeader" customModule="PhotoBrower" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="478" height="541"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgM-DL-Pib" customClass="SDCycleScrollView">
-                    <rect key="frame" x="0.0" y="0.0" width="448" height="250"/>
+                    <rect key="frame" x="0.0" y="0.0" width="478" height="250"/>
                     <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="BTf-cz-LQ4"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXF-ZI-sGQ">
-                    <rect key="frame" x="15" y="270" width="418" height="25"/>
+                    <rect key="frame" x="15" y="270" width="448" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="He6-OB-d1D"/>
                     </constraints>
@@ -32,17 +32,17 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJg-Yj-e3P" userLabel="tagsView">
-                    <rect key="frame" x="15" y="295" width="418" height="30"/>
+                    <rect key="frame" x="15" y="295" width="448" height="30"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="jlt-x8-Yxj"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hek-57-qv9" userLabel="adBanneView">
-                    <rect key="frame" x="15" y="325" width="418" height="90"/>
+                    <rect key="frame" x="15" y="325" width="448" height="90"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vlJ-t1-I3b">
-                            <rect key="frame" x="0.0" y="15" width="418" height="75"/>
+                            <rect key="frame" x="0.0" y="15" width="448" height="75"/>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,10 +55,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j34-YA-4cC" userLabel="cmsView">
-                    <rect key="frame" x="15" y="415" width="418" height="50"/>
+                    <rect key="frame" x="15" y="415" width="448" height="50"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1JS-83-xHT">
-                            <rect key="frame" x="0.0" y="15" width="418" height="20"/>
+                            <rect key="frame" x="0.0" y="15" width="448" height="20"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </imageView>
                     </subviews>
@@ -72,7 +72,7 @@
                     </constraints>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIf-ja-6gy" userLabel="memberView">
-                    <rect key="frame" x="15" y="481" width="418" height="0.0"/>
+                    <rect key="frame" x="15" y="481" width="448" height="0.0"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优惠" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5N-U2-QVR">
                             <rect key="frame" x="0.0" y="16" width="26" height="15"/>
@@ -92,14 +92,14 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfX-qA-aip" userLabel="lineview">
-                    <rect key="frame" x="15" y="465" width="418" height="1"/>
+                    <rect key="frame" x="15" y="465" width="448" height="1"/>
                     <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="rFd-vO-6jY"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2z-NB-JZx" userLabel="couponView">
-                    <rect key="frame" x="15" y="481" width="418" height="40"/>
+                    <rect key="frame" x="15" y="481" width="448" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="领券" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3b-AG-Hr6">
                             <rect key="frame" x="0.0" y="0.0" width="26" height="15"/>
@@ -119,7 +119,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QBi-fu-gDQ" userLabel="lineView">
-                    <rect key="frame" x="0.0" y="521" width="448" height="1"/>
+                    <rect key="frame" x="0.0" y="521" width="478" height="1"/>
                     <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="KdN-Wr-jKK"/>
@@ -154,7 +154,6 @@
                 <constraint firstItem="GgM-DL-Pib" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pvb-tm-LNE"/>
                 <constraint firstItem="j34-YA-4cC" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="q7F-0U-81d"/>
                 <constraint firstItem="X2z-NB-JZx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="qhD-4P-y9p"/>
-                <constraint firstAttribute="bottom" secondItem="QBi-fu-gDQ" secondAttribute="bottom" id="wZw-bs-ET2"/>
                 <constraint firstItem="EIf-ja-6gy" firstAttribute="top" secondItem="sfX-qA-aip" secondAttribute="bottom" constant="15" id="xIa-Ep-Wl5"/>
                 <constraint firstItem="sfX-qA-aip" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="yt0-I7-gvI"/>
             </constraints>
@@ -166,12 +165,13 @@
                 <outlet property="cmsViewConstraintH" destination="jZo-7N-SAU" id="mZk-Bw-PRV"/>
                 <outlet property="couponView" destination="X2z-NB-JZx" id="MK5-cj-lRk"/>
                 <outlet property="cycleView" destination="GgM-DL-Pib" id="H8U-8A-SnO"/>
+                <outlet property="finalLineView" destination="QBi-fu-gDQ" id="y5n-iF-ElV"/>
                 <outlet property="tagsView" destination="cJg-Yj-e3P" id="VYF-gf-WuD"/>
                 <outlet property="tagsViewConstraintH" destination="jlt-x8-Yxj" id="MEY-16-E7b"/>
                 <outlet property="titleLConstraintH" destination="He6-OB-d1D" id="Pgn-T8-oSL"/>
                 <outlet property="titleLabel" destination="eXF-ZI-sGQ" id="ejW-vd-Raj"/>
             </connections>
-            <point key="canvasLocation" x="162.31884057971016" y="-35.825892857142854"/>
+            <point key="canvasLocation" x="184.05797101449278" y="8.3705357142857135"/>
         </view>
     </objects>
     <resources>

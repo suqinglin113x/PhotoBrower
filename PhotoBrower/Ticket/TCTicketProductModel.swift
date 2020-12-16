@@ -9,8 +9,8 @@
 
 struct TCTicketProductModel {
     var baseInfo: TCBaseInfo?
-    var ticketModelArray: [[TCTicketModel]]? = []
-    var adBannerModel: TCAdBannerModel?
+//    var ticketModelArrays: [[TCTicketModel]]? = []
+//    var adBannerModel: TCAdBannerModel?
     
 }
 
