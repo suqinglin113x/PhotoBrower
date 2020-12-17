@@ -26,6 +26,8 @@ class TCTicketProductHeader: UIView {//cycleH+325
     @IBOutlet weak var cmsImageView: UIImageView!
     
     @IBOutlet weak var couponView: UIView!
+    @IBOutlet weak var couponViewConstraintH: NSLayoutConstraint!
+    
     @IBOutlet weak var finalLineView: UIView!
     var refreshHeaderHeight: ((_ height: CGFloat) -> ())?
     
@@ -163,32 +165,45 @@ class TCTicketProductHeader: UIView {//cycleH+325
     }
     
     func configCouponData(couponArr: [TCCouponModel]) {
-        
-        let height: CGFloat = 15
-        var x: CGFloat = 50
-        var width: CGFloat = 0
-        let font = UIFont(name: "PingFangSC-Regular", size: 10)
-        
-        for i in 0..<2 {
-            let cpName = couponArr[i].couponStr as NSString?
-            x += (width)
-            let width1 = cpName?.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:font as Any], context: nil).size.width ?? 0
-              width = width1+15
-            if i>0 {
-                x+=5
+        if couponArr.isEmpty {
+            self.frame.size.height -= couponViewConstraintH.constant
+            couponViewConstraintH.constant = 0
+            couponView.subviews.forEach({$0.removeFromSuperview()})
+            
+        } else {
+            couponView.isHidden = false
+            let height: CGFloat = 15
+            var x: CGFloat = 50
+            var width: CGFloat = 0
+            let font = UIFont(name: "PingFangSC-Regular", size: 10)
+            var temArr: [TCCouponModel] = []
+            
+            if couponArr.count > 2 {
+                temArr = couponArr.suffix(2)
+            } else {
+                temArr = couponArr
             }
-            
-            let coupon1 = CGView(frame: CGRect(x: x, y: 0, width: width, height: height))
-            couponView.addSubview(coupon1)
-            coupon1.text = cpName as String?
-            coupon1.textAlignment = .center
-            coupon1.textColor = UIColor(red: 1, green: 0.4, blue: 0, alpha: 1)
-            coupon1.font = font
-            
+            for i in 0..<temArr.count {
+                let cpName = couponArr[i].couponStr as NSString?
+                x += (width)
+                let width1 = cpName?.boundingRect(with: CGSize(width: CGFloat(MAXFLOAT), height: height), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:font as Any], context: nil).size.width ?? 0
+                  width = width1+15
+                if i>0 {
+                    x+=5
+                }
+                
+                let coupon1 = CGView(frame: CGRect(x: x, y: 0, width: width, height: height))
+                couponView.addSubview(coupon1)
+                coupon1.text = cpName as String?
+                coupon1.textAlignment = .center
+                coupon1.textColor = UIColor(red: 1, green: 0.4, blue: 0, alpha: 1)
+                coupon1.font = font
+                
+            }
+            let tap = UITapGestureRecognizer(target: self, action: #selector(couponTapAction))
+            couponView.addGestureRecognizer(tap)
         }
-        let tap = UITapGestureRecognizer(target: self, action: #selector(couponTapAction))
-        couponView.addGestureRecognizer(tap)
-        
+    
         self.getMaxHeight()
     }
     
