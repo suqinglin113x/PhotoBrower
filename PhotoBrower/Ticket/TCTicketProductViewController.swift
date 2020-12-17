@@ -18,6 +18,7 @@ class TCTicketProductViewController: UIViewController {
     var productID: String = "90000023"//90000030
     var productModel = TCTicketProductModel()
     var ticketModelArrays:[(eachModelArr: [TCTicketModel], isOpen: Bool)] = []
+    var introItemArr: [(title: String, model: TCIntroItemContentModel)] = []
     var statusH: CGFloat = {
         var statusH: CGFloat = 0
         if #available(iOS 13.0, *) {
@@ -83,7 +84,7 @@ class TCTicketProductViewController: UIViewController {
         self.getTicketsData()
         self.getAdBanner()
         self.getCMSData()
-        
+        self.getExplainInfo()
     }
     
     func creatTab() {
@@ -94,6 +95,7 @@ class TCTicketProductViewController: UIViewController {
         tableView.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         tableView.register(UINib(nibName: "TCTicketSectionCell", bundle: nil), forCellReuseIdentifier: "TCTicketSectionCell")
         tableView.register(UINib(nibName: "TCTicketProductCompanyCell", bundle: nil), forCellReuseIdentifier: "TCTicketProductCompanyCell")
+        tableView.register(UINib(nibName: "TCTicketProductIntroCell", bundle: nil), forCellReuseIdentifier: "TCTicketProductIntroCell")
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.tableHeaderView = tableHeaderView
 //        tableView.separatorStyle = .none
@@ -247,8 +249,46 @@ extension TCTicketProductViewController {
         } failure: { (error) in
             
         }
-
+    }
+    
+    /// 简介/须知等
+    func getExplainInfo() {
+        let url = fosunholidayHost+"/poseidon/online/product/ticket/\(productID)/explaininfo"
         
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
+            if let res = response as? [String: Any] {
+                let hasError = res["hasError"] as! Bool
+                if hasError {
+                    return
+                }
+                if let data = try? JSONSerialization.data(withJSONObject: res["data"] as Any, options: []) {
+                    do {
+                        let model = try JSONDecoder().decode(TCIntroModel.self, from: data)
+                        
+                        // UI搞不懂设计的球
+                        let model1 = TCIntroItemContentModel(title: model.recommended, content: model.recommended)
+                        self.introItemArr.append((model1.title!, model1))
+                        let model2 = TCIntroItemContentModel(title: model.recommended, content: model.productIntroduction)
+                        self.introItemArr.append((model2.title!, model2))
+                        
+                        model.productReservationInfos?.forEach({ (itemModel) in
+                            itemModel.productSubReservationInfos?.forEach({ (itemContentModel) in
+                                self.introItemArr.append((itemContentModel.title!, itemContentModel))
+                            })
+                        })
+                        self.tableView.reloadData()
+                        
+                    } catch {
+                        debugPrint(error)
+                    }
+                    
+                }
+                
+            }
+        } failure: { (error) in
+            
+        }
+
     }
 }
 
@@ -260,7 +300,7 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == sectionTitles.count-1 {
-            return 20
+            return introItemArr.count
         }
         return 1
     }
@@ -273,7 +313,7 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if indexPath.section < ticketModelArrays.count {
+        if indexPath.section < ticketModelArrays.count { // 买票
             let itemH: CGFloat = 70
             var bottomSpace: CGFloat = 0
             var eachRows = ticketModelArrays[indexPath.section].eachModelArr.count
@@ -287,8 +327,10 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
                 return itemH * CGFloat(eachRows) + bottomSpace
             }
             return itemH * CGFloat(eachRows) + bottomSpace
-        } else {
+        } else if indexPath.section == sectionTitles.count-2 { // 公司信息
             return 65+10
+        } else { // 简介/须知
+            return 200
         }
         
     }
@@ -308,7 +350,8 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
             cell.baseInfo = productModel.baseInfo
             return cell
         } else { // 简介/须知
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else { return UITableViewCell() }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TCTicketProductIntroCell") as! TCTicketProductIntroCell
+            cell.configData(data: introItemArr[indexPath.row])
             return cell
         }
     }
@@ -386,7 +429,8 @@ extension TCTicketProductViewController {
         
         if hoverOffY != nil {
             if offY >= (hoverOffY!-customNavHeader.frame.maxY) {
-                self.tableView.contentInset = UIEdgeInsets(top: customNavHeader.frame.maxY, left: 0, bottom: 0, right: 0)
+                // 给它点底部距离，好看
+                self.tableView.contentInset = UIEdgeInsets(top: customNavHeader.frame.maxY, left: 0, bottom: 30, right: 0)
             } else {
                 self.tableView.contentInset = UIEdgeInsets.zero
             }

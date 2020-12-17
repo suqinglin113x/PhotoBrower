@@ -204,6 +204,8 @@
 		87C3D533258852F4006BC85D /* TCTicketSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C3D531258852F4006BC85D /* TCTicketSectionCell.xib */; };
 		87C3D5392588629C006BC85D /* TCTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C3D5372588629C006BC85D /* TCTicketCell.swift */; };
 		87C3D53A2588629C006BC85D /* TCTicketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C3D5382588629C006BC85D /* TCTicketCell.xib */; };
+		87CEE26C258B211000DBB5F7 /* TCTicketProductIntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CEE26A258B211000DBB5F7 /* TCTicketProductIntroCell.swift */; };
+		87CEE26D258B211000DBB5F7 /* TCTicketProductIntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87CEE26B258B211000DBB5F7 /* TCTicketProductIntroCell.xib */; };
 		87D3CD9E252322180001E0B7 /* TCHotelPriceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D3CD9D252322180001E0B7 /* TCHotelPriceDetailView.swift */; };
 		87D5F0D5258078B400A53E4A /* TCTicketProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D5F0D4258078B400A53E4A /* TCTicketProductModel.swift */; };
 		87D9FE0F2581F4C0000079E1 /* TCTicketProductHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D9FE0E2581F4C0000079E1 /* TCTicketProductHeader.swift */; };
@@ -337,6 +339,8 @@
 		87C3D531258852F4006BC85D /* TCTicketSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTicketSectionCell.xib; sourceTree = "<group>"; };
 		87C3D5372588629C006BC85D /* TCTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketCell.swift; sourceTree = "<group>"; };
 		87C3D5382588629C006BC85D /* TCTicketCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTicketCell.xib; sourceTree = "<group>"; };
+		87CEE26A258B211000DBB5F7 /* TCTicketProductIntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketProductIntroCell.swift; sourceTree = "<group>"; };
+		87CEE26B258B211000DBB5F7 /* TCTicketProductIntroCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTicketProductIntroCell.xib; sourceTree = "<group>"; };
 		87D3CD9D252322180001E0B7 /* TCHotelPriceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPriceDetailView.swift; sourceTree = "<group>"; };
 		87D3CDC2252358E80001E0B7 /* PhotoBrower-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoBrower-Bridging-Header.h"; sourceTree = "<group>"; };
 		87D5F0D4258078B400A53E4A /* TCTicketProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketProductModel.swift; sourceTree = "<group>"; };
@@ -668,6 +672,7 @@
 		87F3D8D5257E1E9F00019EB6 /* Ticket */ = {
 			isa = PBXGroup;
 			children = (
+				873D99B925836EA000C5753B /* CGView.swift */,
 				87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */,
 				87D5F0D4258078B400A53E4A /* TCTicketProductModel.swift */,
 				87D9FE0E2581F4C0000079E1 /* TCTicketProductHeader.swift */,
@@ -678,7 +683,8 @@
 				87C3D5382588629C006BC85D /* TCTicketCell.xib */,
 				87E0973F2589D90300019BED /* TCTicketProductCompanyCell.swift */,
 				87E097402589D90300019BED /* TCTicketProductCompanyCell.xib */,
-				873D99B925836EA000C5753B /* CGView.swift */,
+				87CEE26A258B211000DBB5F7 /* TCTicketProductIntroCell.swift */,
+				87CEE26B258B211000DBB5F7 /* TCTicketProductIntroCell.xib */,
 			);
 			path = Ticket;
 			sourceTree = "<group>";
@@ -863,6 +869,7 @@
 				87B3446F2513693500028A25 /* TCHotelPhotoListCell.xib in Resources */,
 				87505C352518B221002C8D24 /* TCHotelCommentHeaderView.xib in Resources */,
 				87E097422589D90300019BED /* TCTicketProductCompanyCell.xib in Resources */,
+				87CEE26D258B211000DBB5F7 /* TCTicketProductIntroCell.xib in Resources */,
 				87B13C1A251C94A300B6FD6E /* TCHotelDestinationView.xib in Resources */,
 				87505C2225187F84002C8D24 /* TCHotelCommentCell.xib in Resources */,
 				87C3D533258852F4006BC85D /* TCTicketSectionCell.xib in Resources */,
@@ -1118,6 +1125,7 @@
 				876C7381252024600007D484 /* ConstraintPriority.swift in Sources */,
 				87505C302518B1FF002C8D24 /* TCHotelCommentHeaderView.swift in Sources */,
 				87B343F425134B9200028A25 /* TCHotelPhotosListController.swift in Sources */,
+				87CEE26C258B211000DBB5F7 /* TCTicketProductIntroCell.swift in Sources */,
 				876C737A252024600007D484 /* ConstraintAttributes.swift in Sources */,
 				876C7387252024600007D484 /* ConstraintLayoutGuide.swift in Sources */,
 				876C738F252024600007D484 /* ConstraintLayoutGuideDSL.swift in Sources */,

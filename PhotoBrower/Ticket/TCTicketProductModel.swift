@@ -58,9 +58,6 @@ struct TCBaseInfoCompanyInfo: Codable {
 }
 
 
-/**explainInfo**/
-
-
 
 /**ticketsData**/
 struct TCTicketModel: Codable {
@@ -159,4 +156,25 @@ struct TCCouponModel: Codable {
         return arr
     }
     
+}
+
+
+/**explainInfo**/
+
+struct TCIntroModel: Codable {
+    var recommended: String?
+    var productIntroduction: String?
+    var productReservationInfos: [TCIntroItemModel]? = []
+    
+    
+}
+
+struct TCIntroItemModel: Codable {
+    var title: String?
+    var productSubReservationInfos: [TCIntroItemContentModel]? = []
+    
+}
+struct TCIntroItemContentModel: Codable {
+    var title: String?
+    var content: String?
 }
