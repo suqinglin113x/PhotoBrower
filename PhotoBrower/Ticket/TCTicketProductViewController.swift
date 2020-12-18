@@ -18,7 +18,9 @@ class TCTicketProductViewController: UIViewController {
     var productID: String = "90000023"//90000030
     var productModel = TCTicketProductModel()
     var ticketModelArrays:[(eachModelArr: [TCTicketModel], isOpen: Bool)] = []
-    var introItemArr: [(title: String, model: TCIntroItemContentModel)] = []
+    var introItemArr: [(title: String, model: TCIntroItemContentModel, iconStr: String)] = []
+    var introItemHeights: [CGFloat] = []
+    
     var statusH: CGFloat = {
         var statusH: CGFloat = 0
         if #available(iOS 13.0, *) {
@@ -55,15 +57,20 @@ class TCTicketProductViewController: UIViewController {
         return navHeader
     }()
     
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var upImageView: UIImageView!
     
-    var tableView: UITableView!
     var hoverOffY: CGFloat?
     lazy var tableHeaderView: TCTicketProductHeader = {
         let headView = Bundle.main.loadNibNamed("TCTicketProductHeader", owner: self, options: nil)?.first as! TCTicketProductHeader
         return headView
     }()
-    /// 默认俩倒数底部的section
+    /// 默认添加俩倒数底部的section
     var sectionTitles: [String] = ["",""]
+    /// 简介、须知
+    var currentSelectedBtn: UIButton?
+    var lastSectionButtonArray: [UIButton] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -88,11 +95,6 @@ class TCTicketProductViewController: UIViewController {
     }
     
     func creatTab() {
-        tableView = UITableView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height), style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
-        self.view.addSubview(tableView)
-        tableView.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
         tableView.register(UINib(nibName: "TCTicketSectionCell", bundle: nil), forCellReuseIdentifier: "TCTicketSectionCell")
         tableView.register(UINib(nibName: "TCTicketProductCompanyCell", bundle: nil), forCellReuseIdentifier: "TCTicketProductCompanyCell")
         tableView.register(UINib(nibName: "TCTicketProductIntroCell", bundle: nil), forCellReuseIdentifier: "TCTicketProductIntroCell")
@@ -103,10 +105,39 @@ class TCTicketProductViewController: UIViewController {
             self.tableHeaderView.frame.size.height = height
             self.tableView.tableHeaderView = self.tableHeaderView
         }
+        
+        let footer = UIView()
+        footer.backgroundColor = .white
+        footer.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 180)
+        let logoIV = UIImageView(frame: CGRect(x: 0, y: 30, width: 165, height: 70))
+        logoIV.center.x = footer.center.x
+        logoIV.sd_setImage(with: URL(string: "https://image.fosunholiday.com/tc-fostay/water-mark.png"), placeholderImage: nil, options: [.refreshCached], context: nil)
+        footer.addSubview(logoIV)
+        tableView.tableFooterView = footer
     }
+    
+    
+}
 
+// MARK: 事件Action
+extension TCTicketProductViewController {
     @objc func closeVC() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func tapUpAction(_ sender: Any) {
+        debugPrint("点击了up")
+        self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
+    }
+    @IBAction func tapClosetAction(_ sender: Any) {
+        debugPrint("点击了橱窗")
+    }
+    
+    
+    @IBAction func contactSellerAction(_ sender: Any) {
+        let tel = "tel://\(productModel.baseInfo?.company?.tel ?? "")"
+        UIApplication.shared.open(URL(string: tel)!, options: [:], completionHandler: nil)
     }
 }
 
@@ -120,11 +151,15 @@ extension TCTicketProductViewController {
             guard let res = response as? [String: Any] else {
                 return
             }
-            let hasError = res["hasError"] as! Int
-            if hasError != 0 {
+            let hasError = res["hasError"] as! Bool
+            if hasError {
+                guard let errorMessage = res["errorMessage"] as? String else {
+                    return
+                }
+                GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                 return
             }
-        
+            
             if let jsonData = try? JSONSerialization.data(withJSONObject: res["data"] as Any, options: []) {
                 do {
                     var baseInfo: TCBaseInfo = try JSONDecoder().decode(TCBaseInfo.self, from: jsonData)
@@ -156,6 +191,10 @@ extension TCTicketProductViewController {
             }
             let hasError = res["hasError"] as! Bool
             if hasError {
+                guard let errorMessage = res["errorMessage"] as? String else {
+                    return
+                }
+                GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                 return
             }
             if let dataArr = res["data"] as? [[String : Any]] {
@@ -188,6 +227,10 @@ extension TCTicketProductViewController {
             }
             let hasError = res["hasError"] as! Bool
             if hasError {
+                guard let errorMessage = res["errorMessage"] as? String else {
+                    return
+                }
+                GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                 return
             }
             if let bannerS = res["data"] as? [String: Any] {
@@ -211,6 +254,10 @@ extension TCTicketProductViewController {
             if let res = response as? [String: Any] {
                 let hasError = res["hasError"] as! Bool
                 if hasError {
+                    guard let errorMessage = res["errorMessage"] as? String else {
+                        return
+                    }
+                    GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                     return
                 }
                 let pageComponents = (res["data"] as! NSDictionary)["pageComponents"]
@@ -237,6 +284,10 @@ extension TCTicketProductViewController {
             if let res = response as? [String: Any] {
                 let hasError = res["hasError"] as! Bool
                 if hasError {
+                    guard let errorMessage = res["errorMessage"] as? String else {
+                        return
+                    }
+                    GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                     return
                 }
                 let cpInfoDTOS = (res["data"] as? [String: Any])?["cpInfoDTOS"]
@@ -254,28 +305,36 @@ extension TCTicketProductViewController {
     /// 简介/须知等
     func getExplainInfo() {
         let url = fosunholidayHost+"/poseidon/online/product/ticket/\(productID)/explaininfo"
-        
         TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
             if let res = response as? [String: Any] {
                 let hasError = res["hasError"] as! Bool
                 if hasError {
+                    guard let errorMessage = res["errorMessage"] as? String else {
+                        return
+                    }
+                    GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                     return
                 }
                 if let data = try? JSONSerialization.data(withJSONObject: res["data"] as Any, options: []) {
                     do {
                         let model = try JSONDecoder().decode(TCIntroModel.self, from: data)
+                        let icons = ["ticket_productIntro", "ticket_productUseRule", "ticket_productRemind", "ticket_productBuyNotice"]
                         
-                        // UI搞不懂设计的球
-                        let model1 = TCIntroItemContentModel(title: model.recommended, content: model.recommended)
-                        self.introItemArr.append((model1.title!, model1))
+                        // 先按UI搞吧
+//                        let model1 = TCIntroItemContentModel(title: model.recommended, content: model.recommended)
+//                        self.introItemArr.append((model1.title!, model1))
+                        
                         let model2 = TCIntroItemContentModel(title: model.recommended, content: model.productIntroduction)
-                        self.introItemArr.append((model2.title!, model2))
+                        self.introItemArr.append((model2.title!, model2, icons[0]))
+                        self.introItemHeights.append(0)
                         
-                        model.productReservationInfos?.forEach({ (itemModel) in
+                        for (i, itemModel) in model.productReservationInfos.enumerated() {
                             itemModel.productSubReservationInfos?.forEach({ (itemContentModel) in
-                                self.introItemArr.append((itemContentModel.title!, itemContentModel))
+                                self.introItemArr.append((itemContentModel.title!, itemContentModel, icons[i+1]))
+                                self.introItemHeights.append(0)
                             })
-                        })
+                        }
+                        
                         self.tableView.reloadData()
                         
                     } catch {
@@ -328,9 +387,13 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
             }
             return itemH * CGFloat(eachRows) + bottomSpace
         } else if indexPath.section == sectionTitles.count-2 { // 公司信息
-            return 65+10
+            return 65 + 10
         } else { // 简介/须知
-            return 200
+            
+            let defalutH: CGFloat = 75
+            let cellH: CGFloat = introItemHeights[indexPath.row]
+            
+            return defalutH + cellH
         }
         
     }
@@ -352,6 +415,15 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
         } else { // 简介/须知
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCTicketProductIntroCell") as! TCTicketProductIntroCell
             cell.configData(data: introItemArr[indexPath.row])
+            cell.refreshCellHeight = { h in
+                print("-----\(indexPath.row)-----\(h)")
+                if self.introItemHeights[indexPath.row] > 0 && cell.wkWebView.bounds.height == h {
+                    return
+                }
+                self.introItemHeights[indexPath.row] = h
+               // 建议莫用indexpath.section
+                tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: self.sectionTitles.count-1)], with: .automatic)
+            }
             return cell
         }
     }
@@ -371,18 +443,22 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
             let w = UIScreen.main.bounds.width/2
             for i in 0..<2 {
                 let btn = UIButton(type: .custom)
+                btn.tag = 100 + i
                 btn.frame = CGRect(x: w*CGFloat(i), y: 0, width: w, height: h)
                 btn.setTitle(btnTitles[i], for: .normal)
                 btn.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1), for: .normal)
+                btn.addTarget(self, action: #selector(clickIntroOrNotice), for: .touchUpInside)
                 btn.titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 13)
+                lastSectionButtonArray.append(btn)
                 headerFooterView.addSubview(btn)
                 let lineView = UIView(frame: CGRect(x: 0, y: h-2, width: w, height: 2))
                 lineView.backgroundColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1)
-                headerFooterView.addSubview(lineView)
+                lineView.tag = 1000+i
+                btn.addSubview(lineView)
                 if i == 1 {
                     lineView.isHidden = true
                 } else {
-                    
+                    currentSelectedBtn = btn
                 }
                 
             }
@@ -397,6 +473,18 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
         }
     
         return headerFooterView
+    }
+    
+    
+    @objc func clickIntroOrNotice(btn: UIButton) {
+        
+        if btn.tag == 100 {
+            tableView.scrollToRow(at: IndexPath(row: 0, section: sectionTitles.count-1), at: .top, animated: true)
+        }
+        if btn.tag == 101 {
+            tableView.scrollToRow(at: IndexPath(row: introItemArr.count-1, section: sectionTitles.count-1), at: .top, animated: true)
+        }
+        currentSelectedBtn = btn
     }
 }
 
@@ -421,6 +509,12 @@ extension TCTicketProductViewController {
             titleL.isHidden = false
             backButton.setImage(UIImage.init(named: "back_black"), for: .normal)
         }
+        // 一键回到顶部
+        if offY >= UIScreen.main.bounds.height {
+            upImageView.isHidden = false
+        } else {
+            upImageView.isHidden = true
+        }
         
         let head = self.tableView.headerView(forSection: sectionTitles.count-1)
         if hoverOffY == nil && head != nil {
@@ -429,8 +523,23 @@ extension TCTicketProductViewController {
         
         if hoverOffY != nil {
             if offY >= (hoverOffY!-customNavHeader.frame.maxY) {
-                // 给它点底部距离，好看
-                self.tableView.contentInset = UIEdgeInsets(top: customNavHeader.frame.maxY, left: 0, bottom: 30, right: 0)
+                // 给它点底部距离
+                self.tableView.contentInset = UIEdgeInsets(top: customNavHeader.frame.maxY, left: 0, bottom: bottomView.bounds.height, right: 0)
+            
+                
+                // 处理简介、须知状态自动切换
+                let lastcell = tableView.cellForRow(at: IndexPath(row: introItemArr.count-1, section: sectionTitles.count-1)) as? TCTicketProductIntroCell
+                
+                if lastcell != nil {
+                    head?.viewWithTag(100)?.viewWithTag(1000)?.isHidden = true
+                    head?.viewWithTag(101)?.viewWithTag(1001)?.isHidden = false
+                    currentSelectedBtn = (head?.viewWithTag(101) as? UIButton)
+                } else {
+                    head?.viewWithTag(101)?.viewWithTag(1001)?.isHidden = true
+                    head?.viewWithTag(100)?.viewWithTag(1000)?.isHidden = false
+                    currentSelectedBtn = (head?.viewWithTag(100) as? UIButton)
+                }
+                
             } else {
                 self.tableView.contentInset = UIEdgeInsets.zero
             }

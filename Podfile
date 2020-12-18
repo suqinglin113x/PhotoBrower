@@ -10,5 +10,6 @@ pod 'SDWebImageWebPCoder'
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'SnapKit'
+pod 'MBProgressHUD'
 pod 'SDCycleScrollView',:git => 'https://github.com/0x00Zhoujialei/SDCycleScrollView.git'
 end

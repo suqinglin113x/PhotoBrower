@@ -164,7 +164,7 @@ struct TCCouponModel: Codable {
 struct TCIntroModel: Codable {
     var recommended: String?
     var productIntroduction: String?
-    var productReservationInfos: [TCIntroItemModel]? = []
+    var productReservationInfos: [TCIntroItemModel] = []
     
     
 }

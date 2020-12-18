@@ -216,7 +216,7 @@ extension TCTicketProductHeader {
     func getMaxHeight() {
         self.layoutIfNeeded()
         let maxY = self.finalLineView.frame.maxY
-        print(maxY)
+//        print(maxY)
         self.frame.size.height = maxY
         if self.refreshHeaderHeight != nil {
             self.refreshHeaderHeight!(maxY)
