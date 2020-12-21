@@ -14,7 +14,7 @@ class TCTicketProductIntroCell: UITableViewCell {
     @IBOutlet weak var icon: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var wkWebView: WKWebView!
-    
+    private let kDefaultH: CGFloat = 76
     var refreshCellHeight: ((_ height: CGFloat) -> ())?
     
     
@@ -50,14 +50,14 @@ class TCTicketProductIntroCell: UITableViewCell {
 extension TCTicketProductIntroCell: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         
-        webView.evaluateJavaScript("document.body.scrollHeight;") { (result, error) in
-            guard let h = result as? CGFloat else {
+        webView.evaluateJavaScript("document.body.scrollHeight;") { [weak self](result, error) in
+            guard let self = self, let h = result as? CGFloat else {
                 return
             }
             self.wkWebView.frame.size.height = h
 //            print("高度\(h)")
             if self.refreshCellHeight != nil {
-                self.refreshCellHeight!(h)
+                self.refreshCellHeight!(h + self.kDefaultH)
             }
         }
         

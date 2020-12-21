@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TCTicketProductViewController" customModule="PhotoBrower" customModuleProvider="target">
             <connections>
                 <outlet property="bottomView" destination="fuQ-In-UNm" id="EKL-Mq-PD7"/>
+                <outlet property="bottomViewConstraintH" destination="bhm-m5-8he" id="58a-6d-oBG"/>
                 <outlet property="tableView" destination="8Yz-3Z-PgL" id="D0v-JT-Pb7"/>
                 <outlet property="upImageView" destination="UDv-51-tH3" id="Y52-ns-1E2"/>
                 <outlet property="view" destination="iN0-l3-epB" id="go0-Mz-ZPt"/>
@@ -23,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8Yz-3Z-PgL">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="803"/>
                     <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="PTn-68-2lN"/>
@@ -31,7 +32,7 @@
                     </connections>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuQ-In-UNm" userLabel="bottomView">
-                    <rect key="frame" x="0.0" y="808" width="414" height="88"/>
+                    <rect key="frame" x="0.0" y="803" width="414" height="93"/>
                     <subviews>
                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket_contact" translatesAutoresizingMaskIntoConstraints="NO" id="eof-KC-YP7">
                             <rect key="frame" x="15" y="1" width="45" height="49"/>
@@ -65,7 +66,7 @@
                                 <constraint firstAttribute="width" constant="120" id="Qf4-nD-62Q"/>
                                 <constraint firstAttribute="height" constant="30" id="bAV-Fz-oKj"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="PingFangSC-Medium" family="PingFang SC" pointSize="13"/>
                             <state key="normal" title="查看套餐">
                                 <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -92,7 +93,7 @@
                         <constraint firstItem="EvN-yi-a3E" firstAttribute="leading" secondItem="QX0-lw-qVs" secondAttribute="trailing" constant="5" id="Ogx-ux-ikQ"/>
                         <constraint firstItem="R2F-NN-wBm" firstAttribute="top" secondItem="fuQ-In-UNm" secondAttribute="top" constant="10" id="Qee-be-jtm"/>
                         <constraint firstItem="eof-KC-YP7" firstAttribute="leading" secondItem="fuQ-In-UNm" secondAttribute="leading" constant="15" id="W9f-OR-Ghh"/>
-                        <constraint firstAttribute="height" constant="88" id="bhm-m5-8he"/>
+                        <constraint firstAttribute="height" constant="93" id="bhm-m5-8he"/>
                         <constraint firstAttribute="trailing" secondItem="ssg-f5-OfW" secondAttribute="trailing" id="rDX-Kb-zu6"/>
                         <constraint firstItem="ssg-f5-OfW" firstAttribute="top" secondItem="fuQ-In-UNm" secondAttribute="top" id="u8W-f8-wvl"/>
                         <constraint firstItem="QX0-lw-qVs" firstAttribute="leading" secondItem="eof-KC-YP7" secondAttribute="trailing" constant="5" id="uj2-q7-93l"/>
@@ -100,7 +101,7 @@
                     </constraints>
                 </view>
                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket_closet" translatesAutoresizingMaskIntoConstraints="NO" id="5kX-Bs-E7M">
-                    <rect key="frame" x="354" y="738" width="50" height="50"/>
+                    <rect key="frame" x="354" y="733" width="50" height="50"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="O8p-Rq-DwY"/>
@@ -111,7 +112,7 @@
                     </connections>
                 </imageView>
                 <imageView hidden="YES" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket_up" translatesAutoresizingMaskIntoConstraints="NO" id="UDv-51-tH3">
-                    <rect key="frame" x="354" y="688" width="50" height="50"/>
+                    <rect key="frame" x="354" y="683" width="50" height="50"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="4DV-Za-pya"/>
@@ -133,10 +134,10 @@
                 <constraint firstItem="eof-KC-YP7" firstAttribute="top" secondItem="ssg-f5-OfW" secondAttribute="bottom" id="D0k-Zl-N4P"/>
                 <constraint firstAttribute="bottom" secondItem="fuQ-In-UNm" secondAttribute="bottom" id="ErQ-Bm-5up"/>
                 <constraint firstItem="5kX-Bs-E7M" firstAttribute="top" secondItem="UDv-51-tH3" secondAttribute="bottom" id="Obq-6E-9pg"/>
+                <constraint firstItem="fuQ-In-UNm" firstAttribute="top" secondItem="8Yz-3Z-PgL" secondAttribute="bottom" id="Pl3-NR-BD7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5kX-Bs-E7M" secondAttribute="trailing" constant="10" id="QIN-xK-CRa"/>
                 <constraint firstItem="5kX-Bs-E7M" firstAttribute="trailing" secondItem="UDv-51-tH3" secondAttribute="trailing" id="UBb-9y-7Dq"/>
                 <constraint firstItem="eof-KC-YP7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Y02-Wq-JL6"/>
-                <constraint firstAttribute="bottom" secondItem="8Yz-3Z-PgL" secondAttribute="bottom" id="cz6-Ur-TAl"/>
                 <constraint firstItem="QX0-lw-qVs" firstAttribute="centerY" secondItem="eof-KC-YP7" secondAttribute="centerY" id="pZs-W1-cD2"/>
                 <constraint firstItem="EvN-yi-a3E" firstAttribute="centerY" secondItem="eof-KC-YP7" secondAttribute="centerY" id="q6f-uV-ZYc"/>
                 <constraint firstItem="8Yz-3Z-PgL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="s0e-FO-bE6"/>

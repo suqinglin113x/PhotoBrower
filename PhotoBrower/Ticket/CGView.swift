@@ -36,12 +36,12 @@ class CGView: UILabel {
             path.move(to: CGPoint(x: 1, y: 1))
             path.addLine(to: CGPoint(x: 1, y: rect.height/3.0))
             path.addArc(center: CGPoint(x: 1, y: rect.height/2.0), radius: h/2.0, startAngle: -(.pi/2), endAngle: .pi/2, clockwise: false)
-            path.addLine(to: CGPoint(x: 1, y: rect.height-1))
-            path.addLine(to: CGPoint(x: rect.width-1, y: rect.height-1))
-            path.addLine(to: CGPoint(x: rect.width-1, y: h*2))
+            path.addLine(to: CGPoint(x: 1, y: rect.height-2))
+            path.addLine(to: CGPoint(x: rect.width-2, y: rect.height-2))
+            path.addLine(to: CGPoint(x: rect.width-2, y: h*2))
             
-            path.addArc(center: CGPoint(x: rect.width-1, y: rect.height/2.0), radius: h/2.0, startAngle: .pi/2, endAngle: -.pi/2, clockwise: false)
-            path.addLine(to: CGPoint(x: rect.width-1, y: 1))
+            path.addArc(center: CGPoint(x: rect.width-2, y: rect.height/2.0), radius: h/2.0, startAngle: .pi/2, endAngle: -.pi/2, clockwise: false)
+            path.addLine(to: CGPoint(x: rect.width-2, y: 1))
             path.closeSubpath()
             
             //将路径添加到上下文

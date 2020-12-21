@@ -199,6 +199,7 @@
 		87B3446F2513693500028A25 /* TCHotelPhotoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */; };
 		87B344732513779C00028A25 /* TCHotelPhotosBrowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */; };
 		87B344762513794C00028A25 /* TCHotelPhotoBrowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */; };
+		87BC96E6258F2A12002957B2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87BC96DB258CFA6D002957B2 /* WebKit.framework */; };
 		87C3D532258852F4006BC85D /* TCTicketSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C3D530258852F4006BC85D /* TCTicketSectionCell.swift */; };
 		87C3D533258852F4006BC85D /* TCTicketSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C3D531258852F4006BC85D /* TCTicketSectionCell.xib */; };
 		87C3D5392588629C006BC85D /* TCTicketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C3D5372588629C006BC85D /* TCTicketCell.swift */; };
@@ -336,6 +337,7 @@
 		87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelPhotoListCell.xib; sourceTree = "<group>"; };
 		87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotosBrowerController.swift; sourceTree = "<group>"; };
 		87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotoBrowerCell.swift; sourceTree = "<group>"; };
+		87BC96DB258CFA6D002957B2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		87C3D530258852F4006BC85D /* TCTicketSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketSectionCell.swift; sourceTree = "<group>"; };
 		87C3D531258852F4006BC85D /* TCTicketSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTicketSectionCell.xib; sourceTree = "<group>"; };
 		87C3D5372588629C006BC85D /* TCTicketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketCell.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87BC96E6258F2A12002957B2 /* WebKit.framework in Frameworks */,
 				7FFF3A8B98571793F967014B /* Pods_PhotoBrower.framework in Frameworks */,
 				A23A1AF90C78C7F7D136CECB /* Pods_PhotoBrower.framework in Frameworks */,
 			);
@@ -706,6 +709,7 @@
 		9612B6B2341446157F1956C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				87BC96DB258CFA6D002957B2 /* WebKit.framework */,
 				00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */,
 			);
 			name = Frameworks;

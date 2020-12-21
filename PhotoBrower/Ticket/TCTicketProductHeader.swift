@@ -172,7 +172,7 @@ class TCTicketProductHeader: UIView {//cycleH+325
             
         } else {
             couponView.isHidden = false
-            let height: CGFloat = 15
+            let height: CGFloat = 17
             var x: CGFloat = 50
             var width: CGFloat = 0
             let font = UIFont(name: "PingFangSC-Regular", size: 10)

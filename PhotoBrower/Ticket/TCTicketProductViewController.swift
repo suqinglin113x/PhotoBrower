@@ -58,6 +58,7 @@ class TCTicketProductViewController: UIViewController {
     }()
     
     @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var bottomViewConstraintH: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var upImageView: UIImageView!
     
@@ -70,8 +71,9 @@ class TCTicketProductViewController: UIViewController {
     var sectionTitles: [String] = ["",""]
     /// 简介、须知
     var currentSelectedBtn: UIButton?
+    /// 存储简介、须知
     var lastSectionButtonArray: [UIButton] = []
-    
+    var lastSectionLineViewArray: [UIView] = []
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -83,7 +85,9 @@ class TCTicketProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(red: 0.98, green: 0.98, blue: 0.98, alpha: 1)
-        
+        if !isIphoneX {
+            self.bottomViewConstraintH.constant -= 34
+        }
         self.creatTab()
         self.view.addSubview(self.customNavHeader)
         
@@ -100,7 +104,9 @@ class TCTicketProductViewController: UIViewController {
         tableView.register(UINib(nibName: "TCTicketProductIntroCell", bundle: nil), forCellReuseIdentifier: "TCTicketProductIntroCell")
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.tableHeaderView = tableHeaderView
-//        tableView.separatorStyle = .none
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
         tableHeaderView.refreshHeaderHeight = { height in
             self.tableHeaderView.frame.size.height = height
             self.tableView.tableHeaderView = self.tableHeaderView
@@ -128,6 +134,7 @@ extension TCTicketProductViewController {
     
     @IBAction func tapUpAction(_ sender: Any) {
         debugPrint("点击了up")
+        tableView.contentInset = .zero
         self.tableView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: true)
     }
     @IBAction func tapClosetAction(_ sender: Any) {
@@ -146,13 +153,12 @@ extension TCTicketProductViewController {
     
     func getBaseInfoData() {
         let url = fosunholidayHost + "/poseidon/online/product/ticket/\(productID)"
-        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { [weak self] (response) in
 
-            guard let res = response as? [String: Any] else {
+            guard let self = self, let res = response as? [String: Any] else {
                 return
             }
-            let hasError = res["hasError"] as! Bool
-            if hasError {
+            if let hasError = res["hasError"] as? Bool, hasError {
                 guard let errorMessage = res["errorMessage"] as? String else {
                     return
                 }
@@ -184,19 +190,19 @@ extension TCTicketProductViewController {
     func getTicketsData() {
         let url = fosunholidayHost + "/poseidon/online/product/\(productID)/ticketResource"
         
-        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { [weak self] (response) in
 
-            guard let res = response as? [String: Any] else {
+            guard let self = self, let res = response as? [String: Any] else {
                 return
             }
-            let hasError = res["hasError"] as! Bool
-            if hasError {
+            if let hasError = res["hasError"] as? Bool, hasError{
                 guard let errorMessage = res["errorMessage"] as? String else {
                     return
                 }
                 GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                 return
             }
+            
             if let dataArr = res["data"] as? [[String : Any]] {
                 var temArr: [String] = []
                 for (_, item) in dataArr.enumerated() {
@@ -220,13 +226,12 @@ extension TCTicketProductViewController {
     func getAdBanner() {
         let url = fosunholidayHost + "/online/capi/component/getExtensionInfo/\(productID)"
         
-        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { [weak self] (response) in
 
-            guard let res = response as? [String: Any] else {
+            guard let self = self, let res = response as? [String: Any] else {
                 return
             }
-            let hasError = res["hasError"] as! Bool
-            if hasError {
+            if let hasError = res["hasError"] as? Bool, hasError{
                 guard let errorMessage = res["errorMessage"] as? String else {
                     return
                 }
@@ -250,10 +255,10 @@ extension TCTicketProductViewController {
     func getCMSData() {
         let url = fosunholidayHost+"/online/cms-api/pageComponents"
         let dict = ["codes":["TCH5_Product_Service_commitment", "TCH5_Product_Service_copywriting"]]
-        TCNetworkManager.Instance.post(URLString: url, parameters: dict) { (response) in
+        TCNetworkManager.Instance.post(URLString: url, parameters: dict) {  [weak self] (response) in
+            guard let self = self else { return }
             if let res = response as? [String: Any] {
-                let hasError = res["hasError"] as! Bool
-                if hasError {
+                if let hasError = res["hasError"] as? Bool, hasError{
                     guard let errorMessage = res["errorMessage"] as? String else {
                         return
                     }
@@ -279,11 +284,10 @@ extension TCTicketProductViewController {
                     "companyId": productModel.baseInfo?.company?.companyId as Any,
                     "productId": productID] as [String : Any]
         
-        TCNetworkManager.init().post(URLString: url, parameters: dict) { (response) in
-
+        TCNetworkManager.init().post(URLString: url, parameters: dict) { [weak self] (response) in
+            guard let self = self else { return }
             if let res = response as? [String: Any] {
-                let hasError = res["hasError"] as! Bool
-                if hasError {
+                if let hasError = res["hasError"] as? Bool, hasError{
                     guard let errorMessage = res["errorMessage"] as? String else {
                         return
                     }
@@ -305,10 +309,10 @@ extension TCTicketProductViewController {
     /// 简介/须知等
     func getExplainInfo() {
         let url = fosunholidayHost+"/poseidon/online/product/ticket/\(productID)/explaininfo"
-        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { (response) in
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil) { [weak self] (response) in
+            guard let self = self else { return }
             if let res = response as? [String: Any] {
-                let hasError = res["hasError"] as! Bool
-                if hasError {
+                if let hasError = res["hasError"] as? Bool, hasError{
                     guard let errorMessage = res["errorMessage"] as? String else {
                         return
                     }
@@ -388,12 +392,10 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
             return itemH * CGFloat(eachRows) + bottomSpace
         } else if indexPath.section == sectionTitles.count-2 { // 公司信息
             return 65 + 10
-        } else { // 简介/须知
-            
-            let defalutH: CGFloat = 75
+        } else { // 简介、须知
             let cellH: CGFloat = introItemHeights[indexPath.row]
             
-            return defalutH + cellH
+            return cellH
         }
         
     }
@@ -415,14 +417,17 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
         } else { // 简介/须知
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCTicketProductIntroCell") as! TCTicketProductIntroCell
             cell.configData(data: introItemArr[indexPath.row])
-            cell.refreshCellHeight = { h in
-                print("-----\(indexPath.row)-----\(h)")
-                if self.introItemHeights[indexPath.row] > 0 && cell.wkWebView.bounds.height == h {
+            cell.refreshCellHeight = { [weak self] h in
+//                print("-----\(indexPath.row)-----\(h)---\(cell.wkWebView)")
+                guard let weakSelf = self else { return }
+                if weakSelf.introItemHeights[indexPath.row] > 0 {
                     return
                 }
-                self.introItemHeights[indexPath.row] = h
+                
+                weakSelf.introItemHeights[indexPath.row] = h
                // 建议莫用indexpath.section
-                tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: self.sectionTitles.count-1)], with: .automatic)
+                tableView.reloadRows(at: [IndexPath(row: indexPath.row, section: weakSelf.sectionTitles.count-1)], with: .top)
+                
             }
             return cell
         }
@@ -441,9 +446,10 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
             headerFooterView.contentView.backgroundColor = .white
             let btnTitles = ["简介", "须知"]
             let w = UIScreen.main.bounds.width/2
+            lastSectionButtonArray.removeAll()
+            lastSectionLineViewArray.removeAll()
             for i in 0..<2 {
                 let btn = UIButton(type: .custom)
-                btn.tag = 100 + i
                 btn.frame = CGRect(x: w*CGFloat(i), y: 0, width: w, height: h)
                 btn.setTitle(btnTitles[i], for: .normal)
                 btn.setTitleColor(UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1), for: .normal)
@@ -451,10 +457,10 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
                 btn.titleLabel?.font = UIFont(name: "PingFangSC-Semibold", size: 13)
                 lastSectionButtonArray.append(btn)
                 headerFooterView.addSubview(btn)
-                let lineView = UIView(frame: CGRect(x: 0, y: h-2, width: w, height: 2))
+                let lineView = UIView(frame: CGRect(x: btn.frame.origin.x, y: h-2, width: w, height: 2))
                 lineView.backgroundColor = UIColor(red: 1, green: 0.8, blue: 0, alpha: 1)
-                lineView.tag = 1000+i
-                btn.addSubview(lineView)
+                lastSectionLineViewArray.append(lineView)
+                headerFooterView.addSubview(lineView)
                 if i == 1 {
                     lineView.isHidden = true
                 } else {
@@ -477,12 +483,12 @@ extension TCTicketProductViewController: UITableViewDelegate, UITableViewDataSou
     
     
     @objc func clickIntroOrNotice(btn: UIButton) {
-        
-        if btn.tag == 100 {
+        self.tableView.contentInset = UIEdgeInsets(top: customNavHeader.bounds.height, left: 0, bottom: 0, right: 0)
+        if btn == lastSectionButtonArray.first {
             tableView.scrollToRow(at: IndexPath(row: 0, section: sectionTitles.count-1), at: .top, animated: true)
         }
-        if btn.tag == 101 {
-            tableView.scrollToRow(at: IndexPath(row: introItemArr.count-1, section: sectionTitles.count-1), at: .top, animated: true)
+        if btn == lastSectionButtonArray.last {
+            tableView.scrollToRow(at: IndexPath(row: introItemArr.count-1, section: sectionTitles.count-1), at: .bottom, animated: true)
         }
         currentSelectedBtn = btn
     }
@@ -510,39 +516,37 @@ extension TCTicketProductViewController {
             backButton.setImage(UIImage.init(named: "back_black"), for: .normal)
         }
         // 一键回到顶部
-        if offY >= UIScreen.main.bounds.height {
-            upImageView.isHidden = false
-        } else {
-            upImageView.isHidden = true
-        }
+        upImageView.isHidden = (offY < UIScreen.main.bounds.height)
         
         let head = self.tableView.headerView(forSection: sectionTitles.count-1)
         if hoverOffY == nil && head != nil {
-            hoverOffY = (head?.frame.maxY)! - (head?.bounds.height)!
+            hoverOffY = (head?.frame.origin.y)!
         }
-        
+//        print("偏移\(offY)++++\(hoverOffY)")
         if hoverOffY != nil {
             if offY >= (hoverOffY!-customNavHeader.frame.maxY) {
                 // 给它点底部距离
-                self.tableView.contentInset = UIEdgeInsets(top: customNavHeader.frame.maxY, left: 0, bottom: bottomView.bounds.height, right: 0)
-            
-                
+                self.tableView.contentInset = UIEdgeInsets(top: customNavHeader.frame.maxY, left: 0, bottom: 0, right: 0)
+    
                 // 处理简介、须知状态自动切换
-                let lastcell = tableView.cellForRow(at: IndexPath(row: introItemArr.count-1, section: sectionTitles.count-1)) as? TCTicketProductIntroCell
-                
-                if lastcell != nil {
-                    head?.viewWithTag(100)?.viewWithTag(1000)?.isHidden = true
-                    head?.viewWithTag(101)?.viewWithTag(1001)?.isHidden = false
-                    currentSelectedBtn = (head?.viewWithTag(101) as? UIButton)
+                if let lastcell = tableView.cellForRow(at: IndexPath(row: introItemArr.count-1, section: sectionTitles.count-1)) as? TCTicketProductIntroCell {
+                    debugPrint(lastcell)
+                    lastSectionLineViewArray.first?.isHidden = true
+                    lastSectionLineViewArray.last?.isHidden = false
+                    currentSelectedBtn = lastSectionButtonArray.last
                 } else {
-                    head?.viewWithTag(101)?.viewWithTag(1001)?.isHidden = true
-                    head?.viewWithTag(100)?.viewWithTag(1000)?.isHidden = false
-                    currentSelectedBtn = (head?.viewWithTag(100) as? UIButton)
+                    lastSectionLineViewArray.first?.isHidden = false
+                    lastSectionLineViewArray.last?.isHidden = true
+                    currentSelectedBtn = lastSectionButtonArray.first
                 }
-                
+        
             } else {
                 self.tableView.contentInset = UIEdgeInsets.zero
             }
         }
+    }
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        
+        return false
     }
 }

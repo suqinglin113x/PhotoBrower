@@ -107,8 +107,8 @@ class TCNetworkManager {
                                    "Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJjcmVhdGVkIjoxNjA1NTAzMTg2MjIxLCJ0b2tlbkpzb24iOiJ7XCJhY2NvdW50XCI6XCIxMzI2MTY2OTk2NVwiLFwiYWxpcGF5VXNlclRva2VuXCI6e30sXCJhcHBLZXlcIjpcIkFQUF9UQ1wiLFwiaXNWU3VwZXJWaXBcIjpmYWxzZSxcIm1lbWJlckNyZWF0ZVRpbWVcIjoxNTkxOTQyODA5Mzg4LFwibWVtYmVySWRcIjoxMDA4NjkxOSxcIm1lbWJlckxldmVsXCI6MSxcIm1vYmlsZVwiOlwiMTMyNjE2Njk5NjVcIixcIm5hbWVDaFwiOlwiMTMyKioqKjk5NjVcIixcInNvdXJjZVR5cGVcIjowLFwidGhpcmRNZW1iZXJzXCI6W10sXCJ3eFVzZXJUb2tlblwiOnt9fSIsImV4cCI6MzQ5NzY2MzE4NiwibWVtYmVySWQiOiIxMDA4NjkxOSJ9.OjJGFGFR-KG9SsGTCo22lC-3ViOrrW91nPHDCnyYG0g0_AfTfZ9IAhdt5ZekxOVQUzEO_28hD3WQliNAz2xqhw"]
         
         var clientInfo = [
-            "client_key": "tc_app_iOS",
-            "client_name": "tc_app_iOS",
+            "client_key": "tc_app_iO",
+            "client_name": "tc_app_iO",
             "os": "iOS",
             "app_key": "APP_TC",
             "os_version":UIDevice.current.systemVersion,
