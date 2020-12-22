@@ -17,6 +17,7 @@ struct TCTicketProductModel {
 /** baseinfo***/
 struct TCBaseInfo: Codable {
     var productCode: String?
+    /// 标题
     var productName: String?
     var productType: Int?
     var productTypeName: String?
@@ -44,6 +45,7 @@ struct TCBaseInfoTagInfo: Codable {
     var tagTypeId: Int?
     var tagTypeName: String?
     var type: Int?
+    /// 标签名
     var producttagname: String?
 }
 struct TCBaseInfoCompanyInfo: Codable {

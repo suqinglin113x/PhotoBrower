@@ -151,7 +151,24 @@ extension TCTicketProductViewController {
         let tel = "tel://\(productModel.baseInfo?.company?.tel ?? "")"
         UIApplication.shared.open(URL(string: tel)!, options: [:], completionHandler: nil)
     }
-    
+    @IBAction func tapCollectionAction(_ sender: UIButton) {
+        let url = "\(fosunholidayHost)/online/capi/collect/collectOrCancelProduct/\(productID)"
+        let parameters: [String: Any] = [:]
+        TCNetworkManager.Instance.post(URLString: url, parameters: parameters, success: {  (response) in
+            guard let res = response as? [String: Any] else {
+                return
+            }
+            let dictionary = res["data"] as? [String: Any]
+            if let iscoll = dictionary?["isCollected"] as? Bool, iscoll {
+                sender.setImage(UIImage.init(named: "webview_yellow"), for: .normal)
+            } else {
+                sender.setImage(UIImage.init(named: "webview_like"), for: .normal)
+            }
+            
+        }) { (error) in
+        
+        }
+    }
     @IBAction func tapShareAction(_ sender: Any) {
 //        let shareVC =
         

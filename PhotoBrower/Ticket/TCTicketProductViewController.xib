@@ -34,35 +34,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuQ-In-UNm" userLabel="bottomView">
                     <rect key="frame" x="0.0" y="803" width="414" height="93"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket_contact" translatesAutoresizingMaskIntoConstraints="NO" id="eof-KC-YP7">
-                            <rect key="frame" x="15" y="1" width="45" height="49"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="49" id="VKz-ae-hb8"/>
-                                <constraint firstAttribute="width" constant="45" id="nKq-Yt-SuH"/>
-                            </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="Hlf-v4-Cg6" appends="YES" id="UlD-Ri-eoF"/>
-                            </connections>
-                        </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket_like_normal" translatesAutoresizingMaskIntoConstraints="NO" id="QX0-lw-qVs">
-                            <rect key="frame" x="65" y="1" width="45" height="49"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="45" id="gYh-ne-tYe"/>
-                                <constraint firstAttribute="height" constant="49" id="qII-oF-hzC"/>
-                            </constraints>
-                        </imageView>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_share_black" translatesAutoresizingMaskIntoConstraints="NO" id="EvN-yi-a3E">
-                            <rect key="frame" x="115" y="1" width="45" height="49"/>
-                            <gestureRecognizers/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="49" id="L7y-T3-DFO"/>
-                                <constraint firstAttribute="width" constant="45" id="y7c-Wt-dlT"/>
-                            </constraints>
-                            <connections>
-                                <outletCollection property="gestureRecognizers" destination="94z-l6-BG2" appends="YES" id="MR6-Lc-cUU"/>
-                            </connections>
-                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2F-NN-wBm">
                             <rect key="frame" x="279" y="10" width="120" height="30"/>
                             <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -90,20 +61,53 @@
                                 <constraint firstAttribute="height" constant="1" id="EPf-jB-l82"/>
                             </constraints>
                         </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zh-gb-Ffe">
+                            <rect key="frame" x="60" y="1" width="45" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="45" id="HHa-Mc-W8v"/>
+                                <constraint firstAttribute="height" constant="49" id="ZKg-oD-Dg7"/>
+                            </constraints>
+                            <state key="normal" image="webview_like"/>
+                            <connections>
+                                <action selector="tapCollectionAction:" destination="-1" eventType="touchUpInside" id="0pV-1z-Xjq"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnZ-Py-fg4">
+                            <rect key="frame" x="15" y="1" width="45" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="45" id="a7O-mr-6Jv"/>
+                                <constraint firstAttribute="height" constant="49" id="mzt-W4-nOV"/>
+                            </constraints>
+                            <state key="normal" image="ticket_contact"/>
+                            <connections>
+                                <action selector="contactSellerAction:" destination="-1" eventType="touchUpInside" id="emP-rQ-xrT"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sg-rl-gfx">
+                            <rect key="frame" x="105" y="1" width="45" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="49" id="Yvt-pS-pyb"/>
+                                <constraint firstAttribute="width" constant="45" id="adl-j1-Igr"/>
+                            </constraints>
+                            <state key="normal" image="icon_share_black"/>
+                            <connections>
+                                <action selector="tapShareAction:" destination="-1" eventType="touchUpInside" id="os4-mN-biN"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="eof-KC-YP7" firstAttribute="top" secondItem="ssg-f5-OfW" secondAttribute="bottom" id="2QG-gW-3iN"/>
-                        <constraint firstItem="QX0-lw-qVs" firstAttribute="centerY" secondItem="eof-KC-YP7" secondAttribute="centerY" id="4Do-DU-VNo"/>
-                        <constraint firstItem="EvN-yi-a3E" firstAttribute="centerY" secondItem="eof-KC-YP7" secondAttribute="centerY" id="6Lb-Iw-GZq"/>
+                        <constraint firstItem="0zh-gb-Ffe" firstAttribute="top" secondItem="ssg-f5-OfW" secondAttribute="bottom" id="AkD-fo-FXW"/>
+                        <constraint firstItem="0zh-gb-Ffe" firstAttribute="leading" secondItem="wnZ-Py-fg4" secondAttribute="trailing" id="Baf-k2-pSB"/>
+                        <constraint firstItem="wnZ-Py-fg4" firstAttribute="top" secondItem="ssg-f5-OfW" secondAttribute="bottom" id="DFm-Kh-1wJ"/>
+                        <constraint firstItem="5sg-rl-gfx" firstAttribute="leading" secondItem="0zh-gb-Ffe" secondAttribute="trailing" id="FNO-v6-bug"/>
                         <constraint firstItem="ssg-f5-OfW" firstAttribute="leading" secondItem="fuQ-In-UNm" secondAttribute="leading" id="OeH-Gl-laL"/>
-                        <constraint firstItem="EvN-yi-a3E" firstAttribute="leading" secondItem="QX0-lw-qVs" secondAttribute="trailing" constant="5" id="Ogx-ux-ikQ"/>
                         <constraint firstItem="R2F-NN-wBm" firstAttribute="top" secondItem="fuQ-In-UNm" secondAttribute="top" constant="10" id="Qee-be-jtm"/>
-                        <constraint firstItem="eof-KC-YP7" firstAttribute="leading" secondItem="fuQ-In-UNm" secondAttribute="leading" constant="15" id="W9f-OR-Ghh"/>
+                        <constraint firstItem="5sg-rl-gfx" firstAttribute="top" secondItem="ssg-f5-OfW" secondAttribute="bottom" id="ZTf-be-nf4"/>
                         <constraint firstAttribute="height" constant="93" id="bhm-m5-8he"/>
                         <constraint firstAttribute="trailing" secondItem="ssg-f5-OfW" secondAttribute="trailing" id="rDX-Kb-zu6"/>
                         <constraint firstItem="ssg-f5-OfW" firstAttribute="top" secondItem="fuQ-In-UNm" secondAttribute="top" id="u8W-f8-wvl"/>
-                        <constraint firstItem="QX0-lw-qVs" firstAttribute="leading" secondItem="eof-KC-YP7" secondAttribute="trailing" constant="5" id="uj2-q7-93l"/>
+                        <constraint firstItem="wnZ-Py-fg4" firstAttribute="leading" secondItem="fuQ-In-UNm" secondAttribute="leading" constant="15" id="wbZ-dQ-IPz"/>
                         <constraint firstAttribute="trailing" secondItem="R2F-NN-wBm" secondAttribute="trailing" constant="15" id="wgr-cX-xhX"/>
                     </constraints>
                 </view>
@@ -135,18 +139,13 @@
             <constraints>
                 <constraint firstItem="8Yz-3Z-PgL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="41U-8I-qFm"/>
                 <constraint firstItem="fuQ-In-UNm" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="58m-MV-DzO"/>
-                <constraint firstItem="QX0-lw-qVs" firstAttribute="leading" secondItem="eof-KC-YP7" secondAttribute="trailing" constant="5" id="820-G2-1oy"/>
                 <constraint firstItem="fuQ-In-UNm" firstAttribute="top" secondItem="5kX-Bs-E7M" secondAttribute="bottom" constant="20" id="9Be-Z7-pwA"/>
                 <constraint firstItem="fuQ-In-UNm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="BNV-n5-Jg5"/>
-                <constraint firstItem="eof-KC-YP7" firstAttribute="top" secondItem="ssg-f5-OfW" secondAttribute="bottom" id="D0k-Zl-N4P"/>
                 <constraint firstAttribute="bottom" secondItem="fuQ-In-UNm" secondAttribute="bottom" id="ErQ-Bm-5up"/>
                 <constraint firstItem="5kX-Bs-E7M" firstAttribute="top" secondItem="UDv-51-tH3" secondAttribute="bottom" id="Obq-6E-9pg"/>
                 <constraint firstItem="fuQ-In-UNm" firstAttribute="top" secondItem="8Yz-3Z-PgL" secondAttribute="bottom" id="Pl3-NR-BD7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="5kX-Bs-E7M" secondAttribute="trailing" constant="10" id="QIN-xK-CRa"/>
                 <constraint firstItem="5kX-Bs-E7M" firstAttribute="trailing" secondItem="UDv-51-tH3" secondAttribute="trailing" id="UBb-9y-7Dq"/>
-                <constraint firstItem="eof-KC-YP7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Y02-Wq-JL6"/>
-                <constraint firstItem="QX0-lw-qVs" firstAttribute="centerY" secondItem="eof-KC-YP7" secondAttribute="centerY" id="pZs-W1-cD2"/>
-                <constraint firstItem="EvN-yi-a3E" firstAttribute="centerY" secondItem="eof-KC-YP7" secondAttribute="centerY" id="q6f-uV-ZYc"/>
                 <constraint firstItem="8Yz-3Z-PgL" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="s0e-FO-bE6"/>
                 <constraint firstItem="8Yz-3Z-PgL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="xQ2-Gm-N4D"/>
             </constraints>
@@ -162,23 +161,13 @@
                 <action selector="tapUpAction:" destination="-1" id="pVo-RY-qQF"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="Hlf-v4-Cg6">
-            <connections>
-                <action selector="contactSellerAction:" destination="-1" id="iht-R6-5hf"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="94z-l6-BG2">
-            <connections>
-                <action selector="tapShareAction:" destination="-1" id="XpA-oj-MBg"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="icon_share_black" width="88" height="88"/>
         <image name="ticket_closet" width="100" height="100"/>
         <image name="ticket_contact" width="90" height="98"/>
-        <image name="ticket_like_normal" width="90" height="98"/>
         <image name="ticket_up" width="24" height="24"/>
+        <image name="webview_like" width="25" height="25"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
