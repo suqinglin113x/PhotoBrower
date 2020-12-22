@@ -139,12 +139,31 @@ extension TCTicketProductViewController {
     }
     @IBAction func tapClosetAction(_ sender: Any) {
         debugPrint("点击了橱窗")
+        if ticketModelArrays.isEmpty {
+            return
+        }
+        let offH = (tableView.contentInset.top > 0 ? 0: customNavHeader.bounds.height)
+        tableView.scrollRectToVisible(CGRect(x: 0, y: tableHeaderView.frame.maxY - offH, width: 10, height: 1), animated: true)
     }
     
     
     @IBAction func contactSellerAction(_ sender: Any) {
         let tel = "tel://\(productModel.baseInfo?.company?.tel ?? "")"
         UIApplication.shared.open(URL(string: tel)!, options: [:], completionHandler: nil)
+    }
+    
+    @IBAction func tapShareAction(_ sender: Any) {
+//        let shareVC =
+        
+    }
+    
+    
+    @IBAction func lookticketList(_ sender: Any) {
+        if ticketModelArrays.isEmpty {
+            return
+        }
+        let offH = (tableView.contentInset.top > 0 ? 0: customNavHeader.bounds.height)
+        tableView.scrollRectToVisible(CGRect(x: 0, y: tableHeaderView.frame.maxY - offH, width: 10, height: 1), animated: true)
     }
 }
 
@@ -351,7 +370,6 @@ extension TCTicketProductViewController {
         } failure: { (error) in
             
         }
-
     }
 }
 
@@ -529,8 +547,8 @@ extension TCTicketProductViewController {
                 self.tableView.contentInset = UIEdgeInsets(top: customNavHeader.frame.maxY, left: 0, bottom: 0, right: 0)
     
                 // 处理简介、须知状态自动切换
-                if let lastcell = tableView.cellForRow(at: IndexPath(row: introItemArr.count-1, section: sectionTitles.count-1)) as? TCTicketProductIntroCell {
-                    debugPrint(lastcell)
+                if let _ = tableView.cellForRow(at: IndexPath(row: introItemArr.count-1, section: sectionTitles.count-1)) as? TCTicketProductIntroCell {
+//                    debugPrint(lastcell)
                     lastSectionLineViewArray.first?.isHidden = true
                     lastSectionLineViewArray.last?.isHidden = false
                     currentSelectedBtn = lastSectionButtonArray.last
