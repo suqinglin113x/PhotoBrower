@@ -28,6 +28,9 @@ class TCTicketCell: UITableViewCell {
     
     @IBAction func reserveBtnClick(_ sender: Any) {
        debugPrint("点了预订")
+        let orderVC = TCSubmitOrderViewController()
+        let currentVC = UIApplication.shared.windows.first?.rootViewController?.children.last
+        currentVC?.navigationController?.pushViewController(orderVC, animated: true)
     }
     
     
