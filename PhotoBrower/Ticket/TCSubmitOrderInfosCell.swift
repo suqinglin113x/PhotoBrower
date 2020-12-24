@@ -13,23 +13,19 @@ private let kScreenW: CGFloat = UIScreen.main.bounds.width
 
 class TCSubmitOrderInfosCell: UITableViewCell {
 
+    var presaleNumChanged: ((_ num: Int) -> ())?
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.createUI()
-        
-    }
-    
-   
-    
-    func createUI() {
+        self.selectionStyle = .none
         
     }
+
     
     /// 门票、自由行UI-Data
     func configData(items: [(title: String, subTitle: String)], type: OrderSourceType, orderName: String = "") {
+        self.contentView.subviews.forEach({$0.removeFromSuperview()})
         var y: CGFloat = 0
-        
         if type == .ticket {
             y = 43
             
@@ -66,17 +62,18 @@ class TCSubmitOrderInfosCell: UITableViewCell {
     }
     
     /// 预售UI-Data
-    func configPresaleData(orderName: String, declare: String) {
+    func configPresaleData(data: [(title: String, subTitle: String)]) {
+        self.contentView.subviews.forEach({$0.removeFromSuperview()})
         let titleL = UILabel()
         titleL.frame = CGRect(x: 15, y: 14, width: kScreenW-30, height: 14)
-        titleL.text = orderName
+        titleL.text = data.first?.title
         titleL.textColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         titleL.font = UIFont(name: "PingFangSC-Medium", size: 14)
         self.contentView.addSubview(titleL)
         
         let declareL = UILabel()
         declareL.frame = CGRect(x: 15, y: titleL.frame.maxY+10, width: kScreenW-30, height: 14)
-        declareL.text = declare
+        declareL.text = data[1].title
         declareL.textColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         declareL.font = UIFont(name: "PingFangSC-Regular", size: 11)
         self.contentView.addSubview(declareL)
@@ -89,9 +86,15 @@ class TCSubmitOrderInfosCell: UITableViewCell {
         self.contentView.addSubview(priceL)
         
         let counterView = TCCounterView(frame: CGRect(x: kScreenW - 15 - 100, y: priceL.frame.minY, width: 100, height: priceL.bounds.height))
-        counterView.currentNum = 3
+        counterView.currentNum = Int(data.last?.subTitle ?? "1") ?? counterView.defaultMin
         self.contentView.addSubview(counterView)
-        counterView.counterViewChangedBlock = { num in
+        counterView.counterViewChangedBlock = { [weak self] num in
+            guard let self = self else {
+                return
+            }
+            if self.presaleNumChanged != nil {
+                self.presaleNumChanged!(num)
+            }
             debugPrint(num)
         }
         

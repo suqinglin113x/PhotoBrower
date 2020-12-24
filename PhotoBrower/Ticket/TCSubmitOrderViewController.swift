@@ -27,6 +27,8 @@ class TCSubmitOrderViewController: UIViewController {
     @IBOutlet weak var orderPriceL: UILabel!
     @IBOutlet weak var submitViewConstraintH: NSLayoutConstraint!
     var orderSourceType: OrderSourceType = .presale
+    /// title:左边UI subTitle:右边UI
+    var dataSource: [(title: String, subTitle: String)] = []
     
     /// 标题
     var navTitle: String = ""
@@ -71,6 +73,7 @@ class TCSubmitOrderViewController: UIViewController {
         let tab = UITableView(frame: .zero, style: .plain)
         tab.frame = CGRect(x: 0.0, y: topY, width: kScreenW, height: kScreenH - topY - submitViewConstraintH.constant)
         tab.backgroundColor = .clear
+        tab.showsVerticalScrollIndicator = false
         tab.delegate = self
         tab.dataSource = self
         tab.separatorStyle = .none
@@ -78,6 +81,10 @@ class TCSubmitOrderViewController: UIViewController {
         tab.register(TCSubmitOrderInfosCell.self, forCellReuseIdentifier: "TCSubmitOrderInfosCell")
         tab.register(TCSubmitContactCell.self, forCellReuseIdentifier: "TCSubmitContactCell")
         tab.register(UINib.init(nibName: "TCSubmitContactCell", bundle: nil), forCellReuseIdentifier: "TCSubmitContactCell")
+        tab.register(UINib.init(nibName: "TCSubmitTicketRealNameCell", bundle: nil), forCellReuseIdentifier: "TCSubmitTicketRealNameCell")
+        tab.register(UINib.init(nibName: "TCSubmitTravelTripInfoCell", bundle: nil), forCellReuseIdentifier: "TCSubmitTravelTripInfoCell")
+        tab.register(UINib.init(nibName: "TCSubmitDiscountCell", bundle: nil), forCellReuseIdentifier: "TCSubmitDiscountCell")
+        
         return tab
     }()
     override func viewDidLoad() {
@@ -91,6 +98,16 @@ class TCSubmitOrderViewController: UIViewController {
         
         self.view.addSubview(self.tableView)
         
+        
+        switch orderSourceType {
+        case .presale:
+            dataSource = [("Palm Manor特大号床间任选 + 含早2晚", ""), ("国庆/中秋/春节等法定假日不可使用，需提前至少30天预约，购买前…", ""), ("￥999999", "a")]
+        case .ticket:
+            dataSource = [("使用日期", "2020/12/01"), ("购买数量", "1"), ("取票方式", "电子票")]
+        case .trave:
+            dataSource = [("出行日期", "2020/12/01"), ("目的地", "普罗旺斯"), ("出行人", "2成人 2儿童"), ("购买数量", "4")]
+            
+        }
     }
 
 
@@ -128,13 +145,23 @@ extension TCSubmitOrderViewController: UITableViewDataSource, UITableViewDelegat
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitOrderInfosCell") as! TCSubmitOrderInfosCell
             
             if orderSourceType == .ticket {
-                let items1 = [("使用日期", "2020/12/01"), ("购买数量", "1"), ("取票方式", "电子票")]
-                cell.configData(items: items1, type: orderSourceType, orderName: "单日-家庭套票")
+                
+                cell.configData(items: dataSource, type: orderSourceType, orderName: "单日-家庭套票")
             } else if orderSourceType == .trave {
-                let items2 = [("出行日期", "2020/12/01"), ("目的地", "普罗旺斯"), ("出行人", "2成人 2儿童"), ("购买数量", "4")]
-                cell.configData(items: items2, type: orderSourceType)
+                
+                cell.configData(items: dataSource, type: orderSourceType)
             } else { // 预售
-                cell.configPresaleData(orderName: "Palm Manor特大号床间任选 + 含早2晚", declare: "国庆/中秋/春节等法定假日不可使用，需提前至少30天预约，购买前…")
+                cell.configPresaleData(data: dataSource)
+                cell.presaleNumChanged = { [weak self] num in
+                    guard let self = self else {
+                        return
+                    }
+                    var last  = self.dataSource.last
+                    last?.subTitle = "\(num)"
+                    print(last as Any)
+                    self.dataSource.removeLast()
+                    self.dataSource.append(last!)
+                }
             }
             
             return cell
@@ -143,32 +170,57 @@ extension TCSubmitOrderViewController: UITableViewDataSource, UITableViewDelegat
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitContactCell") as! TCSubmitContactCell
             
             return cell
-        } else {
-            var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-            if cell == nil {
-                cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        } else if indexPath.row == 3 { // 实名制or出行人or预售空缺
+            if orderSourceType == .ticket {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitTicketRealNameCell") as! TCSubmitTicketRealNameCell
+                
+                return cell
             }
-            cell?.textLabel?.text = "AAS"
-            return cell!
+            if orderSourceType == .trave {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitTravelTripInfoCell") as! TCSubmitTravelTripInfoCell
+                
+                return cell
+            }
+            return UITableViewCell()
             
+        } else { // 优惠
+            let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitDiscountCell") as! TCSubmitDiscountCell
+            cell.configData(orderType: orderSourceType)
+            return cell
         }
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { // 标题
+        if indexPath.row == 0 { // 标题part
             let h = (navTitle as NSString).boundingRect(with: CGSize(width: kScreenW-30, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:UIFont(name: "PingFangSC-Semibold", size: 18) as Any], context: nil).size.height
             
             return 40 + h
-        } else if (indexPath.row == 1) { // 订单信息
+        } else if (indexPath.row == 1) { // 订单信息part
             if orderSourceType == .presale {
                 return 115
             }
-            return 177
-        } else if indexPath.row == 2 { // 联系人
-            return 208
+            return 127
+        } else if indexPath.row == 2 { // 联系人part
+            return 210
+        } else if indexPath.row == 3 { // 实名制or出行人or预售空缺part
+            if orderSourceType == .ticket {
+                return 151
+            }
+            if orderSourceType == .presale {
+                return 0
+            }
+            if orderSourceType == .trave {
+                return 107
+            }
+        } else { // 优惠part
+            if orderSourceType == .presale {
+                return 210
+            } else {
+                return 260
+            }
         }
-        return 177
+        return 0
     }
     
 }

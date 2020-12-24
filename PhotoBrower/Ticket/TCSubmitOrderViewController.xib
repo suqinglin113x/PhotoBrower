@@ -89,19 +89,29 @@
                                 <constraint firstAttribute="width" constant="12" id="54r-dD-qAL"/>
                             </constraints>
                         </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dde-8U-IJW" userLabel="topLine">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                            <color key="backgroundColor" red="0.8666666666666667" green="0.8666666666666667" blue="0.8666666666666667" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="vfL-ig-TjE"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="aL0-E3-yDN" firstAttribute="centerY" secondItem="Xf5-L8-V7z" secondAttribute="centerY" id="7Kv-yl-auq"/>
                         <constraint firstItem="3Dc-sb-0dQ" firstAttribute="top" secondItem="Q23-R8-lQk" secondAttribute="top" constant="10" id="FWd-kP-dDH"/>
+                        <constraint firstItem="Dde-8U-IJW" firstAttribute="top" secondItem="Q23-R8-lQk" secondAttribute="top" id="N5a-MK-2YB"/>
                         <constraint firstAttribute="trailing" secondItem="3Dc-sb-0dQ" secondAttribute="trailing" constant="15" id="Q6d-yh-RXZ"/>
                         <constraint firstItem="caz-5b-hFY" firstAttribute="centerY" secondItem="Xf5-L8-V7z" secondAttribute="centerY" id="ccq-Mp-PAm"/>
                         <constraint firstItem="3Dc-sb-0dQ" firstAttribute="centerY" secondItem="Xf5-L8-V7z" secondAttribute="centerY" id="glp-X6-yKP"/>
                         <constraint firstItem="noZ-2T-MHz" firstAttribute="centerY" secondItem="Xf5-L8-V7z" secondAttribute="centerY" id="hpA-43-qcH"/>
+                        <constraint firstItem="Dde-8U-IJW" firstAttribute="leading" secondItem="Q23-R8-lQk" secondAttribute="leading" id="jGC-eQ-gpp"/>
                         <constraint firstItem="Xf5-L8-V7z" firstAttribute="leading" secondItem="Q23-R8-lQk" secondAttribute="leading" constant="15" id="krU-r2-Dzb"/>
                         <constraint firstItem="caz-5b-hFY" firstAttribute="leading" secondItem="noZ-2T-MHz" secondAttribute="trailing" constant="5" id="ovm-jr-fdc"/>
                         <constraint firstItem="aL0-E3-yDN" firstAttribute="leading" secondItem="caz-5b-hFY" secondAttribute="trailing" id="pyf-QH-maa"/>
                         <constraint firstItem="noZ-2T-MHz" firstAttribute="leading" secondItem="Xf5-L8-V7z" secondAttribute="trailing" constant="5" id="wO9-Gz-aZL"/>
+                        <constraint firstAttribute="trailing" secondItem="Dde-8U-IJW" secondAttribute="trailing" id="x4l-xZ-A9D"/>
                         <constraint firstAttribute="height" constant="88" id="x5U-FD-rQb"/>
                     </constraints>
                 </view>
