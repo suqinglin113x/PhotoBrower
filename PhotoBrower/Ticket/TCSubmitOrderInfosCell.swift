@@ -36,7 +36,7 @@ class TCSubmitOrderInfosCell: UITableViewCell {
             label.font = UIFont(name: "PingFangSC-Medium", size: 14)
             self.contentView.addSubview(label)
         }
-        if type == .trave {
+        if type == .travel {
             y = 14
         }
         let itemW: CGFloat = kScreenW/2

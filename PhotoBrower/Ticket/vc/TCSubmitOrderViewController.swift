@@ -17,7 +17,8 @@ private let isIphoneX = (kScreenH >= 812)
 enum OrderSourceType: String {
     case ticket = "门票"
     case presale = "预售"
-    case trave = "自由行"
+    case travel = "自由行"
+    case unkonwn
 }
 
 class TCSubmitOrderViewController: UIViewController {
@@ -26,9 +27,11 @@ class TCSubmitOrderViewController: UIViewController {
     
     @IBOutlet weak var orderPriceL: UILabel!
     @IBOutlet weak var submitViewConstraintH: NSLayoutConstraint!
-    var orderSourceType: OrderSourceType = .presale
+    var orderSourceType: OrderSourceType = .travel
     /// title:左边UI subTitle:右边UI
     var dataSource: [(title: String, subTitle: String)] = []
+    var identity: TravelTripInfoCellIdentity = .one
+    var travellerNum: Int = 0
     
     /// 标题
     var navTitle: String = ""
@@ -82,7 +85,7 @@ class TCSubmitOrderViewController: UIViewController {
         tab.register(TCSubmitContactCell.self, forCellReuseIdentifier: "TCSubmitContactCell")
         tab.register(UINib.init(nibName: "TCSubmitContactCell", bundle: nil), forCellReuseIdentifier: "TCSubmitContactCell")
         tab.register(UINib.init(nibName: "TCSubmitTicketRealNameCell", bundle: nil), forCellReuseIdentifier: "TCSubmitTicketRealNameCell")
-        tab.register(UINib.init(nibName: "TCSubmitTravelTripInfoCell", bundle: nil), forCellReuseIdentifier: "TCSubmitTravelTripInfoCell")
+
         tab.register(UINib.init(nibName: "TCSubmitDiscountCell", bundle: nil), forCellReuseIdentifier: "TCSubmitDiscountCell")
         
         return tab
@@ -104,9 +107,11 @@ class TCSubmitOrderViewController: UIViewController {
             dataSource = [("Palm Manor特大号床间任选 + 含早2晚", ""), ("国庆/中秋/春节等法定假日不可使用，需提前至少30天预约，购买前…", ""), ("￥999999", "a")]
         case .ticket:
             dataSource = [("使用日期", "2020/12/01"), ("购买数量", "1"), ("取票方式", "电子票")]
-        case .trave:
+        case .travel:
             dataSource = [("出行日期", "2020/12/01"), ("目的地", "普罗旺斯"), ("出行人", "2成人 2儿童"), ("购买数量", "4")]
             
+        case .unkonwn:
+            break
         }
     }
 
@@ -132,22 +137,40 @@ extension TCSubmitOrderViewController {
 
 
 extension TCSubmitOrderViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 5
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 3 {
+            if orderSourceType == .presale {
+                return 0
+            }
+            if orderSourceType == .ticket {
+                return 2
+            }
+            if orderSourceType == .travel {
+                if identity == .one {
+                    return 1
+                } else {
+                    return travellerNum
+                }
+            }
+        }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 { // 标题
+        if indexPath.section == 0 { // 标题
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitTitleCell") as! TCSubmitTitleCell
             cell.title = navTitle
             return cell
-        } else if(indexPath.row == 1) {
+        } else if(indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitOrderInfosCell") as! TCSubmitOrderInfosCell
             
             if orderSourceType == .ticket {
                 
                 cell.configData(items: dataSource, type: orderSourceType, orderName: "单日-家庭套票")
-            } else if orderSourceType == .trave {
+            } else if orderSourceType == .travel {
                 
                 cell.configData(items: dataSource, type: orderSourceType)
             } else { // 预售
@@ -166,19 +189,20 @@ extension TCSubmitOrderViewController: UITableViewDataSource, UITableViewDelegat
             
             return cell
             
-        } else if indexPath.row == 2 { // 联系人
+        } else if indexPath.section == 2 { // 联系人
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitContactCell") as! TCSubmitContactCell
             
             return cell
-        } else if indexPath.row == 3 { // 实名制or出行人or预售空缺
+        } else if indexPath.section == 3 { // 实名制or出行人or预售空缺
             if orderSourceType == .ticket {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitTicketRealNameCell") as! TCSubmitTicketRealNameCell
                 
                 return cell
             }
-            if orderSourceType == .trave {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitTravelTripInfoCell") as! TCSubmitTravelTripInfoCell
+            if orderSourceType == .travel {
                 
+                let cell = TCSubmitTravelTripInfoCell.cellForIdentity(tableView: tableView, identity: identity)
+
                 return cell
             }
             return UITableViewCell()
@@ -191,27 +215,32 @@ extension TCSubmitOrderViewController: UITableViewDataSource, UITableViewDelegat
         
     }
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 { // 标题part
+        if indexPath.section == 0 { // 标题part
             let h = (navTitle as NSString).boundingRect(with: CGSize(width: kScreenW-30, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font:UIFont(name: "PingFangSC-Semibold", size: 18) as Any], context: nil).size.height
             
             return 40 + h
-        } else if (indexPath.row == 1) { // 订单信息part
+        } else if (indexPath.section == 1) { // 订单信息part
             if orderSourceType == .presale {
                 return 115
             }
             return 127
-        } else if indexPath.row == 2 { // 联系人part
+        } else if indexPath.section == 2 { // 联系人part
             return 210
-        } else if indexPath.row == 3 { // 实名制or出行人or预售空缺part
+        } else if indexPath.section == 3 { // 实名制or出行人or预售空缺part
             if orderSourceType == .ticket {
-                return 151
+                return 97
             }
             if orderSourceType == .presale {
                 return 0
             }
-            if orderSourceType == .trave {
-                return 107
+            if orderSourceType == .travel {
+                if identity == .one {
+                    return 53
+                } else {
+                    return 142
+                }
             }
         } else { // 优惠part
             if orderSourceType == .presale {
@@ -222,6 +251,41 @@ extension TCSubmitOrderViewController: UITableViewDataSource, UITableViewDelegat
         }
         return 0
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 3 && orderSourceType == .travel {
+            let listVC = TCTravellerListViewController()
+            self.navigationController?.pushViewController(listVC, animated: true)
+            listVC.chooseTravellerCompleted = { travellerNum in
+                self.identity = .two
+                self.travellerNum = travellerNum
+                self.tableView.reloadSections([indexPath.section], with: .automatic)
+            }
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 3 && orderSourceType != .presale { // 实名制or出行人or预售空缺part
+            return 54
+        }
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 3 && orderSourceType != .presale {
+            let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 54))
+            view.backgroundColor = .white
+            let label = UILabel(frame: CGRect(x: 15, y: 10, width: UIScreen.main.bounds.size.width-30, height: view.bounds.size.height-10))
+            label.text = "实名制（请如实填写）"
+            label.textColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            label.font = UIFont(name: "PingFangSC-Semibold", size: 14)
+            view.addSubview(label)
+            return view
+        }
+        return nil
+    }
+    
     
 }
 

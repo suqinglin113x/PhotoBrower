@@ -71,6 +71,8 @@
 		876C744D2521741B0007D484 /* TCHotelOrderTripInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876C744B2521741B0007D484 /* TCHotelOrderTripInfoCell.xib */; };
 		876C745525218A360007D484 /* TCHotelOrderPayTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C745325218A360007D484 /* TCHotelOrderPayTypeCell.swift */; };
 		876C745625218A360007D484 /* TCHotelOrderPayTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */; };
+		878B9C05259595F800659475 /* TCTravellerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878B9C03259595F800659475 /* TCTravellerListViewController.swift */; };
+		878B9C06259595F800659475 /* TCTravellerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878B9C04259595F800659475 /* TCTravellerListViewController.xib */; };
 		87982349251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87982348251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift */; };
 		8798234E251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8798234D251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib */; };
 		87ABD1EB258A1438002809B3 /* UIView+LTExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445325135CCF00028A25 /* UIView+LTExtension.swift */; };
@@ -315,6 +317,8 @@
 		876C744B2521741B0007D484 /* TCHotelOrderTripInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderTripInfoCell.xib; sourceTree = "<group>"; };
 		876C745325218A360007D484 /* TCHotelOrderPayTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelOrderPayTypeCell.swift; sourceTree = "<group>"; };
 		876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderPayTypeCell.xib; sourceTree = "<group>"; };
+		878B9C03259595F800659475 /* TCTravellerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTravellerListViewController.swift; sourceTree = "<group>"; };
+		878B9C04259595F800659475 /* TCTravellerListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTravellerListViewController.xib; sourceTree = "<group>"; };
 		87982348251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPeopleNumPickView.swift; sourceTree = "<group>"; };
 		8798234D251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelPeopleNumPickView.xib; sourceTree = "<group>"; };
 		87ABD258258A1438002809B3 /* PhotoBrower copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PhotoBrower copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -544,6 +548,19 @@
 			path = liandong;
 			sourceTree = "<group>";
 		};
+		878B9BFE2595946500659475 /* vc */ = {
+			isa = PBXGroup;
+			children = (
+				87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */,
+				87EC33DC258C940000796A59 /* TCTicketProductViewController.xib */,
+				87DAD91025920A16007E2329 /* TCSubmitOrderViewController.swift */,
+				87DAD91125920A16007E2329 /* TCSubmitOrderViewController.xib */,
+				878B9C03259595F800659475 /* TCTravellerListViewController.swift */,
+				878B9C04259595F800659475 /* TCTravellerListViewController.xib */,
+			);
+			path = vc;
+			sourceTree = "<group>";
+		};
 		87982347251DE252005B6E86 /* ChoosePeople */ = {
 			isa = PBXGroup;
 			children = (
@@ -705,11 +722,10 @@
 		87F3D8D5257E1E9F00019EB6 /* Ticket */ = {
 			isa = PBXGroup;
 			children = (
+				878B9BFE2595946500659475 /* vc */,
 				87DDE43B258B36F90010EDFE /* GlobalUtils.swift */,
 				873D99B925836EA000C5753B /* CGView.swift */,
 				872B0D7B2593179000F94087 /* TCCounterView.swift */,
-				87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */,
-				87EC33DC258C940000796A59 /* TCTicketProductViewController.xib */,
 				87D5F0D4258078B400A53E4A /* TCTicketProductModel.swift */,
 				87D9FE0E2581F4C0000079E1 /* TCTicketProductHeader.swift */,
 				87D9FE132581F4E8000079E1 /* TCTicketProductHeader.xib */,
@@ -721,8 +737,6 @@
 				87E097402589D90300019BED /* TCTicketProductCompanyCell.xib */,
 				87CEE26A258B211000DBB5F7 /* TCTicketProductIntroCell.swift */,
 				87CEE26B258B211000DBB5F7 /* TCTicketProductIntroCell.xib */,
-				87DAD91025920A16007E2329 /* TCSubmitOrderViewController.swift */,
-				87DAD91125920A16007E2329 /* TCSubmitOrderViewController.xib */,
 				87DAD9182592154D007E2329 /* TCSubmitTitleCell.swift */,
 				872B0D6F2592EE0100F94087 /* TCSubmitOrderInfosCell.swift */,
 				872B0D81259331FB00F94087 /* TCSubmitContactCell.swift */,
@@ -932,6 +946,7 @@
 				8798234E251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib in Resources */,
 				87D9FE142581F4E8000079E1 /* TCTicketProductHeader.xib in Resources */,
 				87448B992594617B009DBA11 /* TCSubmitDiscountCell.xib in Resources */,
+				878B9C06259595F800659475 /* TCTravellerListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,6 +1200,7 @@
 				87B3445F25135CCF00028A25 /* LTDispatchQueue.swift in Sources */,
 				876C744C2521741B0007D484 /* TCHotelOrderTripInfoCell.swift in Sources */,
 				876C7398252024600007D484 /* ConstraintLayoutSupportDSL.swift in Sources */,
+				878B9C05259595F800659475 /* TCTravellerListViewController.swift in Sources */,
 				876C737D252024600007D484 /* ConstraintInsets.swift in Sources */,
 				876C7394252024600007D484 /* ConstraintRelatableTarget.swift in Sources */,
 				87B343C42513495000028A25 /* AppDelegate.swift in Sources */,
