@@ -36,55 +36,55 @@ class ViewController: UIViewController {
         self.view.addSubview(button1)
         
         
-        let button2 = UIButton(frame: CGRect(x: 100, y: 300, width: 100, height: 30))
+        let button2 = UIButton(frame: CGRect(x: 100, y: 200, width: 100, height: 30))
         button2.setTitle("评论", for: .normal)
         button2.setTitleColor(.black, for: .normal)
         button2.addTarget(self, action: #selector(toCommentList), for: .touchUpInside)
         self.view.addSubview(button2)
         
-        let button3 = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 30))
+        let button3 = UIButton(frame: CGRect(x: 100, y: 300, width: 100, height: 30))
         button3.setTitle("订单页", for: .normal)
         button3.setTitleColor(.black, for: .normal)
         button3.addTarget(self, action: #selector(toOrderPage), for: .touchUpInside)
         self.view.addSubview(button3)
         
-        let button4 = UIButton(frame: CGRect(x: 200, y: 200, width: 100, height: 30))
+        let button4 = UIButton(frame: CGRect(x: 200, y: 100, width: 100, height: 30))
         button4.setTitle("选择目的地", for: .normal)
         button4.setTitleColor(.black, for: .normal)
         button4.addTarget(self, action: #selector(toChooseCity), for: .touchUpInside)
         self.view.addSubview(button4)
         
-        let button5 = UIButton(frame: CGRect(x: 200, y: 300, width: 100, height: 30))
+        let button5 = UIButton(frame: CGRect(x: 200, y: 200, width: 100, height: 30))
         button5.setTitle("选择人数", for: .normal)
         button5.setTitleColor(.black, for: .normal)
         button5.addTarget(self, action: #selector(toChoosePeople), for: .touchUpInside)
         self.view.addSubview(button5)
         
-        let button6 = UIButton(frame: CGRect(x: 200, y: 400, width: 100, height: 30))
+        let button6 = UIButton(frame: CGRect(x: 200, y: 300, width: 100, height: 30))
         button6.setTitle("地址联动", for: .normal)
         button6.setTitleColor(.black, for: .normal)
         button6.addTarget(self, action: #selector(toChooseCity2), for: .touchUpInside)
         self.view.addSubview(button6)
         
-        let button7 = UIButton(frame: CGRect(x: 100, y: 500, width: 100, height: 30))
+        let button7 = UIButton(frame: CGRect(x: 100, y: 400, width: 100, height: 30))
         button7.setTitle("地图", for: .normal)
         button7.setTitleColor(.black, for: .normal)
         button7.addTarget(self, action: #selector(toMap), for: .touchUpInside)
         self.view.addSubview(button7)
         
-        let button8 = UIButton(frame: CGRect(x: 200, y: 500, width: 100, height: 30))
+        let button8 = UIButton(frame: CGRect(x: 200, y: 400, width: 100, height: 30))
         button8.setTitle("门票页", for: .normal)
         button8.setTitleColor(.black, for: .normal)
         button8.addTarget(self, action: #selector(toTicketPage), for: .touchUpInside)
         self.view.addSubview(button8)
         
-        let button9 = UIButton(frame: CGRect(x: 100, y: 600, width: 100, height: 30))
+        let button9 = UIButton(frame: CGRect(x: 100, y: 500, width: 100, height: 30))
         button9.setTitle("举报", for: .normal)
         button9.setTitleColor(.black, for: .normal)
         button9.addTarget(self, action: #selector(toReportPage), for: .touchUpInside)
         self.view.addSubview(button9)
         
-        let button10 = UIButton(frame: CGRect(x: 200, y: 600, width: 100, height: 30))
+        let button10 = UIButton(frame: CGRect(x: 200, y: 500, width: 100, height: 30))
         button10.setTitle("名片", for: .normal)
         button10.setTitleColor(.black, for: .normal)
         button10.addTarget(self, action: #selector(toIMUserCard), for: .touchUpInside)
@@ -151,7 +151,8 @@ class ViewController: UIViewController {
     }
     
     @objc func toIMUserCard() {
-        
+        let card = TCIMUserCardViewController()
+        self.navigationController?.pushViewController(card, animated: true)
     }
 }
 

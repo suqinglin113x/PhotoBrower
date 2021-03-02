@@ -207,6 +207,8 @@
 		87B3446F2513693500028A25 /* TCHotelPhotoListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */; };
 		87B344732513779C00028A25 /* TCHotelPhotosBrowerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */; };
 		87B344762513794C00028A25 /* TCHotelPhotoBrowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */; };
+		87B5CC3425EDDE4800133AE0 /* TCIMUserCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B5CC3225EDDE4800133AE0 /* TCIMUserCardViewController.swift */; };
+		87B5CC3525EDDE4800133AE0 /* TCIMUserCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87B5CC3325EDDE4800133AE0 /* TCIMUserCardViewController.xib */; };
 		87BC96E6258F2A12002957B2 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87BC96DB258CFA6D002957B2 /* WebKit.framework */; };
 		87C3D532258852F4006BC85D /* TCTicketSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C3D530258852F4006BC85D /* TCTicketSectionCell.swift */; };
 		87C3D533258852F4006BC85D /* TCTicketSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87C3D531258852F4006BC85D /* TCTicketSectionCell.xib */; };
@@ -363,6 +365,8 @@
 		87B3446D2513693500028A25 /* TCHotelPhotoListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelPhotoListCell.xib; sourceTree = "<group>"; };
 		87B344722513779C00028A25 /* TCHotelPhotosBrowerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotosBrowerController.swift; sourceTree = "<group>"; };
 		87B344742513794C00028A25 /* TCHotelPhotoBrowerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPhotoBrowerCell.swift; sourceTree = "<group>"; };
+		87B5CC3225EDDE4800133AE0 /* TCIMUserCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCIMUserCardViewController.swift; sourceTree = "<group>"; };
+		87B5CC3325EDDE4800133AE0 /* TCIMUserCardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCIMUserCardViewController.xib; sourceTree = "<group>"; };
 		87BC96DB258CFA6D002957B2 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		87C3D530258852F4006BC85D /* TCTicketSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketSectionCell.swift; sourceTree = "<group>"; };
 		87C3D531258852F4006BC85D /* TCTicketSectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTicketSectionCell.xib; sourceTree = "<group>"; };
@@ -729,6 +733,8 @@
 		87B5CC2825EDDC8500133AE0 /* mingpian */ = {
 			isa = PBXGroup;
 			children = (
+				87B5CC3225EDDE4800133AE0 /* TCIMUserCardViewController.swift */,
+				87B5CC3325EDDE4800133AE0 /* TCIMUserCardViewController.xib */,
 			);
 			path = mingpian;
 			sourceTree = "<group>";
@@ -972,6 +978,7 @@
 				87505C59251A2172002C8D24 /* TCHotelOrderHotelInfowCell.xib in Resources */,
 				87DAD91325920A16007E2329 /* TCSubmitOrderViewController.xib in Resources */,
 				87E8DB0C259448FB005E3344 /* TCSubmitTravelTripInfoCell.xib in Resources */,
+				87B5CC3525EDDE4800133AE0 /* TCIMUserCardViewController.xib in Resources */,
 				87505C522519EABC002C8D24 /* TCHotelSubmitOrderViewController.xib in Resources */,
 				87B343CB2513495000028A25 /* Main.storyboard in Resources */,
 				872B0D84259331FB00F94087 /* TCSubmitContactCell.xib in Resources */,
@@ -1229,6 +1236,7 @@
 				872B0D712592EE0100F94087 /* TCSubmitOrderInfosCell.swift in Sources */,
 				87D9FE0F2581F4C0000079E1 /* TCTicketProductHeader.swift in Sources */,
 				87505C2125187F84002C8D24 /* TCHotelCommentCell.swift in Sources */,
+				87B5CC3425EDDE4800133AE0 /* TCIMUserCardViewController.swift in Sources */,
 				87B3446925135D9200028A25 /* TCHotelPhotosListManageController.swift in Sources */,
 				87DAD9192592154D007E2329 /* TCSubmitTitleCell.swift in Sources */,
 				87B3445F25135CCF00028A25 /* LTDispatchQueue.swift in Sources */,
