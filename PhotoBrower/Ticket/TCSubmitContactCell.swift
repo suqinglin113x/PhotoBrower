@@ -16,18 +16,21 @@ class TCSubmitContactCell: UITableViewCell {
     @IBOutlet weak var markTV: UITextView!
     
     
+     var textFieldEndEdit: (() -> ())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
         
         markTV.textContainerInset = UIEdgeInsets.init(top: 10, left: -5, bottom: 0, right: 0)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(tc_textFieldDidChanged), name: UITextField.textDidChangeNotification, object: contactPhoneTF)
     }
 
     
 }
 
-extension TCSubmitContactCell: UITextViewDelegate {
+extension TCSubmitContactCell: UITextViewDelegate, UITextFieldDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         let limitCount = 30
@@ -47,5 +50,27 @@ extension TCSubmitContactCell: UITextViewDelegate {
         }
         
     }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textFieldEndEdit != nil {
+            textFieldEndEdit!()
+        }
+    }
     
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textFieldEndEdit == nil {
+            return
+        }
+
+        textFieldEndEdit!()
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    @objc func tc_textFieldDidChanged(noti: Notification) {
+        let tf = noti.object as! UITextField
+        if tf.text?.count ?? 0 > 11 {
+            tf.text = tf.text?.prefix(11).description
+        }
+    }
 }

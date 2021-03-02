@@ -27,12 +27,19 @@ class TCSubmitOrderViewController: UIViewController {
     
     @IBOutlet weak var orderPriceL: UILabel!
     @IBOutlet weak var submitViewConstraintH: NSLayoutConstraint!
-    var orderSourceType: OrderSourceType = .travel
+    var orderSourceType: OrderSourceType = .unkonwn
     /// title:左边UI subTitle:右边UI
     var dataSource: [(title: String, subTitle: String)] = []
     var identity: TravelTripInfoCellIdentity = .one
     var travellerNum: Int = 0
+/* -----------*/
+    var contactName: String = ""
+    var contactPhone: String = ""
+    /// 用户备注
+    var contactRemark: String = ""
+    var passengerDTOs: String = ""
     
+/* -----------*/
     /// 标题
     var navTitle: String = ""
     var statusH: CGFloat = {
@@ -132,6 +139,7 @@ extension TCSubmitOrderViewController {
     
     @IBAction func submitOrderWithInfo(_ sender: Any) {
         debugPrint("点了提交")
+        
     }
 }
 
@@ -173,7 +181,7 @@ extension TCSubmitOrderViewController: UITableViewDataSource, UITableViewDelegat
             } else if orderSourceType == .travel {
                 
                 cell.configData(items: dataSource, type: orderSourceType)
-            } else { // 预售
+            } else if orderSourceType == .presale { // 预售
                 cell.configPresaleData(data: dataSource)
                 cell.presaleNumChanged = { [weak self] num in
                     guard let self = self else {
@@ -191,7 +199,11 @@ extension TCSubmitOrderViewController: UITableViewDataSource, UITableViewDelegat
             
         } else if indexPath.section == 2 { // 联系人
             let cell = tableView.dequeueReusableCell(withIdentifier: "TCSubmitContactCell") as! TCSubmitContactCell
-            
+            cell.textFieldEndEdit = {
+                self.contactName = cell.contactNameTF.text ?? ""
+                self.contactPhone = cell.contactPhoneTF.text ?? ""
+                self.contactRemark = cell.markTV.text ?? ""
+            }
             return cell
         } else if indexPath.section == 3 { // 实名制or出行人or预售空缺
             if orderSourceType == .ticket {

@@ -232,6 +232,8 @@
 		87EC33DD258C940100796A59 /* TCTicketProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87EC33DC258C940000796A59 /* TCTicketProductViewController.xib */; };
 		87F3D8D7257E1EBA00019EB6 /* TCTicketProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */; };
 		87F3D8E0257E1FE900019EB6 /* TCNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D8DF257E1FE900019EB6 /* TCNetworkManager.swift */; };
+		87F923F125E35BD7008FFB15 /* UgcReportContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F923EF25E35BD7008FFB15 /* UgcReportContentView.swift */; };
+		87F923F225E35BD7008FFB15 /* UgcReportContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F923F025E35BD7008FFB15 /* UgcReportContentView.xib */; };
 		A23A1AF90C78C7F7D136CECB /* Pods_PhotoBrower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */; };
 /* End PBXBuildFile section */
 
@@ -273,6 +275,7 @@
 		87505C57251A2171002C8D24 /* TCHotelOrderHotelInfowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderHotelInfowCell.xib; sourceTree = "<group>"; };
 		87505CA9251C78B9002C8D24 /* TCHotelDestinationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelDestinationController.swift; sourceTree = "<group>"; };
 		87505CAA251C78B9002C8D24 /* TCHotelDestinationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelDestinationController.xib; sourceTree = "<group>"; };
+		8764027525EC9E29008AA8D0 /* PhotoBrower.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoBrower.entitlements; sourceTree = "<group>"; };
 		876C7342252023A60007D484 /* TCHotelGeneralPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelGeneralPickerView.swift; sourceTree = "<group>"; };
 		876C73502520245F0007D484 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		876C73512520245F0007D484 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 		87EC33DC258C940000796A59 /* TCTicketProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTicketProductViewController.xib; sourceTree = "<group>"; };
 		87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketProductViewController.swift; sourceTree = "<group>"; };
 		87F3D8DF257E1FE900019EB6 /* TCNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCNetworkManager.swift; sourceTree = "<group>"; };
+		87F923EF25E35BD7008FFB15 /* UgcReportContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UgcReportContentView.swift; sourceTree = "<group>"; };
+		87F923F025E35BD7008FFB15 /* UgcReportContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UgcReportContentView.xib; sourceTree = "<group>"; };
 		B0A8DB6F20F91785F4B67C72 /* Pods-PhotoBrower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.release.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.release.xcconfig"; sourceTree = "<group>"; };
 		E3A0ACEBAF3FB0810239AE14 /* Pods-PhotoBrower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.debug.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -608,8 +613,8 @@
 		87B343C22513495000028A25 /* PhotoBrower */ = {
 			isa = PBXGroup;
 			children = (
-				87E0974A2589F81600019BED /* FPSDisplay.h */,
-				87E097492589F81500019BED /* FPSDisplay.m */,
+				87B5CC2925EDDCCC00133AE0 /* Tools */,
+				8764027525EC9E29008AA8D0 /* PhotoBrower.entitlements */,
 				87F3D8DE257E1FCD00019EB6 /* NetTool */,
 				8725682A252459920047A420 /* TCMapViewController.swift */,
 				876C73BA25205E6B0007D484 /* liandong */,
@@ -620,6 +625,8 @@
 				87505C0C25185F63002C8D24 /* HotelPhoto */,
 				87505C0D25185F77002C8D24 /* HotelComment */,
 				87F3D8D5257E1E9F00019EB6 /* Ticket */,
+				87F923EE25E35BA9008FFB15 /* jubao */,
+				87B5CC2825EDDC8500133AE0 /* mingpian */,
 				87B3444725135CCF00028A25 /* LTPageView */,
 				876C734D2520245F0007D484 /* SnapKit */,
 				87B343C32513495000028A25 /* AppDelegate.swift */,
@@ -719,6 +726,22 @@
 			path = LTSimpleManager;
 			sourceTree = "<group>";
 		};
+		87B5CC2825EDDC8500133AE0 /* mingpian */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = mingpian;
+			sourceTree = "<group>";
+		};
+		87B5CC2925EDDCCC00133AE0 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				87E0974A2589F81600019BED /* FPSDisplay.h */,
+				87E097492589F81500019BED /* FPSDisplay.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		87F3D8D5257E1E9F00019EB6 /* Ticket */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,6 +780,15 @@
 				87F3D8DF257E1FE900019EB6 /* TCNetworkManager.swift */,
 			);
 			name = NetTool;
+			sourceTree = "<group>";
+		};
+		87F923EE25E35BA9008FFB15 /* jubao */ = {
+			isa = PBXGroup;
+			children = (
+				87F923EF25E35BD7008FFB15 /* UgcReportContentView.swift */,
+				87F923F025E35BD7008FFB15 /* UgcReportContentView.xib */,
+			);
+			path = jubao;
 			sourceTree = "<group>";
 		};
 		9612B6B2341446157F1956C0 /* Frameworks */ = {
@@ -922,6 +954,7 @@
 			files = (
 				87505CAC251C78B9002C8D24 /* TCHotelDestinationController.xib in Resources */,
 				87EC33DD258C940100796A59 /* TCTicketProductViewController.xib in Resources */,
+				87F923F225E35BD7008FFB15 /* UgcReportContentView.xib in Resources */,
 				876C744D2521741B0007D484 /* TCHotelOrderTripInfoCell.xib in Resources */,
 				87E8DB0425944343005E3344 /* TCSubmitTicketRealNameCell.xib in Resources */,
 				876C745625218A360007D484 /* TCHotelOrderPayTypeCell.xib in Resources */,
@@ -1127,6 +1160,7 @@
 				87E0974B2589F81600019BED /* FPSDisplay.m in Sources */,
 				876C7393252024600007D484 /* Debugging.swift in Sources */,
 				876C7378252024600007D484 /* ConstraintDescription.swift in Sources */,
+				87F923F125E35BD7008FFB15 /* UgcReportContentView.swift in Sources */,
 				873D99BA25836EA000C5753B /* CGView.swift in Sources */,
 				876C7395252024600007D484 /* LayoutConstraint.swift in Sources */,
 				87982349251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift in Sources */,
@@ -1442,8 +1476,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PhotoBrower/PhotoBrower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QGWN647PA4;
+				DEVELOPMENT_TEAM = 9C67X3S496;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PhotoBrower",
@@ -1459,7 +1494,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = .lin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foliday.projectX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PhotoBrower-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1474,8 +1509,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = PhotoBrower/PhotoBrower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QGWN647PA4;
+				DEVELOPMENT_TEAM = 9C67X3S496;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PhotoBrower",
@@ -1486,7 +1522,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = .lin;
+				PRODUCT_BUNDLE_IDENTIFIER = com.foliday.projectX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PhotoBrower-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

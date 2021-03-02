@@ -65,6 +65,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="g1D-vc-Qmd" firstAttribute="centerY" secondItem="cQb-VV-h0y" secondAttribute="centerY" id="0a3-b0-AW4"/>
                             <constraint firstItem="g1D-vc-Qmd" firstAttribute="top" secondItem="cQb-VV-h0y" secondAttribute="top" constant="15" id="KcF-cM-816"/>
@@ -102,6 +103,9 @@
                                     <constraint firstAttribute="width" constant="40" id="50S-rN-JK8"/>
                                     <constraint firstAttribute="height" constant="25" id="9Av-Kc-AOl"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="switchClickAction:" destination="Fu5-d9-7QV" eventType="valueChanged" id="nM2-Rg-CzK"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -181,6 +185,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Q3f-e4-pR5"/>
             <connections>
+                <outlet property="couponView" destination="cQb-VV-h0y" id="3QK-b0-39s"/>
                 <outlet property="discountVConstraintH" destination="EFg-7M-e7V" id="gIO-ik-5eH"/>
                 <outlet property="discountView" destination="lgr-Wa-TBr" id="GU3-GJ-Faf"/>
             </connections>

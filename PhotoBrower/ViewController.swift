@@ -23,8 +23,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .orange
         FPSDisplay.share()
+        let margin: CGFloat = 50
         
-        let button1 = UIButton(frame: CGRect(x: 100, y: 200, width: 100, height: 30))
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month], from: Date())
+        let startOfMonth = calendar.date(from: components)!
+        
+        let button1 = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 30))
         button1.setTitle("相册", for: .normal)
         button1.setTitleColor(.black, for: .normal)
         button1.addTarget(self, action: #selector(toPhotosList), for: .touchUpInside)
@@ -72,6 +77,18 @@ class ViewController: UIViewController {
         button8.setTitleColor(.black, for: .normal)
         button8.addTarget(self, action: #selector(toTicketPage), for: .touchUpInside)
         self.view.addSubview(button8)
+        
+        let button9 = UIButton(frame: CGRect(x: 100, y: 600, width: 100, height: 30))
+        button9.setTitle("举报", for: .normal)
+        button9.setTitleColor(.black, for: .normal)
+        button9.addTarget(self, action: #selector(toReportPage), for: .touchUpInside)
+        self.view.addSubview(button9)
+        
+        let button10 = UIButton(frame: CGRect(x: 200, y: 600, width: 100, height: 30))
+        button10.setTitle("名片", for: .normal)
+        button10.setTitleColor(.black, for: .normal)
+        button10.addTarget(self, action: #selector(toIMUserCard), for: .touchUpInside)
+        self.view.addSubview(button10)
         
     }
 
@@ -123,6 +140,18 @@ class ViewController: UIViewController {
     @objc func toTicketPage() {
         let ticket = TCTicketProductViewController()
         self.navigationController?.pushViewController(ticket, animated: true)
+    }
+    
+    @objc func toReportPage() {
+        let v = Bundle.main.loadNibNamed("UgcReportContentView", owner: self, options: nil)?.first as! UgcReportContentView
+        v.currentVC = self
+        v.targetType = 0
+        v.frame = self.view.bounds
+        self.view.addSubview(v)
+    }
+    
+    @objc func toIMUserCard() {
+        
     }
 }
 

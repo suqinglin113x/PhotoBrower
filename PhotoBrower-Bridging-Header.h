@@ -7,3 +7,5 @@
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import <SDWebImageWebPCoder/SDWebImageWebPCoder.h>
 #import "FPSDisplay.h"
+#import "UMPush/UMessage.h"
+#import "UMCommon/UMCommon.h"

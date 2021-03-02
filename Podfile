@@ -13,4 +13,8 @@ pod 'SnapKit'
 pod 'MBProgressHUD'
 pod 'SDCycleScrollView',:git => 'https://github.com/0x00Zhoujialei/SDCycleScrollView.git'
 pod 'UITextView+Placeholder'
+pod 'RxSwift'
+pod 'UMCommon'
+pod 'UMPush'
+
 end

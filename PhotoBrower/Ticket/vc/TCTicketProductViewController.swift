@@ -274,16 +274,16 @@ extension TCTicketProductViewController {
                 GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                 return
             }
-            if let bannerS = res["data"] as? [String: Any] {
-                if let data = try? JSONSerialization.data(withJSONObject: bannerS["extension"] as Any, options: []) {
-                    let model = try? JSONDecoder().decode(TCAdBannerModel.self, from: data)
-
-                    self.tableHeaderView.configAdBannerData(model: model ?? TCAdBannerModel())
-                }
-                self.tableView.reloadData()
+            if let bannerS = res["data"] as? [String: Any],
+               let data = try? JSONSerialization.data(withJSONObject: bannerS["extension"] as Any, options: []) {
+        
+                let model = try? JSONDecoder().decode(TCAdBannerModel.self, from: data)
+                self.tableHeaderView.configAdBannerData(model: model ?? TCAdBannerModel())
+            } else {
+                self.tableHeaderView.configAdBannerData(model: TCAdBannerModel())
             }
         } failure: { (error) in
-            
+            self.tableHeaderView.configAdBannerData(model: TCAdBannerModel())
         }
     }
     
@@ -299,6 +299,7 @@ extension TCTicketProductViewController {
                         return
                     }
                     GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
+                    self.tableHeaderView.configCmsData([])
                     return
                 }
                 let pageComponents = (res["data"] as! NSDictionary)["pageComponents"]
@@ -308,7 +309,7 @@ extension TCTicketProductViewController {
             
             
         } failure: { (error) in
-            
+            self.tableHeaderView.configCmsData([])
         }
     }
     
@@ -328,6 +329,7 @@ extension TCTicketProductViewController {
                         return
                     }
                     GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
+                    self.tableHeaderView.configCouponData(couponArr: [])
                     return
                 }
                 let cpInfoDTOS = (res["data"] as? [String: Any])?["cpInfoDTOS"]
