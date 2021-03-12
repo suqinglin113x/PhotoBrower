@@ -24,7 +24,7 @@ class TCIMUserCardViewController: UIViewController {
     @IBOutlet weak var messageIcon: UIImageView!
     @IBOutlet weak var bottomBackImageView: UIImageView!
     
-    var IM_memeberId: String = "tcucp_10086919"
+    var IM_memeberId: String = "tcucp_10087010"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -59,9 +59,9 @@ class TCIMUserCardViewController: UIViewController {
         attri.append(NSAttributedString(attachment: attach))
         professionalTitleL.attributedText = attri
         
-        if let storeInfo = data?["storeInfo"] as? [String: Any] {
-            let storeName = storeInfo["name"] as? String ?? ""
-            let address = storeInfo["address"] as? String ?? ""
+        if let storeInfo = data?["storeInfos"] as? [[String: Any]] {
+            let storeName = "时间锕卡卡的"//storeInfo[0]["name"] as? String ?? ""
+            let address = "啥啥啥"//storeInfo[0]["address"] as? String ?? ""
             self.createEachHousingSourceView(name: storeName, address: address)
         }
     
@@ -84,8 +84,10 @@ class TCIMUserCardViewController: UIViewController {
        
         let view = UIView()
         stackView.addArrangedSubview(view)
+        view.backgroundColor = .red
         view.translatesAutoresizingMaskIntoConstraints = false
         let nameL = UILabel()
+        
         view.addSubview(nameL)
         nameL.text = name
         nameL.textColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
@@ -97,6 +99,11 @@ class TCIMUserCardViewController: UIViewController {
             nameL.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
             nameL.heightAnchor.constraint(equalToConstant: 15)
         ])
+        if name.count <= 0 {
+            NSLayoutConstraint.activate([
+                nameL.heightAnchor.constraint(equalToConstant: 0)
+            ])
+        }
         
         let addressL = UILabel()
         view.addSubview(addressL)
@@ -117,7 +124,13 @@ class TCIMUserCardViewController: UIViewController {
         let attri = NSMutableAttributedString(attachment: attach)
         attri.append(NSAttributedString(string: address))
         addressL.attributedText = attri
+        if address.count <= 0 {
+            NSLayoutConstraint.activate([
+                addressL.heightAnchor.constraint(equalToConstant: 0)
+            ])
+        }
         
+        self.view.layoutIfNeeded()
         // 白色 底部
         let lineV = UIView()
         stackView.addArrangedSubview(lineV)

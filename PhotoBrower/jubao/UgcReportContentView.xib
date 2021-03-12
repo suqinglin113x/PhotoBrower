@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UgcReportContentView" customModule="PhotoBrower" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2W-Nj-m8Y">
+                    <rect key="frame" x="0.0" y="396" width="414" height="500"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9K0-o3-5qp">
+                            <rect key="frame" x="30" y="425" width="354" height="40"/>
+                            <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="I69-fA-gVZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="15"/>
+                            <state key="normal" title="提交">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="submit:" destination="iN0-l3-epB" eventType="touchUpInside" id="OI6-R2-fBu"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="举报理由" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vr1-OT-zCG">
+                            <rect key="frame" x="30" y="30" width="80" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="LjC-6L-XgR"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Semibold" family="PingFang SC" pointSize="20"/>
+                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mIn-ga-v8L">
+                            <rect key="frame" x="30" y="75" width="354" height="346"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <collectionViewLayout key="collectionViewLayout" id="86x-hE-dTM" customClass="UgcReportFlowLayout" customModule="PhotoBrower" customModuleProvider="target"/>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="9K0-o3-5qp" secondAttribute="trailing" constant="30" id="2Va-SP-5RJ"/>
+                        <constraint firstItem="9K0-o3-5qp" firstAttribute="leading" secondItem="W2W-Nj-m8Y" secondAttribute="leading" constant="30" id="Ang-FG-Bw1"/>
+                        <constraint firstAttribute="height" constant="500" id="Kbx-W7-ihs"/>
+                        <constraint firstItem="9K0-o3-5qp" firstAttribute="top" secondItem="mIn-ga-v8L" secondAttribute="bottom" constant="4" id="PLz-Lf-feR"/>
+                        <constraint firstAttribute="trailing" secondItem="mIn-ga-v8L" secondAttribute="trailing" constant="30" id="X8E-Ur-j2e"/>
+                        <constraint firstAttribute="bottom" secondItem="9K0-o3-5qp" secondAttribute="bottom" constant="35" id="YpJ-eL-FM7"/>
+                        <constraint firstItem="vr1-OT-zCG" firstAttribute="top" secondItem="W2W-Nj-m8Y" secondAttribute="top" constant="30" id="dON-wl-v0W"/>
+                        <constraint firstItem="vr1-OT-zCG" firstAttribute="leading" secondItem="W2W-Nj-m8Y" secondAttribute="leading" constant="30" id="qIX-SN-xlL"/>
+                        <constraint firstItem="mIn-ga-v8L" firstAttribute="top" secondItem="vr1-OT-zCG" secondAttribute="bottom" constant="25" id="uQK-pH-GNo"/>
+                        <constraint firstItem="mIn-ga-v8L" firstAttribute="leading" secondItem="W2W-Nj-m8Y" secondAttribute="leading" constant="30" id="xmS-w2-OXk"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RgF-6C-4ZQ">
+                    <rect key="frame" x="379" y="361" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="DS1-2P-UhX"/>
+                        <constraint firstAttribute="height" constant="35" id="hRn-8k-621"/>
+                    </constraints>
+                    <state key="normal" image="hotel_order_close_white"/>
+                    <connections>
+                        <action selector="close:" destination="iN0-l3-epB" eventType="touchUpInside" id="GOS-U5-f1l"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="W2W-Nj-m8Y" secondAttribute="bottom" id="Ji5-1d-Asd"/>
+                <constraint firstItem="W2W-Nj-m8Y" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Uqv-O0-Ray"/>
+                <constraint firstItem="W2W-Nj-m8Y" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Vpl-7T-3lv"/>
+                <constraint firstItem="W2W-Nj-m8Y" firstAttribute="top" secondItem="RgF-6C-4ZQ" secondAttribute="bottom" id="hEr-JS-xgG"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="RgF-6C-4ZQ" secondAttribute="trailing" id="v9d-Jl-cyT"/>
+            </constraints>
+            <connections>
+                <outlet property="closeButton" destination="RgF-6C-4ZQ" id="cbG-xJ-MLW"/>
+                <outlet property="collectionView" destination="mIn-ga-v8L" id="3wB-YT-WHY"/>
+                <outlet property="contentV" destination="W2W-Nj-m8Y" id="kkD-sY-6GK"/>
+                <outlet property="contentVH" destination="Kbx-W7-ihs" id="vNy-kz-sAe"/>
+                <outlet property="submitButton" destination="9K0-o3-5qp" id="JcK-Np-llD"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="48.883928571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="hotel_order_close_white" width="70" height="70"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
