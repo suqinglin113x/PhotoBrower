@@ -17,21 +17,9 @@ NSString *const kFosunholidayURL = @"https://admintest.fosunholiday.com";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self getNewToken];
     
 }
 
-- (NSString *)getNewToken {
-//    NSString *token = @""
-//    NSString *url = [NSString stringWithFormat:@"%@/usercenter/online/mem/getMemberDetails", kFosunholidayURL];
-//    [[FLDURLSessionManager sharedManager] dataTaskWithHTTPMethod:@"POST" URLString:url parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-//        
-//    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-//        
-//    }];
-// 
-//    return token;
-}
 
 /*
 #pragma mark - Navigation

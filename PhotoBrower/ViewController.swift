@@ -90,6 +90,12 @@ class ViewController: UIViewController {
         button10.addTarget(self, action: #selector(toIMUserCard), for: .touchUpInside)
         self.view.addSubview(button10)
         
+        let button11 = UIButton(frame: CGRect(x: 100, y: 550, width: 100, height: 30))
+        button11.setTitle("客户列表", for: .normal)
+        button11.setTitleColor(.black, for: .normal)
+        button11.addTarget(self, action: #selector(toIMCustomerCard), for: .touchUpInside)
+        self.view.addSubview(button11)
+        
     }
 
     @objc func toPhotosList() {
@@ -152,6 +158,11 @@ class ViewController: UIViewController {
     
     @objc func toIMUserCard() {
         let card = TCIMUserCardViewController()
+        self.navigationController?.pushViewController(card, animated: true)
+    }
+    
+    @objc func toIMCustomerCard() {
+        let card = TCIMCustomerViewController()
         self.navigationController?.pushViewController(card, animated: true)
     }
 }

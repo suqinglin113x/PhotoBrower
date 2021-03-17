@@ -24,7 +24,7 @@ class TCIMUserCardViewController: UIViewController {
     @IBOutlet weak var messageIcon: UIImageView!
     @IBOutlet weak var bottomBackImageView: UIImageView!
     
-    var IM_memeberId: String = "tcucp_10087010"
+    var IM_memeberId: String = "tcuc_10086919"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

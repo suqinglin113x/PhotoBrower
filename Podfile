@@ -1,4 +1,6 @@
 platform :ios, '11.0'
+#install! 'cocoapods', :disable_input_output_paths => true
+#use_frameworks! :linkage => :static
 use_frameworks!
 target 'PhotoBrower' do
 
@@ -17,4 +19,5 @@ pod 'RxSwift'
 pod 'UMCommon'
 pod 'UMPush'
 
+#pod 'TXIMSDK_TUIKit_iOS_Professional',:podspec => 'https://raw.githubusercontent.com/suqinglin113x/TIMSDK/master/iOS/TXIMSDK_iOS.podspec'
 end

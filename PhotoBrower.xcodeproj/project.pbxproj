@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7FFF3A8B98571793F967014B /* Pods_PhotoBrower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */; };
+		39453192BE9BB80F4A85BCF7 /* Pods_PhotoBrower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54E4E11C8604E2FD030773A /* Pods_PhotoBrower.framework */; };
 		8725682B252459920047A420 /* TCMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725682A252459920047A420 /* TCMapViewController.swift */; };
 		872B0D712592EE0100F94087 /* TCSubmitOrderInfosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872B0D6F2592EE0100F94087 /* TCSubmitOrderInfosCell.swift */; };
 		872B0D7C2593179000F94087 /* TCCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872B0D7B2593179000F94087 /* TCCounterView.swift */; };
@@ -235,9 +235,12 @@
 		87EC33DD258C940100796A59 /* TCTicketProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87EC33DC258C940000796A59 /* TCTicketProductViewController.xib */; };
 		87F3D8D7257E1EBA00019EB6 /* TCTicketProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */; };
 		87F3D8E0257E1FE900019EB6 /* TCNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D8DF257E1FE900019EB6 /* TCNetworkManager.swift */; };
+		87F47B2A260059FE00AF9E13 /* TCIMCustomerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F47B29260059FE00AF9E13 /* TCIMCustomerViewController.swift */; };
+		87F47B3426005FB900AF9E13 /* TCIMCustomerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F47B3326005FB900AF9E13 /* TCIMCustomerCell.swift */; };
+		87F47B3A26007FE800AF9E13 /* TCIMPosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F47B3926007FE800AF9E13 /* TCIMPosterViewController.swift */; };
+		87F47B4A2601DC5100AF9E13 /* TCIMCustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F47B492601DC5100AF9E13 /* TCIMCustomerModel.swift */; };
 		87F923F125E35BD7008FFB15 /* UgcReportContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F923EF25E35BD7008FFB15 /* UgcReportContentView.swift */; };
 		87F923F225E35BD7008FFB15 /* UgcReportContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F923F025E35BD7008FFB15 /* UgcReportContentView.xib */; };
-		A23A1AF90C78C7F7D136CECB /* Pods_PhotoBrower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -258,7 +261,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBrower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8725682A252459920047A420 /* TCMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCMapViewController.swift; sourceTree = "<group>"; };
 		872B0D6F2592EE0100F94087 /* TCSubmitOrderInfosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCSubmitOrderInfosCell.swift; sourceTree = "<group>"; };
 		872B0D7B2593179000F94087 /* TCCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCounterView.swift; sourceTree = "<group>"; };
@@ -397,9 +399,14 @@
 		87EC33DC258C940000796A59 /* TCTicketProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTicketProductViewController.xib; sourceTree = "<group>"; };
 		87F3D8D6257E1EBA00019EB6 /* TCTicketProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTicketProductViewController.swift; sourceTree = "<group>"; };
 		87F3D8DF257E1FE900019EB6 /* TCNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCNetworkManager.swift; sourceTree = "<group>"; };
+		87F47B29260059FE00AF9E13 /* TCIMCustomerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCIMCustomerViewController.swift; sourceTree = "<group>"; };
+		87F47B3326005FB900AF9E13 /* TCIMCustomerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCIMCustomerCell.swift; sourceTree = "<group>"; };
+		87F47B3926007FE800AF9E13 /* TCIMPosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCIMPosterViewController.swift; sourceTree = "<group>"; };
+		87F47B492601DC5100AF9E13 /* TCIMCustomerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCIMCustomerModel.swift; sourceTree = "<group>"; };
 		87F923EF25E35BD7008FFB15 /* UgcReportContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UgcReportContentView.swift; sourceTree = "<group>"; };
 		87F923F025E35BD7008FFB15 /* UgcReportContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UgcReportContentView.xib; sourceTree = "<group>"; };
 		B0A8DB6F20F91785F4B67C72 /* Pods-PhotoBrower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.release.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.release.xcconfig"; sourceTree = "<group>"; };
+		D54E4E11C8604E2FD030773A /* Pods_PhotoBrower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBrower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0ACEBAF3FB0810239AE14 /* Pods-PhotoBrower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.debug.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -416,8 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87BC96E6258F2A12002957B2 /* WebKit.framework in Frameworks */,
-				7FFF3A8B98571793F967014B /* Pods_PhotoBrower.framework in Frameworks */,
-				A23A1AF90C78C7F7D136CECB /* Pods_PhotoBrower.framework in Frameworks */,
+				39453192BE9BB80F4A85BCF7 /* Pods_PhotoBrower.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -740,6 +746,10 @@
 			children = (
 				87B5CC3225EDDE4800133AE0 /* TCIMUserCardViewController.swift */,
 				87B5CC3325EDDE4800133AE0 /* TCIMUserCardViewController.xib */,
+				87F47B29260059FE00AF9E13 /* TCIMCustomerViewController.swift */,
+				87F47B3326005FB900AF9E13 /* TCIMCustomerCell.swift */,
+				87F47B492601DC5100AF9E13 /* TCIMCustomerModel.swift */,
+				87F47B3926007FE800AF9E13 /* TCIMPosterViewController.swift */,
 			);
 			path = mingpian;
 			sourceTree = "<group>";
@@ -806,7 +816,7 @@
 			isa = PBXGroup;
 			children = (
 				87BC96DB258CFA6D002957B2 /* WebKit.framework */,
-				00A58579D9F5DD935EABCF99 /* Pods_PhotoBrower.framework */,
+				D54E4E11C8604E2FD030773A /* Pods_PhotoBrower.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -839,8 +849,8 @@
 				87B343BC2513495000028A25 /* Sources */,
 				87B343BD2513495000028A25 /* Frameworks */,
 				87B343BE2513495000028A25 /* Resources */,
-				E90CEAE00C9FEB259F7D5AAB /* [CP] Embed Pods Frameworks */,
 				B6BC7A4E6F73E8FA6EDEFC9E /* [CP] Copy Pods Resources */,
+				5910B47DE86199166F64B787 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1012,6 +1022,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5910B47DE86199166F64B787 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B6BC7A4E6F73E8FA6EDEFC9E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1049,23 +1076,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E90CEAE00C9FEB259F7D5AAB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1170,7 +1180,9 @@
 				87DAD91225920A16007E2329 /* TCSubmitOrderViewController.swift in Sources */,
 				876C737E252024600007D484 /* ConstraintMakerFinalizable.swift in Sources */,
 				87E0974B2589F81600019BED /* FPSDisplay.m in Sources */,
+				87F47B4A2601DC5100AF9E13 /* TCIMCustomerModel.swift in Sources */,
 				876C7393252024600007D484 /* Debugging.swift in Sources */,
+				87F47B3A26007FE800AF9E13 /* TCIMPosterViewController.swift in Sources */,
 				876C7378252024600007D484 /* ConstraintDescription.swift in Sources */,
 				87F923F125E35BD7008FFB15 /* UgcReportContentView.swift in Sources */,
 				873D99BA25836EA000C5753B /* CGView.swift in Sources */,
@@ -1222,11 +1234,13 @@
 				876C7397252024600007D484 /* ConstraintDirectionalInsets.swift in Sources */,
 				87B3445E25135CCF00028A25 /* LTCollectionFlowLayout.swift in Sources */,
 				87B343C82513495000028A25 /* ViewController.swift in Sources */,
+				87F47B2A260059FE00AF9E13 /* TCIMCustomerViewController.swift in Sources */,
 				87505CAB251C78B9002C8D24 /* TCHotelDestinationController.swift in Sources */,
 				87E8DB0325944343005E3344 /* TCSubmitTicketRealNameCell.swift in Sources */,
 				876C74452520A1B50007D484 /* TCHotelOrderContactInfowCell.swift in Sources */,
 				87505C472519E50B002C8D24 /* TCHotelSubmitOrderViewController.swift in Sources */,
 				874C36B125F8B04A00AE95E5 /* OCViewController.m in Sources */,
+				87F47B3426005FB900AF9E13 /* TCIMCustomerCell.swift in Sources */,
 				876C7390252024600007D484 /* ConstraintView+Extensions.swift in Sources */,
 				876C738E252024600007D484 /* ConstraintRelation.swift in Sources */,
 				87B3445B25135CCF00028A25 /* LTPageView.swift in Sources */,
