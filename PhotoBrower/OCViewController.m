@@ -7,6 +7,9 @@
 //
 
 #import "OCViewController.h"
+
+#import "PhotoBrower-Swift.h"
+
 NSString *const kFosunholidayURL = @"https://admintest.fosunholiday.com";
 @interface OCViewController ()
 
@@ -20,7 +23,9 @@ NSString *const kFosunholidayURL = @"https://admintest.fosunholiday.com";
     
 }
 
-
+- (void)dealloc {
+    NSLog(@"假按揭啊");
+}
 /*
 #pragma mark - Navigation
 

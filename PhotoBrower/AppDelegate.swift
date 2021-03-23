@@ -96,5 +96,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, BMKLocationAuthDelegate, 
         }
     }
     
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        
+        UserDefaults.standard.set(false, forKey: "userManualClose")
+        UserDefaults.standard.synchronize()
+    }
 }
 

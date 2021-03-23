@@ -96,9 +96,12 @@ class ViewController: UIViewController {
         button11.addTarget(self, action: #selector(toIMCustomerCard), for: .touchUpInside)
         self.view.addSubview(button11)
         
+        let b: Bool = UserDefaults.standard.bool(forKey: "userManualClose")
+        print("结果：\(b)")
     }
 
     @objc func toPhotosList() {
+        UserDefaults.standard.set(true, forKey: "userManualClose")
         let photoVC = TCHotelPhotosListManageController()
         photoVC.navTitle = "上海浦东香格里拉大酒店"
         self.navigationController?.pushViewController(photoVC, animated: true)

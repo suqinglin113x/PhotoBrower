@@ -28,6 +28,7 @@
 		87505C59251A2172002C8D24 /* TCHotelOrderHotelInfowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87505C57251A2171002C8D24 /* TCHotelOrderHotelInfowCell.xib */; };
 		87505CAB251C78B9002C8D24 /* TCHotelDestinationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87505CA9251C78B9002C8D24 /* TCHotelDestinationController.swift */; };
 		87505CAC251C78B9002C8D24 /* TCHotelDestinationController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87505CAA251C78B9002C8D24 /* TCHotelDestinationController.xib */; };
+		8760DC6F2609D26F004BCF0A /* TCPayResultNoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8760DC6E2609D26E004BCF0A /* TCPayResultNoticeView.swift */; };
 		876C7343252023A60007D484 /* TCHotelGeneralPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C7342252023A60007D484 /* TCHotelGeneralPickerView.swift */; };
 		876C7376252024600007D484 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73502520245F0007D484 /* ConstraintMultiplierTarget.swift */; };
 		876C7377252024600007D484 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C73512520245F0007D484 /* LayoutConstraintItem.swift */; };
@@ -74,6 +75,7 @@
 		876C745625218A360007D484 /* TCHotelOrderPayTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */; };
 		878B9C05259595F800659475 /* TCTravellerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878B9C03259595F800659475 /* TCTravellerListViewController.swift */; };
 		878B9C06259595F800659475 /* TCTravellerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878B9C04259595F800659475 /* TCTravellerListViewController.xib */; };
+		879316EC2602F17200C99B09 /* TCTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879316EB2602F17200C99B09 /* TCTool.swift */; };
 		87982349251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87982348251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift */; };
 		8798234E251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8798234D251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib */; };
 		87ABD1EB258A1438002809B3 /* UIView+LTExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B3445325135CCF00028A25 /* UIView+LTExtension.swift */; };
@@ -282,6 +284,7 @@
 		87505C57251A2171002C8D24 /* TCHotelOrderHotelInfowCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderHotelInfowCell.xib; sourceTree = "<group>"; };
 		87505CA9251C78B9002C8D24 /* TCHotelDestinationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelDestinationController.swift; sourceTree = "<group>"; };
 		87505CAA251C78B9002C8D24 /* TCHotelDestinationController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelDestinationController.xib; sourceTree = "<group>"; };
+		8760DC6E2609D26E004BCF0A /* TCPayResultNoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TCPayResultNoticeView.swift; sourceTree = "<group>"; };
 		8764027525EC9E29008AA8D0 /* PhotoBrower.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoBrower.entitlements; sourceTree = "<group>"; };
 		876C7342252023A60007D484 /* TCHotelGeneralPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelGeneralPickerView.swift; sourceTree = "<group>"; };
 		876C73502520245F0007D484 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
@@ -329,6 +332,7 @@
 		876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderPayTypeCell.xib; sourceTree = "<group>"; };
 		878B9C03259595F800659475 /* TCTravellerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTravellerListViewController.swift; sourceTree = "<group>"; };
 		878B9C04259595F800659475 /* TCTravellerListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTravellerListViewController.xib; sourceTree = "<group>"; };
+		879316EB2602F17200C99B09 /* TCTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTool.swift; sourceTree = "<group>"; };
 		87982348251DE2A6005B6E86 /* TCHotelPeopleNumPickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelPeopleNumPickView.swift; sourceTree = "<group>"; };
 		8798234D251DE2C4005B6E86 /* TCHotelPeopleNumPickView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelPeopleNumPickView.xib; sourceTree = "<group>"; };
 		87ABD258258A1438002809B3 /* PhotoBrower copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PhotoBrower copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -759,6 +763,8 @@
 			children = (
 				87E0974A2589F81600019BED /* FPSDisplay.h */,
 				87E097492589F81500019BED /* FPSDisplay.m */,
+				879316EB2602F17200C99B09 /* TCTool.swift */,
+				8760DC6E2609D26E004BCF0A /* TCPayResultNoticeView.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1210,6 +1216,7 @@
 				87B3446325135CCF00028A25 /* LTScrollExtension.swift in Sources */,
 				87D5F0D5258078B400A53E4A /* TCTicketProductModel.swift in Sources */,
 				876C737B252024600007D484 /* ConstraintViewDSL.swift in Sources */,
+				879316EC2602F17200C99B09 /* TCTool.swift in Sources */,
 				876C7383252024600007D484 /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				87B3446425135CCF00028A25 /* LTTableView.swift in Sources */,
 				876C7399252024600007D484 /* ConstraintMakerRelatable.swift in Sources */,
@@ -1250,6 +1257,7 @@
 				87B3446725135CCF00028A25 /* LTSimpleManager.swift in Sources */,
 				87B3446625135CCF00028A25 /* LTPageTitleView.swift in Sources */,
 				87C3D532258852F4006BC85D /* TCTicketSectionCell.swift in Sources */,
+				8760DC6F2609D26F004BCF0A /* TCPayResultNoticeView.swift in Sources */,
 				87B13C15251C949C00B6FD6E /* TCHotelDestinationView.swift in Sources */,
 				87B3445C25135CCF00028A25 /* LTLayout.swift in Sources */,
 				876C7392252024600007D484 /* Constraint.swift in Sources */,
@@ -1506,6 +1514,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PhotoBrower/PhotoBrower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9C67X3S496;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1539,6 +1548,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = PhotoBrower/PhotoBrower.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 9C67X3S496;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

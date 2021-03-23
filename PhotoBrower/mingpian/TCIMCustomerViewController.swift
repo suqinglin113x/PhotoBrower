@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MJRefresh
+
 private let kScreenW: CGFloat = UIScreen.main.bounds.size.width
 private let kScreenH: CGFloat = UIScreen.main.bounds.size.height
 private let isIphoneX = (kScreenH >= 812)
@@ -52,6 +54,9 @@ class TCIMCustomerViewController: UIViewController {
         
         return navHeader
     }()
+    private var noticeView: TCPayResultNoticeView?
+    private var messageTipViewH: CGFloat = 25
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
@@ -61,19 +66,48 @@ class TCIMCustomerViewController: UIViewController {
         self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         self.view.addSubview(customNavHeader)
-        self.createTableView()
+        
+        self.loadNoticeViewData { [unowned self] in
+            self.createTableView()
+        }
         self.loadData()
     }
     
+    
     func createTableView() {
-        tableView = UITableView(frame: CGRect(x: 0, y: customNavHeader.frame.maxY, width: kScreenW, height: kScreenH-customNavHeader.frame.maxY), style: .plain)
+        if noticeView == nil {
+            messageTipViewH = 0
+        }
+        tableView = UITableView(frame: CGRect(x: 0, y: customNavHeader.frame.maxY+messageTipViewH, width: kScreenW, height: kScreenH-customNavHeader.frame.maxY), style: .plain)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(TCIMCustomerCell.self, forCellReuseIdentifier: "TCIMCustomerCell")
         tableView.tableFooterView = UIView()
+        tableView.separatorStyle = .none
         self.view.addSubview(tableView)
+        
+        tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: {
+            self.pageNo = 1
+            self.loadData()
+        })
+        
+        tableView.mj_footer = MJRefreshBackNormalFooter(refreshingBlock: {
+            self.pageNo += 1
+            self.loadData()
+        })
     }
-
+    
+    
+    func addNoticeView(message: String) {
+        noticeView = TCPayResultNoticeView(frame: CGRect(x: 0, y: customNavHeader.frame.maxY, width: UIScreen.main.bounds.width, height: messageTipViewH), message: message)
+        self.view.addSubview(noticeView!)
+        noticeView?.closeActionClicked = { [weak self] in
+            guard let self = self else { return }
+            self.tableView.frame.origin.y -= (self.noticeView?.bounds.height)!
+        }
+    }
+    
+    
     func loadData() {
         let url = "\(fosunholidayHost)/poseidon/online/im/advisor/customers/\(advisorId)?pageNo=\(pageNo)&pageSize=10"
         TCNetworkManager.Instance.get(URLString: url, parameters: nil) { [weak self] (response) in
@@ -88,19 +122,54 @@ class TCIMCustomerViewController: UIViewController {
                 GlobalUtils.Instance.showToastAddTo(self.view, title: errorMessage, duration: 1.5)
                 return
             }
-            if let data = res["data"] as? [String: Any], let customers = data["customers"] as? [Any] {
-                let arr = TCIMCustomerModel.arrayWithData(arr: customers)
+            if let data = res["data"] as? [String: Any], let customersD = data["data"] as? [Any] {
+                let arr = TCIMCustomerModel.arrayWithData(arr: customersD)
+                if self.pageNo == 1 {
+                    self.dataSource.removeAll()
+                }
+                if arr.isEmpty {
+                    self.pageNo-=1
+                    self.tableView.mj_footer?.endRefreshingWithNoMoreData()
+                    return
+                }
                 self.dataSource.append(contentsOf: arr)
                 self.tableView.reloadData()
             }
-            
-        } failure: { (error) in
-            
+            self.tableView.mj_footer?.endRefreshing()
+            self.tableView.mj_header?.endRefreshing()
+        } failure: { [unowned self] (error) in
+            self.tableView.mj_footer?.endRefreshing()
+            self.tableView.mj_header?.endRefreshing()
         }
 
         
     }
     
+    /// 引导关注微信公众号资源位
+    func loadNoticeViewData(complete: @escaping(() -> ())) {
+        let url = fosunholidayHost+"/online/cms-api/pageComponent?code=TC_OrderList_Notice"
+        TCNetworkManager.Instance.get(URLString: url, parameters: nil, success: { [weak self] (response) in
+            guard let self = self  else {
+                complete()
+                return
+            }
+            if let res = response as? [String : Any], let data = res["data"] as? [String: Any],
+               let pageComponent = data["pageComponent"] as? [String: Any] {
+                if let componentContents = pageComponent["componentContents"] as? Array<[String: Any]>, !componentContents.isEmpty {
+                    if let dic = componentContents.first {
+                        self.addNoticeView(message: "开启微信通知，及时获取订单通知，了解更多玩法！点击前往~")
+                    }
+                } else {
+                    self.noticeView?.hiddenMessageTipView()
+                }
+            }
+            complete()
+        }, failure: {  [weak self] (error) in
+            complete()
+            guard let self = self else {return}
+            self.noticeView?.hiddenMessageTipView()
+        })
+    }
     @objc func closeVC() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -114,7 +183,10 @@ extension TCIMCustomerViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TCIMCustomerCell = tableView.dequeueReusableCell(withIdentifier: "TCIMCustomerCell") as! TCIMCustomerCell
         
-        let model: TCIMCustomerModel = dataSource[indexPath.row]
+        var model: TCIMCustomerModel = dataSource[indexPath.row]
+        if indexPath.row < 4 {
+            model.lastMessageTime = "21：02"
+        }
         cell.configData(model: model)
         return cell
         

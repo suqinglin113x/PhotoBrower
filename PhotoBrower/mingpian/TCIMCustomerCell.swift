@@ -9,14 +9,16 @@
 import UIKit
 
 class TCIMCustomerCell: UITableViewCell {
-    var icon: UIImageView!
-    var stack: UIStackView!
-    var nameL: UILabel!
-    var contactButton: UIButton!
-    var timeL: UILabel!
-    
+    private var icon: UIImageView!
+    private var stack: UIStackView!
+    private var nameL: UILabel!
+    private var contactButton: UIButton!
+    private var timeL: UILabel!
+    private var line: UIView!
+    private var customerModel: TCIMCustomerModel!
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
         self.createSubView()
     }
     
@@ -52,11 +54,16 @@ class TCIMCustomerCell: UITableViewCell {
         timeL.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
         timeL.font = UIFont(name: "PingFangSC-Regular", size: 11)
         stack.addArrangedSubview(timeL)
+        
+        line = UIView()
+        line.backgroundColor = #colorLiteral(red: 0.9019607843, green: 0.9019607843, blue: 0.9019607843, alpha: 1)
+        self.contentView.addSubview(line)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
         let width: CGFloat = self.contentView.bounds.width
+        let height: CGFloat = self.contentView.bounds.height
         let margin: CGFloat = 15
         
         icon.frame = CGRect(x: margin, y: 0, width: 45, height: 45)
@@ -71,22 +78,26 @@ class TCIMCustomerCell: UITableViewCell {
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: icon.trailingAnchor, constant: margin),
             stack.trailingAnchor.constraint(equalTo: contactButton.leadingAnchor, constant: -margin),
-            stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: margin),
-            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -margin)
+            stack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: 0),
         ])
         
         nameL.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             nameL.leadingAnchor.constraint(equalTo: stack.leadingAnchor),
             nameL.trailingAnchor.constraint(equalTo: stack.trailingAnchor),
-//            nameL.topAnchor.constraint(equalTo: stack.topAnchor),
             nameL.heightAnchor.constraint(equalToConstant: 20)
         ])
-        timeL.frame = CGRect(x: nameL.frame.minX, y: nameL.frame.maxY+5, width: nameL.bounds.width, height: 15)
-
+        timeL.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            timeL.leadingAnchor.constraint(equalTo: stack.leadingAnchor),
+            timeL.trailingAnchor.constraint(equalTo: stack.trailingAnchor),
+            timeL.heightAnchor.constraint(equalToConstant: 15)
+        ])
+        line.frame = CGRect(x: stack.frame.minX, y: height - 0.5, width: width-stack.frame.minX, height: 0.5)
     }
     
     func configData(model: TCIMCustomerModel) {
+        customerModel = model
         nameL.text = model.name
         if let time = model.lastMessageTime, !time.isEmpty {
             timeL.text = "最近联系 \(time)"
@@ -104,9 +115,14 @@ class TCIMCustomerCell: UITableViewCell {
     
     @objc func toChatRoomVC() {
         debugPrint("进到聊天室")
-        let vc = TCIMPosterViewController()
-        let currentVC = UIApplication.shared.windows.first?.rootViewController?.children.last
-        currentVC?.navigationController?.pushViewController(vc, animated: true)
+//        let cellData = TUIConversationCellData()
+//        if let userId = customerModel.timId {
+//            cellData.userID = userId
+//            let vc = TCChatViewController(cellData)
+//            let currentVC = UIApplication.shared.windows.first?.rootViewController?.children.last
+//            currentVC?.navigationController?.pushViewController(vc, animated: true)
+//        }
+        
         
     }
 }
