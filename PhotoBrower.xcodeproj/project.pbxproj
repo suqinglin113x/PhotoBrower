@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39453192BE9BB80F4A85BCF7 /* Pods_PhotoBrower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D54E4E11C8604E2FD030773A /* Pods_PhotoBrower.framework */; };
 		8725682B252459920047A420 /* TCMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8725682A252459920047A420 /* TCMapViewController.swift */; };
 		872B0D712592EE0100F94087 /* TCSubmitOrderInfosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872B0D6F2592EE0100F94087 /* TCSubmitOrderInfosCell.swift */; };
 		872B0D7C2593179000F94087 /* TCCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872B0D7B2593179000F94087 /* TCCounterView.swift */; };
@@ -73,6 +72,9 @@
 		876C744D2521741B0007D484 /* TCHotelOrderTripInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876C744B2521741B0007D484 /* TCHotelOrderTripInfoCell.xib */; };
 		876C745525218A360007D484 /* TCHotelOrderPayTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876C745325218A360007D484 /* TCHotelOrderPayTypeCell.swift */; };
 		876C745625218A360007D484 /* TCHotelOrderPayTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */; };
+		877D10C3260AFFE5007B8866 /* AdvertScrollViewMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D10C0260AFFE5007B8866 /* AdvertScrollViewMoreCell.swift */; };
+		877D10C4260AFFE5007B8866 /* AdvertScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D10C1260AFFE5007B8866 /* AdvertScrollView.swift */; };
+		877D10C5260AFFE5007B8866 /* AdvertScrollViewNormalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 877D10C2260AFFE5007B8866 /* AdvertScrollViewNormalCell.swift */; };
 		878B9C05259595F800659475 /* TCTravellerListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878B9C03259595F800659475 /* TCTravellerListViewController.swift */; };
 		878B9C06259595F800659475 /* TCTravellerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 878B9C04259595F800659475 /* TCTravellerListViewController.xib */; };
 		879316EC2602F17200C99B09 /* TCTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 879316EB2602F17200C99B09 /* TCTool.swift */; };
@@ -243,6 +245,7 @@
 		87F47B4A2601DC5100AF9E13 /* TCIMCustomerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F47B492601DC5100AF9E13 /* TCIMCustomerModel.swift */; };
 		87F923F125E35BD7008FFB15 /* UgcReportContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87F923EF25E35BD7008FFB15 /* UgcReportContentView.swift */; };
 		87F923F225E35BD7008FFB15 /* UgcReportContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87F923F025E35BD7008FFB15 /* UgcReportContentView.xib */; };
+		B6BF0D6625C58649B8B4A835 /* Pods_PhotoBrower.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C8A80D713132A68366895C8 /* Pods_PhotoBrower.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +266,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C8A80D713132A68366895C8 /* Pods_PhotoBrower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBrower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8725682A252459920047A420 /* TCMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCMapViewController.swift; sourceTree = "<group>"; };
 		872B0D6F2592EE0100F94087 /* TCSubmitOrderInfosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCSubmitOrderInfosCell.swift; sourceTree = "<group>"; };
 		872B0D7B2593179000F94087 /* TCCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCCounterView.swift; sourceTree = "<group>"; };
@@ -330,6 +334,9 @@
 		876C744B2521741B0007D484 /* TCHotelOrderTripInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderTripInfoCell.xib; sourceTree = "<group>"; };
 		876C745325218A360007D484 /* TCHotelOrderPayTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCHotelOrderPayTypeCell.swift; sourceTree = "<group>"; };
 		876C745425218A360007D484 /* TCHotelOrderPayTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCHotelOrderPayTypeCell.xib; sourceTree = "<group>"; };
+		877D10C0260AFFE5007B8866 /* AdvertScrollViewMoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertScrollViewMoreCell.swift; sourceTree = "<group>"; };
+		877D10C1260AFFE5007B8866 /* AdvertScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertScrollView.swift; sourceTree = "<group>"; };
+		877D10C2260AFFE5007B8866 /* AdvertScrollViewNormalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertScrollViewNormalCell.swift; sourceTree = "<group>"; };
 		878B9C03259595F800659475 /* TCTravellerListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTravellerListViewController.swift; sourceTree = "<group>"; };
 		878B9C04259595F800659475 /* TCTravellerListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TCTravellerListViewController.xib; sourceTree = "<group>"; };
 		879316EB2602F17200C99B09 /* TCTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TCTool.swift; sourceTree = "<group>"; };
@@ -410,7 +417,6 @@
 		87F923EF25E35BD7008FFB15 /* UgcReportContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UgcReportContentView.swift; sourceTree = "<group>"; };
 		87F923F025E35BD7008FFB15 /* UgcReportContentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UgcReportContentView.xib; sourceTree = "<group>"; };
 		B0A8DB6F20F91785F4B67C72 /* Pods-PhotoBrower.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.release.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.release.xcconfig"; sourceTree = "<group>"; };
-		D54E4E11C8604E2FD030773A /* Pods_PhotoBrower.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoBrower.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A0ACEBAF3FB0810239AE14 /* Pods-PhotoBrower.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoBrower.debug.xcconfig"; path = "Target Support Files/Pods-PhotoBrower/Pods-PhotoBrower.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -427,7 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87BC96E6258F2A12002957B2 /* WebKit.framework in Frameworks */,
-				39453192BE9BB80F4A85BCF7 /* Pods_PhotoBrower.framework in Frameworks */,
+				B6BF0D6625C58649B8B4A835 /* Pods_PhotoBrower.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +574,16 @@
 				876C73BB25205F1B0007D484 /* TCHotelSearchLocationView.swift */,
 			);
 			path = liandong;
+			sourceTree = "<group>";
+		};
+		877D10BF260AFFE5007B8866 /* AdvertScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				877D10C0260AFFE5007B8866 /* AdvertScrollViewMoreCell.swift */,
+				877D10C1260AFFE5007B8866 /* AdvertScrollView.swift */,
+				877D10C2260AFFE5007B8866 /* AdvertScrollViewNormalCell.swift */,
+			);
+			path = AdvertScrollView;
 			sourceTree = "<group>";
 		};
 		878B9BFE2595946500659475 /* vc */ = {
@@ -761,6 +777,7 @@
 		87B5CC2925EDDCCC00133AE0 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				877D10BF260AFFE5007B8866 /* AdvertScrollView */,
 				87E0974A2589F81600019BED /* FPSDisplay.h */,
 				87E097492589F81500019BED /* FPSDisplay.m */,
 				879316EB2602F17200C99B09 /* TCTool.swift */,
@@ -822,7 +839,7 @@
 			isa = PBXGroup;
 			children = (
 				87BC96DB258CFA6D002957B2 /* WebKit.framework */,
-				D54E4E11C8604E2FD030773A /* Pods_PhotoBrower.framework */,
+				7C8A80D713132A68366895C8 /* Pods_PhotoBrower.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -856,7 +873,7 @@
 				87B343BD2513495000028A25 /* Frameworks */,
 				87B343BE2513495000028A25 /* Resources */,
 				B6BC7A4E6F73E8FA6EDEFC9E /* [CP] Copy Pods Resources */,
-				5910B47DE86199166F64B787 /* [CP] Embed Pods Frameworks */,
+				1D50EA5092E8EA8E2E5487EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1028,7 +1045,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5910B47DE86199166F64B787 /* [CP] Embed Pods Frameworks */ = {
+		1D50EA5092E8EA8E2E5487EF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1221,7 +1238,9 @@
 				87B3446425135CCF00028A25 /* LTTableView.swift in Sources */,
 				876C7399252024600007D484 /* ConstraintMakerRelatable.swift in Sources */,
 				876C7385252024600007D484 /* UILayoutSupport+Extensions.swift in Sources */,
+				877D10C4260AFFE5007B8866 /* AdvertScrollView.swift in Sources */,
 				876C737F252024600007D484 /* ConstraintDSL.swift in Sources */,
+				877D10C3260AFFE5007B8866 /* AdvertScrollViewMoreCell.swift in Sources */,
 				876C738A252024600007D484 /* ConstraintConstantTarget.swift in Sources */,
 				876C7380252024600007D484 /* ConstraintMakerExtendable.swift in Sources */,
 				876C7391252024600007D484 /* ConstraintItem.swift in Sources */,
@@ -1238,6 +1257,7 @@
 				876C7343252023A60007D484 /* TCHotelGeneralPickerView.swift in Sources */,
 				876C73BC25205F1B0007D484 /* TCHotelSearchLocationView.swift in Sources */,
 				87E8DB0B259448FB005E3344 /* TCSubmitTravelTripInfoCell.swift in Sources */,
+				877D10C5260AFFE5007B8866 /* AdvertScrollViewNormalCell.swift in Sources */,
 				876C7397252024600007D484 /* ConstraintDirectionalInsets.swift in Sources */,
 				87B3445E25135CCF00028A25 /* LTCollectionFlowLayout.swift in Sources */,
 				87B343C82513495000028A25 /* ViewController.swift in Sources */,
@@ -1351,7 +1371,10 @@
 					"$(inherited)",
 					"COCOAPODS=1",
 				);
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "SD_WEBP=1  ";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"SD_WEBP=1",
+					" ",
+				);
 				INFOPLIST_FILE = "PhotoBrower copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1524,7 +1547,10 @@
 					"$(inherited)",
 					"COCOAPODS=1",
 				);
-				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "SD_WEBP=1  ";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = (
+					"SD_WEBP=1",
+					" ",
+				);
 				INFOPLIST_FILE = PhotoBrower/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

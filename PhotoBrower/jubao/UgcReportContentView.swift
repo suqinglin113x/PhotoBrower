@@ -87,6 +87,7 @@ class UgcReportContentView: UIView, UIGestureRecognizerDelegate {
     }
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         for view in collectionView.visibleCells {
+            // or subviews.contains
             if touch.view?.isDescendant(of: view) == true {
                 return false
             }

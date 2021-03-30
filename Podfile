@@ -2,6 +2,7 @@ platform :ios, '11.0'
 #install! 'cocoapods', :disable_input_output_paths => true
 #use_frameworks! :linkage => :static
 use_frameworks!
+
 target 'PhotoBrower' do
 
 pod 'SDWebImage'

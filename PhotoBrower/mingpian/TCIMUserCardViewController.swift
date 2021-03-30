@@ -23,6 +23,7 @@ class TCIMUserCardViewController: UIViewController {
     @IBOutlet weak var detailInfoL: UILabel!
     @IBOutlet weak var messageIcon: UIImageView!
     @IBOutlet weak var bottomBackImageView: UIImageView!
+    @IBOutlet weak var noticeView: TCPayResultNoticeView!
     
     var IM_memeberId: String = "tcuc_10086919"
     
@@ -41,6 +42,7 @@ class TCIMUserCardViewController: UIViewController {
         
         backButtonTopY.constant = statusH
         self.getUserInfoData()
+        noticeView.messageTexts = ["开启微信通知，及时获取订单通知，了解更多玩法！点击前往~"]
     }
 
     func updateUIWithDate(res: [String: Any]) {
@@ -161,6 +163,15 @@ class TCIMUserCardViewController: UIViewController {
     }
 
     @IBAction func backAction(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        let vcArr = self.navigationController?.children
+
+        if let arr = vcArr, arr[arr.count-2].isKind(of: TCIMCustomerViewController.self) {
+            arr[arr.count-2].removeFromParent()
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            
+        }
+        
+        
     }
 }

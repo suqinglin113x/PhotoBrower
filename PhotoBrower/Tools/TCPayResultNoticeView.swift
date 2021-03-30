@@ -8,22 +8,37 @@
 
 import UIKit
 
-class TCPayResultNoticeView: UIView {
+class TCPayResultNoticeView: UIView, AdvertScrollViewDelegate {
+    
     var closeActionClicked:(() -> ())?
     private var messageTipView: UIView!
-    private var messageTipLabel: UILabel!
+//    private var messageTipLabel: UILabel!
     private let messageTipViewH: CGFloat = 25
-    private var messageText: String = ""
-    init(frame: CGRect, message: String) {
+    private var adver: AdvertScrollView!
+    @objc var messageTexts: [String] = [] {
+        didSet {
+//            if let la = messageTipLabel {
+//                la.text = messageText
+//            }
+            if let ad = adver {
+                ad.titles = messageTexts
+            }
+        }
+    }
+    @objc var textLeftMargin: CGFloat = 5
+    init(frame: CGRect, messages: [String]) {
         super.init(frame: frame)
-        messageText = message
-        self.createMessageTipView()
+        messageTexts = messages
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
-    
+    override func layoutSubviews() {
+        if messageTipView == nil {
+            createMessageTipView()
+        }
+    }
     func createMessageTipView() {
         messageTipView = UIView(frame: self.bounds)
         messageTipView.backgroundColor = #colorLiteral(red: 1, green: 0.9333333333, blue: 0.8862745098, alpha: 1)
@@ -34,19 +49,28 @@ class TCPayResultNoticeView: UIView {
         btn.center.y = messageTipView.bounds.height/2.0
         btn.addTarget(self, action: #selector(closeMessageTipView), for: .touchUpInside)
         messageTipView.addSubview(btn)
-        let labe = UILabel(frame: CGRect(x: 20, y: 0, width: btn.frame.minX-20, height: messageTipView.bounds.height))
-        labe.textColor = #colorLiteral(red: 1, green: 0.4, blue: 0, alpha: 1)
-        labe.font = UIFont(name: "PingFangSC-Regular", size: 11)
-        let tx: NSString = messageText as NSString
-        let att = NSMutableAttributedString(string: tx as String)
-        let range = tx.range(of: "点击前往~")
-        att.addAttributes([NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 11) as Any], range: NSRange(location: range.location, length: range.length))
-        labe.attributedText = att
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(toweixinBizProfilePage))
-        labe.addGestureRecognizer(tap)
-        labe.isUserInteractionEnabled = true
-        messageTipView.addSubview(labe)
+//        messageTipLabel = UILabel(frame: CGRect(x: textLeftMargin, y: 0, width: btn.frame.minX-20, height: messageTipView.bounds.height))
+//        messageTipLabel.textColor = #colorLiteral(red: 1, green: 0.4, blue: 0, alpha: 1)
+//        messageTipLabel.font = UIFont(name: "PingFangSC-Regular", size: 11)
+//        let tx: NSString = messageText as NSString
+//        let att = NSMutableAttributedString(string: tx as String)
+//        let range = tx.range(of: "点击前往~")
+//        att.addAttributes([NSAttributedString.Key.font: UIFont(name: "PingFangSC-Semibold", size: 11) as Any], range: NSRange(location: range.location, length: range.length))
+//        messageTipLabel.attributedText = att
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(toweixinBizProfilePage))
+//        messageTipLabel.addGestureRecognizer(tap)
+//        messageTipLabel.isUserInteractionEnabled = true
+//        messageTipView.addSubview(messageTipLabel)
+        
+        adver = AdvertScrollView(frame: CGRect(x: textLeftMargin, y: 0, width: btn.frame.minX-20, height: messageTipView.bounds.height))
+        adver.delegate = self
+        adver.titles = messageTexts
+        adver.titleFont = UIFont(name: "PingFangSC-Regular", size: 11)
+        adver.titleColor = #colorLiteral(red: 1, green: 0.4863265157, blue: 0, alpha: 1)
+        adver.backgroundColor = .clear
+        messageTipView.addSubview(adver)
+        
     }
     
     
@@ -61,9 +85,13 @@ class TCPayResultNoticeView: UIView {
         UserDefaults.standard.set(true, forKey: "userManualClose")
         UserDefaults.standard.synchronize()
     }
-    func hiddenMessageTipView () {
-        messageTipView.isHidden = true
-        messageTipView.subviews.forEach({$0.removeFromSuperview()})
-        messageTipView.removeFromSuperview()
+    @objc func hiddenMessageTipView () {
+        self.isHidden = true
     }
+    
+    
+    func advertScrollView(advertScrollView: AdvertScrollView, index: NSInteger) {
+        print(index)
+    }
+    
 }

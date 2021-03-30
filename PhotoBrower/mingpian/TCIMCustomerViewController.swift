@@ -98,8 +98,9 @@ class TCIMCustomerViewController: UIViewController {
     }
     
     
-    func addNoticeView(message: String) {
-        noticeView = TCPayResultNoticeView(frame: CGRect(x: 0, y: customNavHeader.frame.maxY, width: UIScreen.main.bounds.width, height: messageTipViewH), message: message)
+    func addNoticeView(messages: [String]) {
+        noticeView = TCPayResultNoticeView(frame: CGRect(x: 0, y: customNavHeader.frame.maxY, width: UIScreen.main.bounds.width, height: messageTipViewH), messages: messages)
+        noticeView?.textLeftMargin = 20
         self.view.addSubview(noticeView!)
         noticeView?.closeActionClicked = { [weak self] in
             guard let self = self else { return }
@@ -157,10 +158,11 @@ class TCIMCustomerViewController: UIViewController {
                let pageComponent = data["pageComponent"] as? [String: Any] {
                 if let componentContents = pageComponent["componentContents"] as? Array<[String: Any]>, !componentContents.isEmpty {
                     if let dic = componentContents.first {
-                        self.addNoticeView(message: "开启微信通知，及时获取订单通知，了解更多玩法！点击前往~")
+                        self.addNoticeView(messages: ["开启微信通知，及时获取订单通知，了解更多玩法！点击前往~"])
                     }
                 } else {
-                    self.noticeView?.hiddenMessageTipView()
+                    self.addNoticeView(messages: ["开启微信通知，及时获取订单通知，了解更多玩法！点击前往~", "撒大大加剧来看激烈的"])
+//                    self.noticeView?.hiddenMessageTipView()
                 }
             }
             complete()
@@ -196,4 +198,8 @@ extension TCIMCustomerViewController: UITableViewDataSource, UITableViewDelegate
         return 70
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = TCIMUserCardViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
