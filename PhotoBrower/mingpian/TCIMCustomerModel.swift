@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct TCIMCustomerModel: Codable {
+@objcMembers class TCIMCustomerModel:NSObject, Codable {
 
-    var memberId: Int?
-    var isChatted: Bool?
+    var memberId: Int? = -1
+    @objc var isChatted: Bool = false
     var lastMessageTime: String?
     var name: String?
     var avatarUrl: String?

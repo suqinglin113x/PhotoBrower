@@ -20,7 +20,15 @@ NSString *const kFosunholidayURL = @"https://admintest.fosunholiday.com";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    TestModel *model = [TestModel new];
+    model.name = @"sda";
+    model.age = @"30";
+    NSLog(@"%@", model.age);
     
+    TCIMCustomerModel *model2 = [TCIMCustomerModel new];
+    model2.name = @"sda";
+    model2.isChatted = NO;
+//    NSLog(@"%@", model.age);
 }
 
 - (void)dealloc {

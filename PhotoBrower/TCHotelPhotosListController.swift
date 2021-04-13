@@ -22,6 +22,7 @@ class TCHotelPhotosListController: UIViewController {
         coll.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height - (isIphoneX ? 88 : 64) - 40)
         coll.delegate = self
         coll.dataSource = self
+        coll.contentInsetAdjustmentBehavior = .never
         coll.register(UINib.init(nibName: "TCHotelPhotoListCell", bundle: Bundle.main), forCellWithReuseIdentifier: "TCHotelPhotoListCell")
         coll.backgroundColor = .white
         return coll

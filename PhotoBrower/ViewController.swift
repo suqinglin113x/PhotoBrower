@@ -29,6 +29,12 @@ class ViewController: UIViewController {
         let components = calendar.dateComponents([.year, .month], from: Date())
         let startOfMonth = calendar.date(from: components)!
         
+        let button0 = UIButton(frame: CGRect(x: 100, y: 60, width: 100, height: 30))
+        button0.setTitle("OtherVC", for: .normal)
+        button0.setTitleColor(.black, for: .normal)
+        button0.addTarget(self, action: #selector(toOtherVC), for: .touchUpInside)
+        self.view.addSubview(button0)
+        
         let button1 = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 30))
         button1.setTitle("相册", for: .normal)
         button1.setTitleColor(.black, for: .normal)
@@ -99,7 +105,10 @@ class ViewController: UIViewController {
         let b: Bool = UserDefaults.standard.bool(forKey: "userManualClose")
         print("结果：\(b)")
     }
-
+    @objc func toOtherVC() {
+        let vc = OCViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func toPhotosList() {
         UserDefaults.standard.set(true, forKey: "userManualClose")
         let photoVC = TCHotelPhotosListManageController()
